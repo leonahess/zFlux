@@ -5,7 +5,7 @@ from influxdb import InfluxDBClient
 def FetchNameWithId(attacker_id_str, kind):
     v = requests.get('https://esi.tech.ccp.is/latest/{0}s/names/?{0}_ids={1}&datasource=tranquility'.format(kind, attacker_id_str))
     if(r.status_code == 200):
-        attacker_name = v.json()
+     attacker_name = v.json()
     else:
         attacker_name = ''
     return attacker_name
