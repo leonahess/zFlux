@@ -1,18 +1,16 @@
 # zKill_scraper
 Pulls every kill zKill gets and puts them into a InfluxDB
 
-### Requirements
+## Requirements
 
-####Python3
-
-##### required modules:
-
+###Python3
+#### required modules:
 influxdb
 requests
 
 ####InfluxDB
 
-### Set logging level
+## Set logging level
 
 To not get too big logfiles you may set the logging level higher. Current Level is DEBUG
 Other available logging levels:
