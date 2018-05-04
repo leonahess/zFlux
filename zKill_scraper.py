@@ -1,11 +1,15 @@
 import requests
 import datetime
+import logging
 from influxdb import InfluxDBClient
 
 def FetchNameWithId(attacker_id_str, kind):
     v = requests.get('https://esi.tech.ccp.is/latest/{0}s/names/?{0}_ids={1}&datasource=tranquility'.format(kind, attacker_id_str))
     if(r.status_code == 200):
-     attacker_name = v.json()
+        try:
+            attacker_name = v.json()
+        except json.decoder.JSONDecodeError:
+            logger.warning("esi json decode has failed!")
     else:
         attacker_name = ''
     return attacker_name
@@ -24,22 +28,33 @@ def UniquifyingIds(dict, kind):
 def DictToString(attacker_name_dict, kind):
     attacker_name_str = ';'
     for t in range(0, len(attacker_name_dict)):
-        attacker_name_str = attacker_name_str + attacker_name_dict[t]['{}_name'.format(kind)] + ';'
+        if '{}_id'.format(kind) in attacker_name_dict[t]:
+            attacker_name_str = attacker_name_str + attacker_name_dict[t]['{}_name'.format(kind)] + ';'
     return attacker_name_str
 
+
 start = datetime.datetime.now()
+
+logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.INFO)
+logger = logging.getLogger(__name__)
 
 client = InfluxDBClient(host='localhost', port=8086, database='eve')
 
 i = 1
 while True:
-    r = requests.get('https://redisq.zkillboard.com/listen.php')
-    dict = r.json()
+    try:
+        r = requests.get('https://redisq.zkillboard.com/listen.php', timeout = 20)
+    except requests.exceptions.Timeout:
+        logger.warning("zKill request timed out")
+    try:
+        dict = r.json()
+    except json.decoder.JSONDecodeError:
+        logger.warning("redisQ json decode has failed!")
 
     then = datetime.datetime.now()
 
     if(r.text == '{"package":null}'):
-        print(r.text)
+        logger.info(r.text)
 
     if(dict['package'] != None):
         # metadata
@@ -58,25 +73,25 @@ while True:
         attacker_alliance_name = ''
 
         attacker_charID = UniquifyingIds(dict, 'character')
-        print("attacker_charID: {}".format(attacker_charID))
+        logger.info("attacker_charID: {}".format(attacker_charID))
         if attacker_charID:
             attacker_char_name_dict = FetchNameWithId(attacker_charID, 'character')
             attacker_char_name = DictToString(attacker_char_name_dict, 'character')
-        print("attacker_char_name: {}".format(attacker_char_name))
+        logger.info("attacker_char_name: {}".format(attacker_char_name))
 
         attacker_corpID = UniquifyingIds(dict, 'corporation')
-        print("attacker_corpID: {}".format(attacker_corpID))
+        logger.info("attacker_corpID: {}".format(attacker_corpID))
         if attacker_corpID:
             attacker_corp_name_dict = FetchNameWithId(attacker_corpID, 'corporation')
             attacker_corp_name = DictToString(attacker_corp_name_dict, 'corporation')
-        print("attacker_corp_name: {}".format(attacker_corp_name))
+        logger.info("attacker_corp_name: {}".format(attacker_corp_name))
 
         attacker_allianceID = UniquifyingIds(dict, 'alliance')
-        print("attacker_allianceID: {}".format(attacker_allianceID))
+        logger.info("attacker_allianceID: {}".format(attacker_allianceID))
         if attacker_allianceID:
             attacker_alliance_name_dict = FetchNameWithId(attacker_allianceID, 'alliance')
             attacker_alliance_name = DictToString(attacker_alliance_name_dict, 'alliance')
-        print("attacker_alliance_name: {}".format(attacker_alliance_name))
+        logger.info("attacker_alliance_name: {}".format(attacker_alliance_name))
 
 
         # victim
@@ -101,32 +116,32 @@ while True:
         victim_ship = dict['package']['killmail']['victim']['ship_type_id']
 
 
-        # Debugprints
-        print("killID: {}".format(killID))
-        print("time: {}".format(killmail_time))
-        print("solar_systemID: {}".format(solar_systemID))
-        print("totalValue: {}".format(totalValue))
+        # logger
+        logger.info("killID: {}".format(killID))
+        logger.info("time: {}".format(killmail_time))
+        logger.info("solar_systemID: {}".format(solar_systemID))
+        logger.info("totalValue: {}".format(totalValue))
 
-        print("attackers_amount: {}".format(attacker_amount))
-        print("attacker_is_npc: {}".format(attacker_is_npc))
-        print("attacker_is_solo: {}".format(attacker_is_solo))
-        print("attacker_is_awox: {}".format(attacker_is_awox))
+        logger.info("attackers_amount: {}".format(attacker_amount))
+        logger.info("attacker_is_npc: {}".format(attacker_is_npc))
+        logger.info("attacker_is_solo: {}".format(attacker_is_solo))
+        logger.info("attacker_is_awox: {}".format(attacker_is_awox))
 
-        print("victim_charID: {}".format(victim_charID))
-        print("victim_char_name: {}".format(victim_char_name))
-        print("victim_corpID: {}".format(victim_corpID))
-        print("victim_corp_name: {}".format(victim_corp_name))
-        print("victim_allianceID: {}".format(victim_allianceID))
-        print("victim_alliance_name: {}".format(victim_alliance_name))
-        print("victim_damage_taken: {}".format(victim_damage_taken))
-        print("ship: {}".format(victim_ship))
+        logger.info("victim_charID: {}".format(victim_charID))
+        logger.info("victim_char_name: {}".format(victim_char_name))
+        logger.info("victim_corpID: {}".format(victim_corpID))
+        logger.info("victim_corp_name: {}".format(victim_corp_name))
+        logger.info("victim_allianceID: {}".format(victim_allianceID))
+        logger.info("victim_alliance_name: {}".format(victim_alliance_name))
+        logger.info("victim_damage_taken: {}".format(victim_damage_taken))
+        logger.info("ship: {}".format(victim_ship))
 
         now = datetime.datetime.now()
 
-        print("Systemtime: {}".format(now))
-        print("processing time: {}".format(now - then))
-        print("runtime: {}".format(now - start))
-        print("counter: {}\n\n".format(i))
+        logger.info("Systemtime: {}".format(now))
+        logger.info("processing time: {}".format(now - then))
+        logger.info("runtime: {}".format(now - start))
+        logger.info("counter: {}\n\n".format(i))
 
         # assembling new json struct
         json_body = [{"measurement":"kills",
