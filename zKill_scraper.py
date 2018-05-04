@@ -1,6 +1,7 @@
 import requests
 import datetime
 import logging
+import csv
 from influxdb import InfluxDBClient
 
 def FetchNameWithId(attacker_id_str, kind):
@@ -113,7 +114,14 @@ while True:
             victim_allianceID = 0
             victim_alliance_name = 0
         victim_damage_taken = dict['package']['killmail']['victim']['damage_taken']
-        victim_ship = dict['package']['killmail']['victim']['ship_type_id']
+        victim_shipID = dict['package']['killmail']['victim']['ship_type_id']
+        victim_ship_name = ''
+        with open('invTypes.csv', newline='') as f:
+            inv_types = csv.reader(f)
+            for row in inv_types:
+                if(row[0] == str(victim_shipID)):
+                    victim_ship_name = row[2]
+
 
 
         # logger
@@ -134,7 +142,8 @@ while True:
         logger.info("victim_allianceID: {}".format(victim_allianceID))
         logger.info("victim_alliance_name: {}".format(victim_alliance_name))
         logger.info("victim_damage_taken: {}".format(victim_damage_taken))
-        logger.info("ship: {}".format(victim_ship))
+        logger.info("victim_shipID: {}".format(victim_shipID))
+        logger.info("victim_ship_name: {}".format(victim_ship_name))
 
         now = datetime.datetime.now()
 
@@ -156,13 +165,10 @@ while True:
                     "attacker_corp_name": attacker_corp_name,
                     "attacker_alliance_name": attacker_alliance_name,
 
-                    "victim_charID": victim_charID,
                     "victim_char_name": victim_char_name,
-                    "victim_corpID": victim_corpID,
                     "victim_corp_name": victim_corp_name,
-                    "victim_allianceID": victim_allianceID,
                     "victim_alliance_name": victim_alliance_name,
-                    "victim_ship": victim_ship
+                    "victim_ship_name": victim_ship_name
                 },
             "fields":{
                     "#kills":1,
