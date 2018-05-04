@@ -5,8 +5,12 @@ import csv
 from influxdb import InfluxDBClient
 
 def FetchNameWithId(attacker_id_str, kind):
-    v = requests.get('https://esi.tech.ccp.is/latest/{0}s/names/?{0}_ids={1}&datasource=tranquility'.format(kind, attacker_id_str))
-    if(r.status_code == 200):
+    while True:
+        v = requests.get('https://esi.tech.ccp.is/latest/{0}s/names/?{0}_ids={1}&datasource=tranquility'.format(kind, attacker_id_str))
+        if(v.status_code != 502):
+            logger.warning("esi 502")
+            break
+    if(v.status_code == 200):
         try:
             attacker_name = v.json()
         except json.decoder.JSONDecodeError:
@@ -92,6 +96,7 @@ while True:
             all_char_name_dict = FetchNameWithId(all_charID, 'character')
             logger.debug("all_char_name_dict: {}".format(all_char_name_dict))
             attacker_char_name_dict = all_char_name_dict
+            victim_char_name = ''
             if victim_charID:
                 victim_char_name = all_char_name_dict[-1]['character_name']
                 logger.info("victim_char_name: {}".format(victim_char_name))
@@ -115,6 +120,7 @@ while True:
             all_corp_name_dict = FetchNameWithId(all_corpID, 'corporation')
             logger.debug("all_corp_name_dict: {}".format(all_corp_name_dict))
             attacker_corp_name_dict = all_corp_name_dict
+            victim_corp_name = ''
             if victim_corpID:
                 victim_corp_name = all_corp_name_dict[-1]['corporation_name']
                 logger.info("victim_corp_name: {}".format(victim_corp_name))
@@ -138,6 +144,7 @@ while True:
             all_alliance_name_dict = FetchNameWithId(all_allianceID, 'alliance')
             logger.debug("all_alliance_name_dict: {}".format(all_alliance_name_dict))
             attacker_alliance_name_dict = all_alliance_name_dict
+            victim_alliance_name = ''
             if victim_allianceID:
                 victim_alliance_name = all_alliance_name_dict[-1]['alliance_name']
                 logger.info("victim_alliance_name: {}".format(victim_alliance_name))
