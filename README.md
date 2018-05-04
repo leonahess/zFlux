@@ -4,11 +4,13 @@ Pulls every kill zKill gets and puts them into a InfluxDB
 ## Requirements
 
 #### Python3
+
 ##### required modules:
+```
 influxdb
 requests
-
-#### InfluxDB
+```
+##### InfluxDB
 
 ## Set logging level
 
