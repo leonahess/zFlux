@@ -13,6 +13,7 @@ def FetchNameWithId(attacker_id_str, kind):
             logger.warning("esi json decode has failed!")
     else:
         attacker_name = ''
+    logger.debug("attacker_name: {}".format(attacker_name))
     return attacker_name
 
 def UniquifyingIds(dict, kind):
@@ -29,14 +30,16 @@ def UniquifyingIds(dict, kind):
 def DictToString(attacker_name_dict, kind):
     attacker_name_str = ';'
     for t in range(0, len(attacker_name_dict)):
-        if '{}_id'.format(kind) in attacker_name_dict[t]:
+        try:
             attacker_name_str = attacker_name_str + attacker_name_dict[t]['{}_name'.format(kind)] + ';'
+        except KeyError:
+            logger.warning("KeyError: {}".format(attacker_name))
     return attacker_name_str
 
 
 start = datetime.datetime.now()
 
-logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.INFO)
+logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
 logger = logging.getLogger(__name__)
 
 client = InfluxDBClient(host='localhost', port=8086, database='eve')
@@ -44,7 +47,7 @@ client = InfluxDBClient(host='localhost', port=8086, database='eve')
 i = 1
 while True:
     try:
-        r = requests.get('https://redisq.zkillboard.com/listen.php', timeout = 20)
+        r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zKill_scaper', timeout = 20)
     except requests.exceptions.Timeout:
         logger.warning("zKill request timed out")
     try:
@@ -98,24 +101,31 @@ while True:
         # victim
         if 'character_id' in dict['package']['killmail']['victim']:
             victim_charID = dict['package']['killmail']['victim']['character_id']
+            logger.info("victim_charID: {}".format(victim_charID))
             v = requests.get('https://esi.tech.ccp.is/latest/characters/names/?character_ids={}&datasource=tranquility'.format(victim_charID))
             victim_char_name = v.json()[0]['character_name']
         else:
             victim_charID = 0
             victim_char_name = 0
+        logger.info("victim_char_name: {}".format(victim_char_name))
         victim_corpID = dict['package']['killmail']['victim']['corporation_id']
+        logger.info("victim_corpID: {}".format(victim_corpID))
         v = requests.get('https://esi.tech.ccp.is/latest/corporations/names/?corporation_ids={}&datasource=tranquility'.format(victim_corpID))
         victim_corp_name = v.json()[0]['corporation_name']
+        logger.info("victim_corp_name: {}".format(victim_corp_name))
         if "alliance_id" in dict['package']['killmail']['victim']:
             victim_allianceID = dict['package']['killmail']['victim']['alliance_id']
+            logger.info("victim_allianceID: {}".format(victim_allianceID))
             v = requests.get('https://esi.tech.ccp.is/latest/alliances/names/?alliance_ids={}&datasource=tranquility'.format(victim_allianceID))
             victim_alliance_name = v.json()[0]['alliance_name']
         else:
             victim_allianceID = 0
             victim_alliance_name = 0
+        logger.info("victim_alliance_name: {}".format(victim_alliance_name))
         victim_damage_taken = dict['package']['killmail']['victim']['damage_taken']
         victim_shipID = dict['package']['killmail']['victim']['ship_type_id']
         victim_ship_name = ''
+        # resolve ship_name with invTypes.csv
         with open('invTypes.csv', newline='') as f:
             inv_types = csv.reader(f)
             for row in inv_types:
@@ -135,22 +145,9 @@ while True:
         logger.info("attacker_is_solo: {}".format(attacker_is_solo))
         logger.info("attacker_is_awox: {}".format(attacker_is_awox))
 
-        logger.info("victim_charID: {}".format(victim_charID))
-        logger.info("victim_char_name: {}".format(victim_char_name))
-        logger.info("victim_corpID: {}".format(victim_corpID))
-        logger.info("victim_corp_name: {}".format(victim_corp_name))
-        logger.info("victim_allianceID: {}".format(victim_allianceID))
-        logger.info("victim_alliance_name: {}".format(victim_alliance_name))
         logger.info("victim_damage_taken: {}".format(victim_damage_taken))
         logger.info("victim_shipID: {}".format(victim_shipID))
         logger.info("victim_ship_name: {}".format(victim_ship_name))
-
-        now = datetime.datetime.now()
-
-        logger.info("Systemtime: {}".format(now))
-        logger.info("processing time: {}".format(now - then))
-        logger.info("runtime: {}".format(now - start))
-        logger.info("counter: {}\n\n".format(i))
 
         # assembling new json struct
         json_body = [{"measurement":"kills",
@@ -183,3 +180,9 @@ while True:
         # writing to database
         client.write_points(json_body, protocol = 'json')
         i = i + 1
+
+        now = datetime.datetime.now()
+
+        logger.info("processing time: {}".format(now - then))
+        logger.info("runtime: {}".format(now - start))
+        logger.info("counter: {}\n".format(i))
