@@ -76,54 +76,80 @@ while True:
         attacker_corp_name = ''
         attacker_alliance_name = ''
 
+
+        # CHARACTER IDs
         attacker_charID = UniquifyingIds(dict, 'character')
-        logger.info("attacker_charID: {}".format(attacker_charID))
-        if attacker_charID:
-            attacker_char_name_dict = FetchNameWithId(attacker_charID, 'character')
-            attacker_char_name = DictToString(attacker_char_name_dict, 'character')
-        logger.info("attacker_char_name: {}".format(attacker_char_name))
-
-        attacker_corpID = UniquifyingIds(dict, 'corporation')
-        logger.info("attacker_corpID: {}".format(attacker_corpID))
-        if attacker_corpID:
-            attacker_corp_name_dict = FetchNameWithId(attacker_corpID, 'corporation')
-            attacker_corp_name = DictToString(attacker_corp_name_dict, 'corporation')
-        logger.info("attacker_corp_name: {}".format(attacker_corp_name))
-
-        attacker_allianceID = UniquifyingIds(dict, 'alliance')
-        logger.info("attacker_allianceID: {}".format(attacker_allianceID))
-        if attacker_allianceID:
-            attacker_alliance_name_dict = FetchNameWithId(attacker_allianceID, 'alliance')
-            attacker_alliance_name = DictToString(attacker_alliance_name_dict, 'alliance')
-        logger.info("attacker_alliance_name: {}".format(attacker_alliance_name))
-
-
-        # victim
+        logger.debug("attacker_charID: {}".format(attacker_charID))
+        victim_charID = []
         if 'character_id' in dict['package']['killmail']['victim']:
-            victim_charID = dict['package']['killmail']['victim']['character_id']
-            logger.info("victim_charID: {}".format(victim_charID))
-            v = requests.get('https://esi.tech.ccp.is/latest/characters/names/?character_ids={}&datasource=tranquility'.format(victim_charID))
-            victim_char_name = v.json()[0]['character_name']
+            victim_charID.append(dict['package']['killmail']['victim']['character_id'])
+            logger.debug("victim_charID: {}".format(victim_charID))
+            all_charID = attacker_charID + ',' + str(victim_charID[0])
         else:
-            victim_charID = 0
-            victim_char_name = 0
-        logger.info("victim_char_name: {}".format(victim_char_name))
-        victim_corpID = dict['package']['killmail']['victim']['corporation_id']
-        logger.info("victim_corpID: {}".format(victim_corpID))
-        v = requests.get('https://esi.tech.ccp.is/latest/corporations/names/?corporation_ids={}&datasource=tranquility'.format(victim_corpID))
-        victim_corp_name = v.json()[0]['corporation_name']
-        logger.info("victim_corp_name: {}".format(victim_corp_name))
-        if "alliance_id" in dict['package']['killmail']['victim']:
-            victim_allianceID = dict['package']['killmail']['victim']['alliance_id']
-            logger.info("victim_allianceID: {}".format(victim_allianceID))
-            v = requests.get('https://esi.tech.ccp.is/latest/alliances/names/?alliance_ids={}&datasource=tranquility'.format(victim_allianceID))
-            victim_alliance_name = v.json()[0]['alliance_name']
+            all_charID = attacker_charID
+        logger.debug("all_charID: {}".format(all_charID))
+        if all_charID:
+            all_char_name_dict = FetchNameWithId(all_charID, 'character')
+            logger.debug("all_char_name_dict: {}".format(all_char_name_dict))
+            attacker_char_name_dict = all_char_name_dict
+            if victim_charID:
+                victim_char_name = all_char_name_dict[-1]['character_name']
+                logger.info("victim_char_name: {}".format(victim_char_name))
+                attacker_char_name_dict = all_char_name_dict[:-1]
+            attacker_char_name = DictToString(attacker_char_name_dict, 'character')
+            logger.info("attacker_char_name: {}".format(attacker_char_name))
+
+
+        # CORPORATION IDs
+        attacker_corpID = UniquifyingIds(dict, 'corporation')
+        logger.debug("attacker_corpID: {}".format(attacker_corpID))
+        victim_corpID = []
+        if 'corporation_id' in dict['package']['killmail']['victim']:
+            victim_corpID.append(dict['package']['killmail']['victim']['corporation_id'])
+            logger.debug("victim_corpID: {}".format(victim_corpID))
+            all_corpID = attacker_corpID + ',' + str(victim_corpID[0])
         else:
-            victim_allianceID = 0
-            victim_alliance_name = 0
-        logger.info("victim_alliance_name: {}".format(victim_alliance_name))
+            all_corpID = attacker_corpID
+        logger.debug("all_corpID: {}".format(all_corpID))
+        if all_corpID:
+            all_corp_name_dict = FetchNameWithId(all_corpID, 'corporation')
+            logger.debug("all_corp_name_dict: {}".format(all_corp_name_dict))
+            attacker_corp_name_dict = all_corp_name_dict
+            if victim_corpID:
+                victim_corp_name = all_corp_name_dict[-1]['corporation_name']
+                logger.info("victim_corp_name: {}".format(victim_corp_name))
+                attacker_corp_name_dict = all_corp_name_dict[:-1]
+            attacker_corp_name = DictToString(attacker_corp_name_dict, 'corporation')
+            logger.info("attacker_corp_name: {}".format(attacker_corp_name))
+
+
+        # ALLIANCE IDs
+        attacker_allianceID = UniquifyingIds(dict, 'alliance')
+        logger.debug("attacker_allianceID: {}".format(attacker_allianceID))
+        victim_allianceID = []
+        if 'alliance_id' in dict['package']['killmail']['victim']:
+            victim_allianceID.append(dict['package']['killmail']['victim']['alliance_id'])
+            logger.debug("victim_allianceID: {}".format(victim_allianceID))
+            all_allianceID = attacker_allianceID + ',' + str(victim_allianceID[0])
+        else:
+            all_allianceID = attacker_allianceID
+        logger.debug("all_allianceID: {}".format(all_allianceID))
+        if all_allianceID:
+            all_alliance_name_dict = FetchNameWithId(all_allianceID, 'alliance')
+            logger.debug("all_alliance_name_dict: {}".format(all_alliance_name_dict))
+            attacker_alliance_name_dict = all_alliance_name_dict
+            if victim_allianceID:
+                victim_alliance_name = all_alliance_name_dict[-1]['alliance_name']
+                logger.info("victim_alliance_name: {}".format(victim_alliance_name))
+                attacker_alliance_name_dict = all_alliance_name_dict[:-1]
+            attacker_alliance_name = DictToString(attacker_alliance_name_dict, 'alliance')
+            logger.info("attacker_alliance_name: {}".format(attacker_alliance_name))
+
+
         victim_damage_taken = dict['package']['killmail']['victim']['damage_taken']
+        logger.info("victim_damage_taken: {}".format(victim_damage_taken))
         victim_shipID = dict['package']['killmail']['victim']['ship_type_id']
+        logger.debug("victim_shipID: {}".format(victim_shipID))
         victim_ship_name = ''
         # resolve ship_name with invTypes.csv
         with open('invTypes.csv', newline='') as f:
@@ -131,6 +157,7 @@ while True:
             for row in inv_types:
                 if(row[0] == str(victim_shipID)):
                     victim_ship_name = row[2]
+        logger.info("victim_ship_name: {}".format(victim_ship_name))
 
 
 
@@ -145,9 +172,6 @@ while True:
         logger.info("attacker_is_solo: {}".format(attacker_is_solo))
         logger.info("attacker_is_awox: {}".format(attacker_is_awox))
 
-        logger.info("victim_damage_taken: {}".format(victim_damage_taken))
-        logger.info("victim_shipID: {}".format(victim_shipID))
-        logger.info("victim_ship_name: {}".format(victim_ship_name))
 
         # assembling new json struct
         json_body = [{"measurement":"kills",
