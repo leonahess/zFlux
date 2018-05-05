@@ -24,3 +24,38 @@ Other available logging levels:
   ```
   logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
   ```
+
+## Available Data Points
+
+#### Tags
+
+###### General Information
+```
+killID
+solar_systemID
+```
+
+###### Attacker Information
+```
+attacker_char_name
+attacker_corp_name
+attacker_alliance_name
+attacker_is_npc
+attacker_is_solo
+attacker_is_awox
+```
+
+###### Victim Information
+```
+victim_char_name
+victim_corp_name
+victim_alliance_name
+victim_ship_name
+```
+#### Fields
+
+```
+#kills
+totalValue
+victim_damage_taken
+```

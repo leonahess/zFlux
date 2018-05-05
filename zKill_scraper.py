@@ -16,7 +16,7 @@ def FetchNameWithId(attacker_id_str, kind):
         except json.decoder.JSONDecodeError:
             logger.warning("esi json decode has failed!")
     else:
-        attacker_name = ''
+        attacker_name = []
     logger.debug("attacker_name: {}".format(attacker_name))
     return attacker_name
 
@@ -97,7 +97,7 @@ while True:
             logger.debug("all_char_name_dict: {}".format(all_char_name_dict))
             attacker_char_name_dict = all_char_name_dict
             victim_char_name = ''
-            if victim_charID:
+            if victim_charID and all_char_name_dict:
                 victim_char_name = all_char_name_dict[-1]['character_name']
                 logger.info("victim_char_name: {}".format(victim_char_name))
                 attacker_char_name_dict = all_char_name_dict[:-1]
@@ -121,7 +121,7 @@ while True:
             logger.debug("all_corp_name_dict: {}".format(all_corp_name_dict))
             attacker_corp_name_dict = all_corp_name_dict
             victim_corp_name = ''
-            if victim_corpID:
+            if victim_corpID and all_corp_name_dict:
                 victim_corp_name = all_corp_name_dict[-1]['corporation_name']
                 logger.info("victim_corp_name: {}".format(victim_corp_name))
                 attacker_corp_name_dict = all_corp_name_dict[:-1]
@@ -145,7 +145,7 @@ while True:
             logger.debug("all_alliance_name_dict: {}".format(all_alliance_name_dict))
             attacker_alliance_name_dict = all_alliance_name_dict
             victim_alliance_name = ''
-            if victim_allianceID:
+            if victim_allianceID and all_alliance_name_dict:
                 victim_alliance_name = all_alliance_name_dict[-1]['alliance_name']
                 logger.info("victim_alliance_name: {}".format(victim_alliance_name))
                 attacker_alliance_name_dict = all_alliance_name_dict[:-1]

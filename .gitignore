@@ -1,2 +1,4 @@
 *.log
 .DS_Store
+zKill_scraper_tests.py
+__pycache__
