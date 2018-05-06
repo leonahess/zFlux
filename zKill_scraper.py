@@ -81,6 +81,7 @@ logger = logging.getLogger(__name__)
 # Connect to Database
 client = InfluxDBClient(host='localhost', port=8086, database='eve')
 
+last100_processing_time = []
 counter = 1
 while True:
     try:
@@ -188,8 +189,15 @@ while True:
         client.write_points(json_body, protocol = 'json')
 
         now = datetime.datetime.now()
+        processing_time = now - then
 
-        logger.info("processing time: {}".format(now - then))
+        if(len(last100_processing_time) > 100):
+            last100_processing_time[1:]
+        last100_processing_time.append(processing_time.total_seconds())
+        avg_processing_time = sum(last100_processing_time) / len(last100_processing_time)
+
+        logger.info("last100 avg processing time: {}".format(avg_processing_time))
+        logger.info("processing time: {}".format(processing_time))
         logger.info("runtime: {}".format(now - start))
         logger.info("counter: {}\n".format(counter))
 
