@@ -8,8 +8,8 @@ def FetchNameWithId(attacker_id_str, kind):
     while True:
         v = requests.get('https://esi.tech.ccp.is/latest/{0}s/names/?{0}_ids={1}&datasource=tranquility'.format(kind, attacker_id_str))
         if(v.status_code != 502):
-            logger.warning("esi 502")
             break
+        logger.warning("esi 502")
     if(v.status_code == 200):
         try:
             attacker_name = v.json()
@@ -40,15 +40,48 @@ def DictToString(attacker_name_dict, kind):
             logger.warning("KeyError: {}".format(attacker_name))
     return attacker_name_str
 
+def GetName(dict,  kind):
+    attacker_ID = UniquifyingIds(dict, '{}'.format(kind))
+    victim_ID = []
+    logger.debug("attacker_{}ID: {}".format(kind, attacker_ID))
+
+    if '{}_id'.format(kind) in dict['package']['killmail']['victim']:
+        victim_ID.append(dict['package']['killmail']['victim']['{}_id'.format(kind)])
+        logger.debug("victim_{}ID: {}".format(kind, victim_ID))
+        all_ID = attacker_ID + ',' + str(victim_ID[0])
+    else:
+        all_ID = attacker_ID
+    logger.debug("all_{}ID: {}".format(kind, all_ID))
+
+    if all_ID:
+        all_name_dict = FetchNameWithId(all_ID, '{}'.format(kind))
+        logger.debug("all_{}_name_dict: {}".format(kind, all_name_dict))
+        attacker_name_dict = all_name_dict
+        victim_name = ''
+
+        if victim_ID and all_name_dict:
+            victim_name = all_name_dict[-1]['{}_name'.format(kind)]
+            logger.debug("victim_{}_name: {}".format(kind, victim_name))
+            attacker_name_dict = all_name_dict[:-1]
+
+        attacker_name = DictToString(attacker_name_dict, '{}'.format(kind))
+        logger.debug("attacker_{}_name: {}".format(kind, attacker_name))
+        final_name_dict = {"victim_name": victim_name, "attacker_name": attacker_name}
+    else:
+        final_name_dict = {"victim_name": '', "attacker_name": ''}
+
+    logger.debug("final_name_dict: {}".format(final_name_dict))
+    return final_name_dict
 
 start = datetime.datetime.now()
 
 logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
 logger = logging.getLogger(__name__)
 
+# Connect to Database
 client = InfluxDBClient(host='localhost', port=8086, database='eve')
 
-i = 1
+counter = 1
 while True:
     try:
         r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zKill_scaper', timeout = 20)
@@ -82,79 +115,22 @@ while True:
 
 
         # CHARACTER IDs
-        attacker_charID = UniquifyingIds(dict, 'character')
-        logger.debug("attacker_charID: {}".format(attacker_charID))
-        victim_charID = []
-        if 'character_id' in dict['package']['killmail']['victim']:
-            victim_charID.append(dict['package']['killmail']['victim']['character_id'])
-            logger.debug("victim_charID: {}".format(victim_charID))
-            all_charID = attacker_charID + ',' + str(victim_charID[0])
-        else:
-            all_charID = attacker_charID
-        logger.debug("all_charID: {}".format(all_charID))
-        if all_charID:
-            all_char_name_dict = FetchNameWithId(all_charID, 'character')
-            logger.debug("all_char_name_dict: {}".format(all_char_name_dict))
-            attacker_char_name_dict = all_char_name_dict
-            victim_char_name = ''
-            if victim_charID and all_char_name_dict:
-                victim_char_name = all_char_name_dict[-1]['character_name']
-                logger.info("victim_char_name: {}".format(victim_char_name))
-                attacker_char_name_dict = all_char_name_dict[:-1]
-            attacker_char_name = DictToString(attacker_char_name_dict, 'character')
-            logger.info("attacker_char_name: {}".format(attacker_char_name))
-
+        char_names = GetName(dict, 'character')
+        attacker_char_name = char_names['attacker_name']
+        victim_char_name = char_names['victim_name']
 
         # CORPORATION IDs
-        attacker_corpID = UniquifyingIds(dict, 'corporation')
-        logger.debug("attacker_corpID: {}".format(attacker_corpID))
-        victim_corpID = []
-        if 'corporation_id' in dict['package']['killmail']['victim']:
-            victim_corpID.append(dict['package']['killmail']['victim']['corporation_id'])
-            logger.debug("victim_corpID: {}".format(victim_corpID))
-            all_corpID = attacker_corpID + ',' + str(victim_corpID[0])
-        else:
-            all_corpID = attacker_corpID
-        logger.debug("all_corpID: {}".format(all_corpID))
-        if all_corpID:
-            all_corp_name_dict = FetchNameWithId(all_corpID, 'corporation')
-            logger.debug("all_corp_name_dict: {}".format(all_corp_name_dict))
-            attacker_corp_name_dict = all_corp_name_dict
-            victim_corp_name = ''
-            if victim_corpID and all_corp_name_dict:
-                victim_corp_name = all_corp_name_dict[-1]['corporation_name']
-                logger.info("victim_corp_name: {}".format(victim_corp_name))
-                attacker_corp_name_dict = all_corp_name_dict[:-1]
-            attacker_corp_name = DictToString(attacker_corp_name_dict, 'corporation')
-            logger.info("attacker_corp_name: {}".format(attacker_corp_name))
-
+        corp_names = GetName(dict, 'corporation')
+        attacker_corp_name = corp_names['attacker_name']
+        victim_corp_name = corp_names['victim_name']
 
         # ALLIANCE IDs
-        attacker_allianceID = UniquifyingIds(dict, 'alliance')
-        logger.debug("attacker_allianceID: {}".format(attacker_allianceID))
-        victim_allianceID = []
-        if 'alliance_id' in dict['package']['killmail']['victim']:
-            victim_allianceID.append(dict['package']['killmail']['victim']['alliance_id'])
-            logger.debug("victim_allianceID: {}".format(victim_allianceID))
-            all_allianceID = attacker_allianceID + ',' + str(victim_allianceID[0])
-        else:
-            all_allianceID = attacker_allianceID
-        logger.debug("all_allianceID: {}".format(all_allianceID))
-        if all_allianceID:
-            all_alliance_name_dict = FetchNameWithId(all_allianceID, 'alliance')
-            logger.debug("all_alliance_name_dict: {}".format(all_alliance_name_dict))
-            attacker_alliance_name_dict = all_alliance_name_dict
-            victim_alliance_name = ''
-            if victim_allianceID and all_alliance_name_dict:
-                victim_alliance_name = all_alliance_name_dict[-1]['alliance_name']
-                logger.info("victim_alliance_name: {}".format(victim_alliance_name))
-                attacker_alliance_name_dict = all_alliance_name_dict[:-1]
-            attacker_alliance_name = DictToString(attacker_alliance_name_dict, 'alliance')
-            logger.info("attacker_alliance_name: {}".format(attacker_alliance_name))
+        alliance_names = GetName(dict, 'alliance')
+        attacker_alliance_name = alliance_names['attacker_name']
+        victim_alliance_name = alliance_names['victim_name']
 
 
         victim_damage_taken = dict['package']['killmail']['victim']['damage_taken']
-        logger.info("victim_damage_taken: {}".format(victim_damage_taken))
         victim_shipID = dict['package']['killmail']['victim']['ship_type_id']
         logger.debug("victim_shipID: {}".format(victim_shipID))
         victim_ship_name = ''
@@ -164,13 +140,10 @@ while True:
             for row in inv_types:
                 if(row[0] == str(victim_shipID)):
                     victim_ship_name = row[2]
-        logger.info("victim_ship_name: {}".format(victim_ship_name))
-
-
 
         # logger
         logger.info("killID: {}".format(killID))
-        logger.info("time: {}".format(killmail_time))
+        logger.info("killmail_time: {}".format(killmail_time))
         logger.info("solar_systemID: {}".format(solar_systemID))
         logger.info("totalValue: {}".format(totalValue))
 
@@ -178,6 +151,9 @@ while True:
         logger.info("attacker_is_npc: {}".format(attacker_is_npc))
         logger.info("attacker_is_solo: {}".format(attacker_is_solo))
         logger.info("attacker_is_awox: {}".format(attacker_is_awox))
+
+        logger.info("victim_damage_taken: {}".format(victim_damage_taken))
+        logger.info("victim_ship_name: {}".format(victim_ship_name))
 
 
         # assembling new json struct
@@ -210,10 +186,11 @@ while True:
 
         # writing to database
         client.write_points(json_body, protocol = 'json')
-        i = i + 1
 
         now = datetime.datetime.now()
 
         logger.info("processing time: {}".format(now - then))
         logger.info("runtime: {}".format(now - start))
-        logger.info("counter: {}\n".format(i))
+        logger.info("counter: {}\n".format(counter))
+
+        counter = counter + 1
