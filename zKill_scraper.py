@@ -13,8 +13,8 @@ def FetchNameWithId(attacker_id_str, kind):
     if(v.status_code == 200):
         try:
             attacker_name = v.json()
-        except json.decoder.JSONDecodeError:
-            logger.warning("esi json decode has failed!")
+        except ValueError as e:
+            logger.warning("esi json decode has failed!: {}".format(e))
     else:
         attacker_name = []
     logger.debug("attacker_name: {}".format(attacker_name))
