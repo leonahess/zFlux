@@ -191,7 +191,6 @@ while True:
         # assembling new json struct
         json_body = [{"measurement":"kills",
             "tags":{
-                    "killID": killID,
                     "solar_systemID": solar_systemID,
 
                     "attacker_is_npc": attacker_is_npc,
