@@ -73,6 +73,35 @@ def GetName(dict,  kind):
     logger.debug("final_name_dict: {}".format(final_name_dict))
     return final_name_dict
 
+def GetAttackerShips(dict):
+    attacker_ship_list = []
+    attacker_ship_name_list = []
+    attacker_ship_name_str = ''
+
+    for x in range(0, len(dict['package']['killmail']['attackers'])):
+        try:
+            if(dict['package']['killmail']['attackers'][x]['ship_type_id'] not in attacker_ship_list):
+                attacker_ship_list.append(dict['package']['killmail']['attackers'][x]['ship_type_id'])
+        except KeyError:
+            logger.error("attacker ship key error")
+    logger.debug("attacker_ship_list: {}".format(attacker_ship_list))
+
+    with open('invTypes.csv', newline='') as f:
+        inv_types = csv.reader(f)
+        for row in inv_types:
+            for l in range(0, len(attacker_ship_list)):
+                if(row[0] == str(attacker_ship_list[l])):
+                    attacker_ship_name_list.append(row[2])
+    logger.debug("Ship name list: {}".format(attacker_ship_name_list))
+
+    for k in range(0, len(attacker_ship_name_list)):
+        attacker_ship_name_str = attacker_ship_name_str + ';' + attacker_ship_name_list[k]
+    attacker_ship_name_str = attacker_ship_name_str + ';'
+    logger.info("attacker_ships: {}".format(attacker_ship_name_str))
+
+    return attacker_ship_name_str
+
+
 start = datetime.datetime.now()
 
 logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
@@ -85,7 +114,7 @@ last100_processing_time = []
 counter = 1
 while True:
     try:
-        r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zKill_scaper', timeout = 20)
+        r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zKill_scaperDev', timeout = 20)
     except requests.exceptions.Timeout:
         logger.warning("zKill request timed out")
     except requests.exceptions.RequestsException as e:
@@ -115,7 +144,7 @@ while True:
         attacker_char_name = ''
         attacker_corp_name = ''
         attacker_alliance_name = ''
-
+        attacker_ship_str = GetAttackerShips(dict)
 
         # CHARACTER IDs
         char_names = GetName(dict, 'character')
@@ -171,6 +200,7 @@ while True:
                     "attacker_char_name": attacker_char_name,
                     "attacker_corp_name": attacker_corp_name,
                     "attacker_alliance_name": attacker_alliance_name,
+                    "attacker_ship_str": attacker_ship_str,
 
                     "victim_char_name": victim_char_name,
                     "victim_corp_name": victim_corp_name,
