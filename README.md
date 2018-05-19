@@ -31,7 +31,6 @@ Other available logging levels:
 
 ###### General Information
 ```
-killID
 solar_systemID
 ```
 
@@ -43,6 +42,7 @@ attacker_alliance_name
 attacker_is_npc
 attacker_is_solo
 attacker_is_awox
+attacker_ship_str
 ```
 
 ###### Victim Information
