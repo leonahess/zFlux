@@ -107,8 +107,15 @@ start = datetime.datetime.now()
 logging.basicConfig(filename ='zKill_scraper_{}.log'.format(start), level = logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
 logger = logging.getLogger(__name__)
 
-# Connect to Database
+# Connect to Database and check if database 'eve' exists, otherwise create one
 client = InfluxDBClient(host='localhost', port=8086, database='eve')
+database_list = client.get_list_database()
+eve_exists = False
+for s in range(0, len(database_list)):
+    if(database_list[s]['name'] == 'eve'):
+        eve_exists = True
+if(eve_exists == False):
+    client.create_database('eve')
 
 last100_processing_time = []
 counter = 1
