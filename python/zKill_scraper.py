@@ -124,7 +124,7 @@ while True:
         r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zKill_scaperDev', timeout = 20)
     except requests.exceptions.Timeout:
         logger.warning("zKill request timed out")
-    except requests.exceptions.RequestsException as e:
+    except requests.exceptions.RequestException as e:
         logger.error("zKill requests had a exception: {}".format(e))
     try:
         dict = r.json()
