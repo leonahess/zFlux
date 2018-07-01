@@ -89,7 +89,7 @@ def GetAttackerShips(dict):
     for k in range(0, len(attacker_ship_name_list)):
         attacker_ship_name_str = attacker_ship_name_str + ';' + attacker_ship_name_list[k]
     attacker_ship_name_str = attacker_ship_name_str + ';'
-    logger.info("attacker_ships: {}".format(attacker_ship_name_str))
+    logger.debug("attacker_ships: {}".format(attacker_ship_name_str))
 
     return attacker_ship_name_str
 
@@ -162,24 +162,36 @@ while True:
         attacker_names = FetchAttackerNameWithId(dict)
 
         # CHARACTER IDs
-        attacker_char_name = ''
+        attacker_char_name = ';'
         victim_char_name = ''
+
+        for entry in attacker_names:
+            if entry['category'] == 'character':
+                attacker_char_name = attacker_char_name + entry['name'] + ';'
 
         for entry in victim_names:
             if entry['category'] == 'character':
                 victim_char_name = entry['name']
 
         # CORPORATION IDs
-        attacker_corp_name = ''
+        attacker_corp_name = ';'
         victim_corp_name = ''
+
+        for entry in attacker_names:
+            if entry['category'] == 'corporation':
+                attacker_corp_name = attacker_corp_name + entry['name'] + ';'
 
         for entry in victim_names:
             if entry['category'] == 'corporation':
                 victim_corp_name = entry['name']
 
         # ALLIANCE IDs
-        attacker_alliance_name = ''
+        attacker_alliance_name = ';'
         victim_alliance_name = ''
+
+        for entry in attacker_names:
+            if entry['category'] == 'alliance':
+                attacker_alliance_name = attacker_alliance_name + entry['name'] + ';'
 
         for entry in victim_names:
             if entry['category'] == 'alliance':
