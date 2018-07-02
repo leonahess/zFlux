@@ -1,17 +1,20 @@
 import requests
 import datetime
 import logging
+import time
 import csv
 from influxdb import InfluxDBClient
 
 
 def EsiCall(ids):
-
-    while True:
+    retry_time = 1
+    while retry_time < 5:
         v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
-        if v.status_code != 502:
+        if v.status_code == 200:
             break
-        logger.warning("esi 502")
+        logger.warning("Esi call failed")
+        time.sleep(2 ^ retry_time)
+        retry_time = retry_time + 1
 
     if v.status_code == 200:
         try:
