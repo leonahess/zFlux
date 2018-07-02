@@ -60,8 +60,10 @@ def FetchAttackerNameWithId(killmail):
         if 'alliance_id' in entry and entry['alliance_id'] not in attacker_ids:
             attacker_ids.append(entry['alliance_id'])
 
-    if len(attacker_ids) < 1000:
+    if len(attacker_ids) < 1000 and len(attacker_ids) is not 0:
         names = EsiCall(attacker_ids)
+    else:
+        names = {}
 
     logger.debug("Attacker attacker_ids: {}".format(attacker_ids))
     logger.debug("Attacker names: {}".format(names))
