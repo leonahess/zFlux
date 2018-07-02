@@ -63,7 +63,7 @@ def FetchAttackerNameWithId(killmail):
     if len(attacker_ids) < 1000 and len(attacker_ids) is not 0:
         names = EsiCall(attacker_ids)
     else:
-        names = {}
+        names = []
 
     logger.debug("Attacker attacker_ids: {}".format(attacker_ids))
     logger.debug("Attacker names: {}".format(names))
