@@ -7,12 +7,12 @@ from influxdb import InfluxDBClient
 
 
 def EsiCall(ids):
-    retry_time = 1
+    retry_time = 0
     while retry_time < 5:
         v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
         if v.status_code == 200:
             break
-        logger.warning("Esi call failed")
+        logger.warning("Esi call failed {}: {}".format(retry_time, v.status_code))
         time.sleep(2 ^ retry_time)
         retry_time = retry_time + 1
 
@@ -60,7 +60,8 @@ def FetchAttackerNameWithId(killmail):
         if 'alliance_id' in entry and entry['alliance_id'] not in attacker_ids:
             attacker_ids.append(entry['alliance_id'])
 
-    names = EsiCall(attacker_ids)
+    if len(attacker_ids) < 1000:
+        names = EsiCall(attacker_ids)
 
     logger.debug("Attacker attacker_ids: {}".format(attacker_ids))
     logger.debug("Attacker names: {}".format(names))
@@ -116,6 +117,7 @@ for s in range(0, len(database_list)):
 if not eve_exists:
     client.create_database('eve')
 
+# Main Loop
 while True:
     try:
         r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zKill_scaperDev', timeout=20)
@@ -245,7 +247,7 @@ while True:
                     "victim_damage_taken": victim_damage_taken,
             },
             "time": killmail_time,
-            "time_prescision": "s"
+            "time_precision": "s"
         }]
 
         # WRITING TO DATABASE
