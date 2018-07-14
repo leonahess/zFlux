@@ -1,4 +1,5 @@
 import requests
+import urllib3
 import datetime
 import logging
 import time
@@ -9,7 +10,15 @@ from influxdb import InfluxDBClient
 def EsiCall(ids):
     retry_time = 0
     while retry_time < 2:
-        v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
+        try:
+            v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
+        except requests.exceptions.ConnectionError as CErr:
+            print(CErr)
+        except urllib3.exceptions.MaxRetryError as MaxRetry:
+            print(MaxRetry)
+        except urllib3.exceptions.NewConnectionError as NewCErr:
+            print(NewCErr)
+
         if v.status_code == 200:
             break
         logger.warning("Esi call failed {}: {}".format(retry_time, v.status_code))
