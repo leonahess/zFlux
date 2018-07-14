@@ -8,12 +8,12 @@ from influxdb import InfluxDBClient
 
 def EsiCall(ids):
     retry_time = 0
-    while retry_time < 5:
+    while retry_time < 2:
         v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
         if v.status_code == 200:
             break
         logger.warning("Esi call failed {}: {}".format(retry_time, v.status_code))
-        time.sleep(2 ^ retry_time)
+        time.sleep(2 ^ retry_time + 3)
         retry_time = retry_time + 1
 
     if v.status_code == 200:
