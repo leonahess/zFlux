@@ -9,6 +9,8 @@ from influxdb import InfluxDBClient
 
 def EsiCall(ids):
     retry_time = 0
+    v = None
+
     while retry_time < 2:
         try:
             v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
@@ -21,6 +23,7 @@ def EsiCall(ids):
 
         if v.status_code == 200:
             break
+
         logger.warning("Esi call failed {}: {}".format(retry_time, v.status_code))
         time.sleep(2 ^ retry_time + 3)
         retry_time = retry_time + 1
@@ -143,6 +146,8 @@ while True:
           dict = r.json()
         except ValueError as e:
             logger.warning("redisQ json decode has failed!: {}".format(e))
+    else:
+        dict = None
 
     then = datetime.datetime.now()
 
