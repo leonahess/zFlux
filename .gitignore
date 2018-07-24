@@ -3,5 +3,5 @@
 zKill_scraper_tests.py
 /python/__pycache__
 */.idea
-java/java.iml
-/java
+__pycache__
+*/__pycache__

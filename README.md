@@ -1,16 +1,24 @@
-# zKill_scraper
+# zKill_scraper (currently undergoing a rewrite)
 Pulls every kill zKill gets and puts them into a InfluxDB
+
+Use script in legacy directory for a working version.
 
 ## Requirements
 
 #### Python3
-
+Only tested on python3.
 ##### required modules:
 ```
 influxdb
 requests
 ```
 ##### InfluxDB
+You will want a machine with Influx running. The script checks if there is a database called
+'eve' and will otherwise create one. I recommend at least 4GB of RAM on your machine, though 
+it might not enough if you plan to run the script longterm.
+You also will want to disable the series limit in the config.
+
+
 
 ## Set logging level
 
