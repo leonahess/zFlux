@@ -26,4 +26,4 @@ class Killmail:
 
         self.attacker_names = a.fetchNameWithId()
         self.victim_names = v.fetchNameWithId()
-        self.solar_system_name = 0
+        self.solar_system_name = s.fetchNameWithId()

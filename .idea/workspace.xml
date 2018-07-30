@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d24117b-9709-4e27-a3c2-8d716c8b81ec" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attacker_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/attacker_name_fetcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esi_call.py" beforeDir="false" afterPath="$PROJECT_DIR$/esi_call.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/killmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/killmail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/name_fetcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/solar_system_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/solar_system_name_fetcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/attacker_name_fetcher_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/attacker_name_fetcher_tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/killmail_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/killmail_tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/runner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/victim_name_fetcher_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/victim_name_fetcher_tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/victim_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/victim_name_fetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/zKill_scraper$runner.coverage" NAME="runner Coverage Results" MODIFIED="1532911426117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/zKill_scraper$runner.coverage" NAME="runner Coverage Results" MODIFIED="1532966934041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_killmail_tests_TestKillmail_testStatics.coverage" NAME="Unittests for killmail_tests.TestKillmail.testStatics Coverage Results" MODIFIED="1532899054456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_killmail_tests_TestKillmail_testnames.coverage" NAME="Unittests for killmail_tests.TestKillmail.testnames Coverage Results" MODIFIED="1532462201386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_killmail_tests_TestKillmail.coverage" NAME="Unittests for killmail_tests.TestKillmail Coverage Results" MODIFIED="1532911383114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -30,7 +21,7 @@
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_in_tests.coverage" NAME="Unittests in tests Coverage Results" MODIFIED="1532911414325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_killmail_tests_TestKillmail_testMissingAttackerCorpId.coverage" NAME="Unittests for killmail_tests.TestKillmail.testMissingAttackerCorpId Coverage Results" MODIFIED="1532899020508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_attacker_name_fetcher_tests_TestAttackerNameFetcher.coverage" NAME="Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher Coverage Results" MODIFIED="1532909689458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher.coverage" NAME="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher Coverage Results" MODIFIED="1532899191825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher.coverage" NAME="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher Coverage Results" MODIFIED="1532966920626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_attacker_name_fetcher_tests_TestAttackerNameFetcher_testMissingCharId.coverage" NAME="Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher.testMissingCharId Coverage Results" MODIFIED="1532903487513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_in_killmail_tests_py.coverage" NAME="Unittests in killmail_tests.py Coverage Results" MODIFIED="1532454911378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_attacker_name_fetcher_tests_TestAttackerNameFetcher_testNoMissingStuff.coverage" NAME="Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher.testNoMissingStuff Coverage Results" MODIFIED="1532902730052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -46,22 +37,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="23" />
+          <entry key="pstat" value="1" />
+          <entry key="py" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="23" />
+          <entry key="Profiler Session" value="1" />
+          <entry key="Python" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1934" />
+          <entry key="py" value="2899" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1934" />
+          <entry key="Python" value="2899" />
         </counts>
       </usages-collector>
     </session>
@@ -73,8 +66,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/name_fetcher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="66">
-                  <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+                <state relative-caret-position="195">
+                  <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                     <marker date="1532908267016" expanded="true" signature="90:96" ph="..." />
@@ -89,11 +82,10 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/attacker_name_fetcher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="140">
-                  <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+                <state relative-caret-position="300">
+                  <caret line="20" selection-start-line="20" selection-end-line="20" />
                   <folding>
                     <marker date="1532908267022" expanded="true" signature="125:134" ph="..." />
-                    <marker date="1532908267022" expanded="true" signature="125:182" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -112,37 +104,13 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/solar_system_name_fetcher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="36" selection-start-column="36" selection-end-column="36" />
+                <state relative-caret-position="75">
+                  <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
                   <folding>
-                    <marker date="1532909332573" expanded="true" signature="127:190" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/killmail.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-                  <folding>
-                    <element signature="e#0#49#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/tests/victim_name_fetcher_tests.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-                  <folding>
-                    <element signature="e#0#15#0" expanded="true" />
+                    <marker date="1532966920612" expanded="true" signature="128:191" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -151,8 +119,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/attacker_name_fetcher_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="44" column="52" lean-forward="true" selection-start-line="44" selection-start-column="52" selection-end-line="48" selection-end-column="86" />
+                <state relative-caret-position="120">
+                  <caret line="8" column="44" selection-start-line="8" selection-end-line="9" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                     <marker date="1532909689443" expanded="true" signature="12777:13196" ph="..." />
@@ -166,11 +134,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/killmail_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-997">
-                  <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+                <state relative-caret-position="145">
+                  <caret line="29" column="322" selection-start-line="29" selection-start-column="314" selection-end-line="29" selection-end-column="322" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                     <element signature="e#117#403#1" expanded="true" />
@@ -179,14 +147,16 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                <state relative-caret-position="182">
+                  <caret line="13" selection-start-line="13" selection-end-line="13" />
                   <folding>
-                    <marker date="1532900220607" expanded="true" signature="70:71" ph="..." />
-                    <marker date="1532900220607" expanded="true" signature="70:76" ph="..." />
+                    <element signature="e#0#15#0" expanded="true" />
+                    <marker date="1532966722220" expanded="true" signature="154:155" ph="..." />
+                    <marker date="1532966722220" expanded="true" signature="154:5178" ph="..." />
+                    <marker date="1532966722220" expanded="true" signature="5207:5426" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -216,6 +186,18 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/killmail.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="434">
+                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+                  <folding>
+                    <element signature="e#0#49#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-second>
     </splitter>
@@ -233,6 +215,7 @@
       <find>total_v</find>
       <find>value</find>
       <find>solar</find>
+      <find>solar_sy</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -252,16 +235,16 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/legacy_script/zKill_scraper.py" />
         <option value="$PROJECT_DIR$/tests/runner.py" />
-        <option value="$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py" />
-        <option value="$PROJECT_DIR$/name_fetcher.py" />
         <option value="$PROJECT_DIR$/attacker_name_fetcher.py" />
         <option value="$PROJECT_DIR$/victim_name_fetcher.py" />
-        <option value="$PROJECT_DIR$/solar_system_name_fetcher.py" />
         <option value="$PROJECT_DIR$/esi_call.py" />
         <option value="$PROJECT_DIR$/tests/attacker_name_fetcher_tests.py" />
         <option value="$PROJECT_DIR$/tests/victim_name_fetcher_tests.py" />
-        <option value="$PROJECT_DIR$/killmail.py" />
         <option value="$PROJECT_DIR$/tests/killmail_tests.py" />
+        <option value="$PROJECT_DIR$/name_fetcher.py" />
+        <option value="$PROJECT_DIR$/killmail.py" />
+        <option value="$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py" />
+        <option value="$PROJECT_DIR$/solar_system_name_fetcher.py" />
       </list>
     </option>
   </component>
@@ -283,7 +266,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="zKill_scraper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="zKill_scraper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="tests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,6 +298,10 @@
               <item name="zKill_scraper" type="b2602c69:ProjectViewProjectNode" />
               <item name="zKill_scraper" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zKill_scraper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -354,21 +356,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="zKill_scraper" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;attacker_name_fetcher_tests.TestAttackerNameFetcher&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Unittests for killmail_tests.TestKillmail" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="zKill_scraper" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -381,6 +368,21 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;killmail_tests.TestKillmail&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="zKill_scraper" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;solar_system_name_fetcher_tests.TestSolarSystemNameFetcher&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -416,18 +418,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.runner" />
-      <item itemvalue="Python tests.Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher" />
       <item itemvalue="Python tests.Unittests for victim_name_fetcher_tests.TestVictimNameFetcher" />
       <item itemvalue="Python tests.Unittests for killmail_tests.TestKillmail" />
       <item itemvalue="Python tests.Unittests in tests" />
+      <item itemvalue="Python tests.Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.runner" />
+        <item itemvalue="Python tests.Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" />
         <item itemvalue="Python tests.Unittests in tests" />
         <item itemvalue="Python tests.Unittests for killmail_tests.TestKillmail" />
         <item itemvalue="Python tests.Unittests for victim_name_fetcher_tests.TestVictimNameFetcher" />
-        <item itemvalue="Python tests.Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher" />
       </list>
     </recent_temporary>
   </component>
@@ -446,18 +448,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_victim_name_fetcher_tests_TestVictimNameFetcher - 2018.07.30 at 02h 24m 54s.xml">
-      <configuration name="Unittests for victim_name_fetcher_tests.TestVictimNameFetcher" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_victim_name_fetcher_tests_TestVictimNameFetcher - 2018.07.30 at 02h 25m 06s.xml">
-      <configuration name="Unittests for victim_name_fetcher_tests.TestVictimNameFetcher" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_killmail_tests_TestKillmail - 2018.07.30 at 02h 32m 00s.xml">
-      <configuration name="Unittests for killmail_tests.TestKillmail" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_killmail_tests_TestKillmail - 2018.07.30 at 02h 32m 56s.xml">
-      <configuration name="Unittests for killmail_tests.TestKillmail" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_killmail_tests_TestKillmail - 2018.07.30 at 02h 34m 47s.xml">
       <configuration name="Unittests for killmail_tests.TestKillmail" configurationId="tests" />
     </history-entry>
@@ -476,9 +466,22 @@
     <history-entry file="Unittests_in_tests - 2018.07.30 at 02h 43m 34s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher - 2018.07.30 at 18h 04m 03s.xml">
+      <configuration name="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher - 2018.07.30 at 18h 05m 23s.xml">
+      <configuration name="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher - 2018.07.30 at 18h 07m 03s.xml">
+      <configuration name="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher - 2018.07.30 at 18h 08m 41s.xml">
+      <configuration name="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16605617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -490,13 +493,14 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="7" weight="0.32923076" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="7" weight="0.32857144" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32923076" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Python Console" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32959184" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32959184" />
+      <window_info anchor="right" x="0" y="0" width="370" height="850" id="Documentation" side_tool="true" weight="0.32967034" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -676,17 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <marker date="1532900220607" expanded="true" signature="70:71" ph="..." />
-            <marker date="1532900220607" expanded="true" signature="70:76" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/name_fetcher_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -704,23 +697,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attacker_name_fetcher.py">
+    <entry file="file://$PROJECT_DIR$/tests/killmail_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="145">
+          <caret line="29" column="322" selection-start-line="29" selection-start-column="314" selection-end-line="29" selection-end-column="322" />
           <folding>
-            <marker date="1532908267022" expanded="true" signature="125:134" ph="..." />
-            <marker date="1532908267022" expanded="true" signature="125:182" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/esi_call.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#117#403#1" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -735,36 +718,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/name_fetcher.py">
+    <entry file="file://$PROJECT_DIR$/esi_call.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="7" column="56" lean-forward="true" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+        <state relative-caret-position="450">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1532908267016" expanded="true" signature="90:96" ph="..." />
-            <marker date="1532908267016" expanded="true" signature="236:241" ph="..." />
-            <marker date="1532908267016" expanded="true" signature="236:274" ph="..." />
-            <marker date="1532908267016" expanded="true" signature="305:496" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/solar_system_name_fetcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="36" selection-start-column="36" selection-end-column="36" />
-          <folding>
-            <marker date="1532909332573" expanded="true" signature="127:190" ph="..." />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/killmail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="434">
           <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attacker_name_fetcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <marker date="1532908267022" expanded="true" signature="125:134" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/attacker_name_fetcher_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="44" selection-start-line="8" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1532909689443" expanded="true" signature="12777:13196" ph="..." />
+            <marker date="1532909689443" expanded="true" signature="13224:13591" ph="..." />
           </folding>
         </state>
       </provider>
@@ -780,35 +771,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/attacker_name_fetcher_tests.py">
+    <entry file="file://$PROJECT_DIR$/name_fetcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="44" column="52" lean-forward="true" selection-start-line="44" selection-start-column="52" selection-end-line="48" selection-end-column="86" />
+        <state relative-caret-position="195">
+          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1532909689443" expanded="true" signature="12777:13196" ph="..." />
-            <marker date="1532909689443" expanded="true" signature="13224:13591" ph="..." />
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1532908267016" expanded="true" signature="90:96" ph="..." />
+            <marker date="1532908267016" expanded="true" signature="236:241" ph="..." />
+            <marker date="1532908267016" expanded="true" signature="236:274" ph="..." />
+            <marker date="1532908267016" expanded="true" signature="305:496" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/killmail_tests.py">
+    <entry file="file://$PROJECT_DIR$/tests/solar_system_name_fetcher_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-997">
-          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+        <state relative-caret-position="182">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#117#403#1" expanded="true" />
+            <marker date="1532966722220" expanded="true" signature="154:155" ph="..." />
+            <marker date="1532966722220" expanded="true" signature="154:5178" ph="..." />
+            <marker date="1532966722220" expanded="true" signature="5207:5426" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/victim_name_fetcher_tests.py">
+    <entry file="file://$PROJECT_DIR$/solar_system_name_fetcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="75">
+          <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1532966920612" expanded="true" signature="128:191" ph="..." />
           </folding>
         </state>
       </provider>
