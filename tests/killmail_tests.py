@@ -52,22 +52,90 @@ class TestKillmail(unittest.TestCase):
         self.assertEqual(self.k1.solar_system_id, 30003681, "SolarSystemID is wrong")
 
     def testnames(self):
-        self.assertEqual(self.k1.attacker_names, {"corporation": "Rainbow Pegasus Squadron", "character": "Assassin Jx", "Alliance": "Ranger Regiment"}, "Did not the the Expected names")
-        self.assertEqual(self.k1.victim_names, {"corporation"})
+        self.assertEqual(self.k1.attacker_names, [{"category": "character", "id": 992181402, "name": "Strife Senior"},
+                                                     {"category": "corporation", "id": 1324429368,
+                                                      "name": "NED-Clan"},
+                                                     {"category": "alliance", "id": 1354830081,
+                                                      "name": "Goonswarm Federation"}], "Did not get the Expected attacker names")
+        self.assertEqual(self.k1.victim_names,
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}],
+                         "Did not get the Expected victim names")
+
     def testMissingVictimCharId(self):
-        pass
+        self.assertEqual(self.k6.attacker_names, [{"category": "character", "id": 992181402, "name": "Strife Senior"},
+                                                     {"category": "corporation", "id": 1324429368,
+                                                      "name": "NED-Clan"},
+                                                     {"category": "alliance", "id": 1354830081,
+                                                      "name": "Goonswarm Federation"}], "Did not get the Expected attacker names")
+        self.assertEqual(self.k6.victim_names,
+                         [{"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}],
+                         "Did not get the Expected victim names")
 
     def testMissingVictimCorpId(self):
-        pass
+        self.assertEqual(self.k7.attacker_names, [{"category": "character", "id": 992181402, "name": "Strife Senior"},
+                                                     {"category": "corporation", "id": 1324429368,
+                                                      "name": "NED-Clan"},
+                                                     {"category": "alliance", "id": 1354830081,
+                                                      "name": "Goonswarm Federation"}], "Did not get the Expected attacker names")
+        self.assertEqual(self.k7.victim_names,
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}],
+                         "Did not get the Expected victim names")
 
     def testMissingVictimAllianceId(self):
-        pass
+        self.assertEqual(self.k5.attacker_names, [{"category": "character", "id": 992181402, "name": "Strife Senior"},
+                                                     {"category": "corporation", "id": 1324429368,
+                                                      "name": "NED-Clan"},
+                                                     {"category": "alliance", "id": 1354830081,
+                                                      "name": "Goonswarm Federation"}], "Did not get the Expected attacker names")
+        self.assertEqual(self.k5.victim_names,
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"}],
+                         "Did not get the Expected victim names")
 
     def testMissingAttackerCharId(self):
-        pass
+        self.assertEqual(self.k3.attacker_names, [{"category": "corporation", "id": 1324429368,
+                                                    "name": "NED-Clan"},
+                                                     {"category": "alliance", "id": 1354830081,
+                                                      "name": "Goonswarm Federation"}], "Did not get the Expected attacker names")
+        self.assertEqual(self.k3.victim_names,
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}],
+                         "Did not get the Expected victim names")
 
     def testMissingAttackerCorpId(self):
-        pass
+        self.assertEqual(self.k4.attacker_names, [{"category": "character", "id": 992181402, "name": "Strife Senior"},
+                                                     {"category": "alliance", "id": 1354830081,
+                                                      "name": "Goonswarm Federation"}], "Did not get the Expected attacker names")
+        self.assertEqual(self.k4.victim_names,
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}],
+                         "Did not get the Expected victim names")
 
     def testMissingAttackerAllianceId(self):
-        pass
+        self.assertEqual(self.k2.attacker_names, [{"category": "character", "id": 992181402, "name": "Strife Senior"},
+                                                     {"category": "corporation", "id": 1324429368,
+                                                      "name": "NED-Clan"}],
+                         "Did not get the Expected attacker names")
+        self.assertEqual(self.k2.victim_names,
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}],
+                         "Did not get the Expected victim names")

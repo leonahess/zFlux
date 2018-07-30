@@ -5,6 +5,7 @@ from tests import killmail_tests
 from tests import name_fetcher_tests
 from tests import attacker_name_fetcher_tests
 from tests import victim_name_fetcher_tests
+from tests import solar_system_name_fetcher_tests
 from tests import esi_call_tests
 
 def testSuite():
@@ -18,7 +19,7 @@ def testSuite():
     suite.addTest(loader.loadTestsFromModule(victim_name_fetcher_tests))
     suite.addTest(loader.loadTestsFromModule(attacker_name_fetcher_tests))
     suite.addTest(loader.loadTestsFromModule(esi_call_tests))
-
+    suite.addTest(loader.loadTestsFromModule(solar_system_name_fetcher_tests))
 
     return suite
 

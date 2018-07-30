@@ -20,6 +20,10 @@ class Killmail:
         self.victim_ship_id = unprocessed_killmail['package']['killmail']['victim']['ship_type_id']
         self.victim_damage_taken = unprocessed_killmail['package']['killmail']['victim']['damage_taken']
 
-        self.attacker_names = AttackerNameFetcher(unprocessed_killmail).fetchNameWithId()
-        self.victim_names = VictimNameFetcher(unprocessed_killmail).fetchNameWithId()
-        self.solar_system_name = SolarSystemNameFetcher(unprocessed_killmail).fetchNameWithId()
+        a = AttackerNameFetcher(unprocessed_killmail)
+        v = VictimNameFetcher(unprocessed_killmail)
+        s = SolarSystemNameFetcher(unprocessed_killmail)
+
+        self.attacker_names = a.fetchNameWithId()
+        self.victim_names = v.fetchNameWithId()
+        self.solar_system_name = 0

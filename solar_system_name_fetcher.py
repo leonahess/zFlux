@@ -1,8 +1,9 @@
 from name_fetcher import NameFetcher
-from esi_call import EsiCall
-
 
 class SolarSystemNameFetcher(NameFetcher):
 
-    def fetchNameWithId(self):
+    def __init__(self, unprocessed_killmail):
+        NameFetcher.__init__(self, unprocessed_killmail)
+
+    def generateIdList(self):
         pass
