@@ -275,7 +275,7 @@ while True:
         processing_time = now - then
 
         if len(last100_processing_time) > 100:
-            last100_processing_time[1:]
+            last100_processing_time.pop(0)
         last100_processing_time.append(processing_time.total_seconds())
         avg_processing_time = sum(last100_processing_time) / len(last100_processing_time)
 
