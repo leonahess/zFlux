@@ -11,7 +11,7 @@ class RedisQ:
     def makeCall(self):
         """Since I always had Issues with especially the json decoder but also the request call randomly throwing
         exceptions I just catch 'em all and throw away any possible Killmail since I am not after 100% of killmails
-        but a better reliability"""
+        but a better reliability."""
         while True:
             try:
                 r = requests.get('https://redisq.zkillboard.com/listen.php', timeout=20)

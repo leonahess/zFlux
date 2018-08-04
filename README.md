@@ -1,7 +1,7 @@
 # zKill_scraper (currently undergoing a rewrite)
 Pulls every kill zKill gets and puts them into a InfluxDB
 
-Use script in legacy directory for a working version.
+Use script in legacy directory for a "working" version.
 
 ## Requirements
 
@@ -17,7 +17,6 @@ You will want a machine with Influx running. The script checks if there is a dat
 'eve' and will otherwise create one. I recommend at least 4GB of RAM on your machine, though 
 it might not enough if you plan to run the script longterm.
 You also will want to disable the series limit in the config.
-
 
 
 ## Set logging level
@@ -39,7 +38,7 @@ Other available logging levels:
 
 ###### General Information
 ```
-solar_systemID
+solar_system_name
 ```
 
 ###### Attacker Information
@@ -50,7 +49,7 @@ attacker_alliance_name
 attacker_is_npc
 attacker_is_solo
 attacker_is_awox
-attacker_ship_str
+attacker_ship_name
 ```
 
 ###### Victim Information

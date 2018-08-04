@@ -28,6 +28,7 @@ class EsiCall:
                 raise
             except:
                 self.logger.error("Request Exception occcured")
+                continue
 
             self.logger.debug("EsiCall Response_code: {}".format(v.status_code))
 
