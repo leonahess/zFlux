@@ -4,24 +4,31 @@ import sys
 
 from redisq import RedisQ
 from killmail import Killmail
+from influx_pusher import InfluxPusher
 
 
 def main():
     # just some performance metrics
     start = datetime.datetime.now()
     last100_processing_time = []
-    counter = 1
+    counter = 0
 
     # logger stuff
     logging.basicConfig(filename='zKill_scraper_{}.log'.format(start), level=logging.INFO,
                         format='%(asctime)s %(name)s:%(levelname)s:%(message)s')
     logger = logging.getLogger(__name__)
 
+    # create influx_pusher object
+    influx = InfluxPusher()
+
     while True:
         unprocessed_killmail = RedisQ.makeCall(RedisQ())
+
         then = datetime.datetime.now()
 
         killmail = Killmail(unprocessed_killmail)
+
+        influx.writeToDatabase(killmail)
 
         now = datetime.datetime.now()
         processing_time = now - then
@@ -33,7 +40,8 @@ def main():
 
         counter = counter + 1
 
-        sys.stdout.write("\rCounter: {} Processing Time: {} Avg Processing Time: {}s".format(counter, processing_time, round(avg_processing_time, 3)))
+        sys.stdout.write("\r{} Killmails processed with an avg processesing time of {}s per Killmail of the last 100. "
+                         "Last Killmail took {}".format(counter, round(avg_processing_time, 3), processing_time))
         sys.stdout.flush()
 
         logger.info("Counter: {}".format(counter))

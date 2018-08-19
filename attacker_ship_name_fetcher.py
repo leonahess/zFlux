@@ -1,8 +1,7 @@
 from ship_name_fetcher import ShipNameFetchter
-from name_fetcher_sorting_kind import NameFetcherSortingKind
 
 
-class AttackerShipNameFetcher(ShipNameFetchter, NameFetcherSortingKind):
+class AttackerShipNameFetcher(ShipNameFetchter):
 
     def __init__(self, unprocessed_killmail):
         ShipNameFetchter.__init__(self, unprocessed_killmail)

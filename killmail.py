@@ -4,6 +4,7 @@ from attacker_name_fetcher import AttackerNameFetcher
 from solar_system_name_fetcher import SolarSystemNameFetcher
 from victim_ship_name_fetcher import VictimShipNameFetcher
 from attacker_ship_name_fetcher import AttackerShipNameFetcher
+from solar_system_name_fetcher_local import SolarSystemNameFetcherLocal
 
 
 class Killmail:
@@ -36,7 +37,7 @@ class Killmail:
         self.victim_ship_name = VictimShipNameFetcher(unprocessed_killmail).fetchNameWithId()
         self.victim_names = VictimNameFetcher(unprocessed_killmail).getNames()
 
-        self.solar_system_name = SolarSystemNameFetcher(unprocessed_killmail).getNames()
+        self.solar_system_name = SolarSystemNameFetcherLocal(unprocessed_killmail).getNames()
 
         self.victim_char_name = self.victim_names["character"]
         self.victim_corp_name = self.victim_names["corporation"]
@@ -44,13 +45,13 @@ class Killmail:
 
         self.attacker_char_name = self.attacker_names["character"]
         self.attacker_corp_name = self.attacker_names["corporation"]
-        self.attacker_alliace_name = self.attacker_names["alliance"]
+        self.attacker_alliance_name = self.attacker_names["alliance"]
 
         # L O G G E R
         self.logger.info("KillID: {}".format(self.id))
         self.logger.info("Killmail time: {}".format(self.time))
         self.logger.info("Total Value: {}".format(self.total_value))
-        self.logger.info("Attacker Char: {}, Corp: {}, Alli: {}".format(self.attacker_char_name, self.attacker_corp_name, self.attacker_alliace_name))
+        self.logger.info("Attacker Char: {}, Corp: {}, Alli: {}".format(self.attacker_char_name, self.attacker_corp_name, self.attacker_alliance_name))
         self.logger.info("Attacker ships: {}".format(self.attacker_ship_names))
         self.logger.info("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
         self.logger.info("Victim Ship: {}".format(self.victim_ship_name))

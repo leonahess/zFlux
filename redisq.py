@@ -14,7 +14,7 @@ class RedisQ:
         but a better reliability."""
         while True:
             try:
-                r = requests.get('https://redisq.zkillboard.com/listen.php', timeout=20)
+                r = requests.get('https://redisq.zkillboard.com/listen.php', timeout=30)
             except (KeyboardInterrupt, SystemExit):
                 raise
             except requests.exceptions.Timeout as e:
