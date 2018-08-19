@@ -2,7 +2,7 @@
 .DS_Store
 zKill_scraper_tests.py
 /python/__pycache__
-.idea/
+*/.idea
 __pycache__
 */__pycache__
 zKill_scraper_*
