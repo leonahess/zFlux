@@ -8,7 +8,7 @@ Use script in legacy directory for a "working" version.
 #### Main Modules
 ```
 done ... main.py
-in progress ... killmail.py
+done ... killmail.py
 done ... name_fetcher.py
 done ... attacker_name_fetcher.py
 done ... solar_system_name_fetcher
@@ -16,9 +16,9 @@ done ... esi_call.py
 done ... redisq.py
 
 done ... victim_name_fetcher.py
-in progress ... ship_name_fetcher.py
-in progress ... attacker_ship_name_fetcher.py
-in progress ... victim_ship_name_fetcher.py
+done ... ship_name_fetcher.py
+done ... attacker_ship_name_fetcher.py
+done ... victim_ship_name_fetcher.py
 
 undone ... influx_pusher.py
 ```
@@ -26,9 +26,8 @@ undone ... influx_pusher.py
 #### Tests
 ```
 done ... solar_system_name_fetcher
-
-
 done ... victim_name_fetcher.py
+
 in progress ... ship_name_fetcher.py
 good enough ... attacker_name_fetcher.py
 in progress ... killmail.py

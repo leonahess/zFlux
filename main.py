@@ -13,7 +13,7 @@ def main():
     counter = 1
 
     # logger stuff
-    logging.basicConfig(filename='zKill_scraper_{}.log'.format(start), level=logging.DEBUG,
+    logging.basicConfig(filename='zKill_scraper_{}.log'.format(start), level=logging.INFO,
                         format='%(asctime)s %(name)s:%(levelname)s:%(message)s')
     logger = logging.getLogger(__name__)
 

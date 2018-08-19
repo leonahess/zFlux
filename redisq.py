@@ -21,7 +21,7 @@ class RedisQ:
                 self.logger.error("RedisQ Timeout: {}".format(e))
                 continue
             except:
-                self.logger.error("Whoopsie")
+                self.logger.error("RedisQ request failed")
                 continue
 
             try:
@@ -29,7 +29,7 @@ class RedisQ:
             except (KeyboardInterrupt, SystemExit):
                 raise
             except:
-                self.logger.error("Whoopsie 2")
+                self.logger.error("RedisQ Json decode failed")
                 continue
 
             if killmail["package"] is None:

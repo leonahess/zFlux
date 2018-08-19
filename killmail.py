@@ -48,8 +48,10 @@ class Killmail:
 
         # L O G G E R
         self.logger.info("KillID: {}".format(self.id))
-        self.logger.debug("Killmail time: {}".format(self.time))
-        self.logger.debug("Total Value".format(self.total_value))
-        self.logger.debug("Attacker Char: {}, Corp: {}, Alli: {}".format(self.attacker_char_name, self.attacker_corp_name, self.attacker_alliace_name))
-        self.logger.debug("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
-        self.logger.debug("Solar Name: {}".format(self.solar_system_name))
+        self.logger.info("Killmail time: {}".format(self.time))
+        self.logger.info("Total Value: {}".format(self.total_value))
+        self.logger.info("Attacker Char: {}, Corp: {}, Alli: {}".format(self.attacker_char_name, self.attacker_corp_name, self.attacker_alliace_name))
+        self.logger.info("Attacker ships: {}".format(self.attacker_ship_names))
+        self.logger.info("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
+        self.logger.info("Victim Ship: {}".format(self.victim_ship_name))
+        self.logger.info("Solar Name: {}".format(self.solar_system_name))

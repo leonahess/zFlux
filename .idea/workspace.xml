@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d24117b-9709-4e27-a3c2-8d716c8b81ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/attacker_ship_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/attacker_ship_name_fetcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/killmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/killmail.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ship_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/ship_name_fetcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/victim_ship_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/victim_ship_name_fetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redisq.py" beforeDir="false" afterPath="$PROJECT_DIR$/redisq.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +23,7 @@
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_victim_name_fetcher_tests_TestVictimNameFetcher_testNoMissingStuff.coverage" NAME="Unittests for victim_name_fetcher_tests.TestVictimNameFetcher.testNoMissingStuff Coverage Results" MODIFIED="1534667738934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_in_victim_name_fetcher_tests_py.coverage" NAME="Unittests in victim_name_fetcher_tests.py Coverage Results" MODIFIED="1532990189580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_attacker_name_fetcher_tests_TestAttackerNameFetcher_test_missingc_char_id.coverage" NAME="Unittests for attacker_name_fetcher_tests.TestAttackerNameFetcher.test_missingc_char_id Coverage Results" MODIFIED="1534665799837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/zKill_scraper$main.coverage" NAME="main Coverage Results" MODIFIED="1534672986954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/zKill_scraper$main.coverage" NAME="main Coverage Results" MODIFIED="1534674021367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_setup_Setup.coverage" NAME="Unittests for setup.Setup Coverage Results" MODIFIED="1534604881139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_in_solar_system_name_fetcher_tests_py.coverage" NAME="Unittests in solar_system_name_fetcher_tests.py Coverage Results" MODIFIED="1532990280227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/zKill_scraper$Unittests_for_solar_system_name_fetcher_tests_TestSolarSystemNameFetcher.coverage" NAME="Unittests for solar_system_name_fetcher_tests.TestSolarSystemNameFetcher Coverage Results" MODIFIED="1534607473418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -104,14 +102,14 @@
           <entry key="Python Console" value="170" />
           <entry key="gitignore" value="28" />
           <entry key="md" value="726" />
-          <entry key="py" value="18209" />
+          <entry key="py" value="18367" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="726" />
           <entry key="PLAIN_TEXT" value="28" />
-          <entry key="Python" value="18379" />
+          <entry key="Python" value="18537" />
         </counts>
       </usages-collector>
     </session>
@@ -143,12 +141,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/redisq.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="36" selection-start-line="36" selection-end-line="36" />
+                <state relative-caret-position="495">
+                  <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
-                    <marker date="1532996266611" expanded="true" signature="103:104" ph="..." />
-                    <marker date="1532996266611" expanded="true" signature="128:196" ph="..." />
+                    <element signature="e#224#482#1" expanded="true" />
+                    <marker date="1534673732144" expanded="true" signature="103:104" ph="..." />
+                    <marker date="1534673732144" expanded="true" signature="128:196" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -187,11 +186,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+                <state relative-caret-position="158">
+                  <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -212,11 +211,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/killmail.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="146">
-                  <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+                <state relative-caret-position="223">
+                  <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
                   <folding>
                     <element signature="e#0#14#0" expanded="true" />
                   </folding>
@@ -344,7 +343,6 @@
         <option value="$PROJECT_DIR$/tests/redisq_tests.py" />
         <option value="$PROJECT_DIR$/tests/main_tests.py" />
         <option value="$PROJECT_DIR$/tests/influx_pusher_tests.py" />
-        <option value="$PROJECT_DIR$/redisq.py" />
         <option value="$PROJECT_DIR$/esi_call.py" />
         <option value="$PROJECT_DIR$/tests/ship_name_fetcher.py" />
         <option value="$PROJECT_DIR$/tests/attacker_ship_name_fetcher_tests.py" />
@@ -366,9 +364,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/attacker_ship_name_fetcher.py" />
         <option value="$PROJECT_DIR$/victim_ship_name_fetcher.py" />
-        <option value="$PROJECT_DIR$/killmail.py" />
         <option value="$PROJECT_DIR$/ship_name_fetcher.py" />
+        <option value="$PROJECT_DIR$/redisq.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/killmail.py" />
       </list>
     </option>
   </component>
@@ -620,10 +619,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="943" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49710146" visible="true" weight="0.2774695" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49710146" visible="true" weight="0.15262516" />
       <window_info id="Structure" order="1" sideWeight="0.5028986" side_tool="true" weight="0.26737967" />
       <window_info id="Favorites" order="2" sideWeight="0.50102043" side_tool="true" weight="0.14529915" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1022,37 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19278">
-          <caret line="2132" lean-forward="true" selection-start-line="2132" selection-end-line="2132" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#629#1829#1" expanded="true" />
-            <element signature="e#1865#4382#0" />
-            <element signature="e#6932#9455#0" />
-            <element signature="e#9491#11938#0" />
-            <element signature="e#11974#14497#0" />
-            <element signature="e#14533#16983#0" />
-            <element signature="e#17019#19543#0" />
-            <element signature="e#19579#22035#0" />
-            <element signature="e#22071#24599#0" />
-            <element signature="e#24657#27106#0" />
-            <element signature="e#27142#29665#0" />
-            <element signature="e#29701#32150#0" />
-            <element signature="e#32186#34712#0" />
-            <element signature="e#34748#37200#0" />
-            <element signature="e#37236#39765#0" />
-            <element signature="e#39801#42256#0" />
-            <element signature="e#42292#44817#0" />
-            <element signature="e#44899#47975#0" />
-            <marker date="1534666977949" expanded="true" signature="506:507" ph="..." />
-            <marker date="1534666977949" expanded="true" signature="506:604" ph="..." />
-            <marker date="1534666977949" expanded="true" signature="599:604" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/attacker_ship_name_fetcher.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1070,16 +1038,6 @@
     <entry file="file://$PROJECT_DIR$/invTypes.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-436532" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/killmail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/victim_ship_name_fetcher.py">
@@ -1128,18 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/redisq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1532996266611" expanded="true" signature="103:104" ph="..." />
-            <marker date="1532996266611" expanded="true" signature="128:196" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/killmail_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6">
@@ -1151,12 +1097,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/redisq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="495">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#224#482#1" expanded="true" />
+            <marker date="1534673732144" expanded="true" signature="103:104" ph="..." />
+            <marker date="1534673732144" expanded="true" signature="128:196" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19278">
+          <caret line="2132" lean-forward="true" selection-start-line="2132" selection-end-line="2132" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#629#1829#1" expanded="true" />
+            <element signature="e#1865#4382#0" />
+            <element signature="e#6932#9455#0" />
+            <element signature="e#9491#11938#0" />
+            <element signature="e#11974#14497#0" />
+            <element signature="e#14533#16983#0" />
+            <element signature="e#17019#19543#0" />
+            <element signature="e#19579#22035#0" />
+            <element signature="e#22071#24599#0" />
+            <element signature="e#24657#27106#0" />
+            <element signature="e#27142#29665#0" />
+            <element signature="e#29701#32150#0" />
+            <element signature="e#32186#34712#0" />
+            <element signature="e#34748#37200#0" />
+            <element signature="e#37236#39765#0" />
+            <element signature="e#39801#42256#0" />
+            <element signature="e#42292#44817#0" />
+            <element signature="e#44899#47975#0" />
+            <marker date="1534666977949" expanded="true" signature="506:507" ph="..." />
+            <marker date="1534666977949" expanded="true" signature="506:604" ph="..." />
+            <marker date="1534666977949" expanded="true" signature="599:604" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/killmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
