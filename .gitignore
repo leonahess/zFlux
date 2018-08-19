@@ -6,3 +6,4 @@ zKill_scraper_tests.py
 __pycache__
 */__pycache__
 zKill_scraper_*
+/venv

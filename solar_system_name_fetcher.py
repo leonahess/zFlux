@@ -13,3 +13,9 @@ class SolarSystemNameFetcher(NameFetcher):
             solar_system_id.append(self.unprocessed_killmail["package"]["killmail"]["solar_system_id"])
 
         return solar_system_id
+
+    def extractNamesFromDict(self, names_dict):
+        if len(names_dict) is not 0 and "name" in names_dict[0]:
+            return names_dict[0]["name"]
+        else:
+            return ""

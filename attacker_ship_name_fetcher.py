@@ -1,7 +1,8 @@
 from ship_name_fetcher import ShipNameFetchter
+from name_fetcher_sorting_kind import NameFetcherSortingKind
 
 
-class AttackerShipNameFetcher(ShipNameFetchter):
+class AttackerShipNameFetcher(ShipNameFetchter, NameFetcherSortingKind):
 
     def __init__(self, unprocessed_killmail):
         ShipNameFetchter.__init__(self, unprocessed_killmail)
@@ -18,3 +19,6 @@ class AttackerShipNameFetcher(ShipNameFetchter):
         self.logger.debug("attacker_ship_list: {}".format(attacker_ship_list))
 
         return attacker_ship_list
+
+    def extractNamesFromDict(self, names_dict):
+        pass

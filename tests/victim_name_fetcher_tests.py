@@ -1,59 +1,76 @@
-import unittest
-
 from victim_name_fetcher import VictimNameFetcher
-from tests import setup
+from tests.setup import Setup
 
 
-class TestVictimNameFetcher(unittest.TestCase, setup.Setup):
+class TestVictimNameFetcher(Setup):
 
     def setUp(self):
-        """
-        uk1 = {"package":{"killID":71443648,"killmail":{"attackers":[{"alliance_id":1354830081,"character_id":992181402,"corporation_id":1324429368,"damage_done":4110,"final_blow":True,"security_status":-7.8,"ship_type_id":605,"weapon_type_id":2456}],"killmail_id":71443648,"killmail_time":"2018-07-24T17:56:14Z","solar_system_id":30003681,"victim":{"alliance_id":99007362,"character_id":2114300996,"corporation_id":98531953,"damage_taken":4110,"items":[{"flag":30,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":13,"item_type_id":8263,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":31,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":20,"item_type_id":380,"quantity_dropped":1,"singleton":0},{"flag":93,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":32,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":11,"item_type_id":35770,"quantity_dropped":1,"singleton":0},{"flag":28,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":31,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":27,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":21,"item_type_id":380,"quantity_destroyed":1,"singleton":0},{"flag":32,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":28,"item_type_id":8089,"quantity_destroyed":1,"singleton":0},{"flag":27,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":5,"item_type_id":27381,"quantity_dropped":720,"singleton":0},{"flag":30,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":12,"item_type_id":22291,"quantity_destroyed":1,"singleton":0},{"flag":19,"item_type_id":5971,"quantity_dropped":1,"singleton":0},{"flag":94,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":92,"item_type_id":31608,"quantity_destroyed":1,"singleton":0}],"position":{"x":-456877791246.22,"y":-83876045685.746,"z":458094309170.23},"ship_type_id":32878}},"zkb":{"locationID":50006982,"hash":"9ab505bacad3122d8648e2c4aa9a3c80ad67eedc","fittedValue":2543013.41,"totalValue":7521431.46,"points":1,"npc":False,"solo":True,"awox":False,"href":"https://esi.evetech.net/v1/killmails/71443648/9ab505bacad3122d8648e2c4aa9a3c80ad67eedc/"}}}
-        uk2 = {"package":{"killID":71443648,"killmail":{"attackers":[{"alliance_id":1354830081,"corporation_id":1324429368,"damage_done":4110,"final_blow":True,"security_status":-7.8,"ship_type_id":605,"weapon_type_id":2456}],"killmail_id":71443648,"killmail_time":"2018-07-24T17:56:14Z","solar_system_id":30003681,"victim":{"alliance_id":99007362,"corporation_id":98531953,"damage_taken":4110,"items":[{"flag":30,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":13,"item_type_id":8263,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":31,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":20,"item_type_id":380,"quantity_dropped":1,"singleton":0},{"flag":93,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":32,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":11,"item_type_id":35770,"quantity_dropped":1,"singleton":0},{"flag":28,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":31,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":27,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":21,"item_type_id":380,"quantity_destroyed":1,"singleton":0},{"flag":32,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":28,"item_type_id":8089,"quantity_destroyed":1,"singleton":0},{"flag":27,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":5,"item_type_id":27381,"quantity_dropped":720,"singleton":0},{"flag":30,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":12,"item_type_id":22291,"quantity_destroyed":1,"singleton":0},{"flag":19,"item_type_id":5971,"quantity_dropped":1,"singleton":0},{"flag":94,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":92,"item_type_id":31608,"quantity_destroyed":1,"singleton":0}],"position":{"x":-456877791246.22,"y":-83876045685.746,"z":458094309170.23},"ship_type_id":32878}},"zkb":{"locationID":50006982,"hash":"9ab505bacad3122d8648e2c4aa9a3c80ad67eedc","fittedValue":2543013.41,"totalValue":7521431.46,"points":1,"npc":False,"solo":True,"awox":False,"href":"https://esi.evetech.net/v1/killmails/71443648/9ab505bacad3122d8648e2c4aa9a3c80ad67eedc/"}}}
-        uk3 = {"package":{"killID":71443648,"killmail":{"attackers":[{"alliance_id":1354830081,"character_id":992181402,"damage_done":4110,"final_blow":True,"security_status":-7.8,"ship_type_id":605,"weapon_type_id":2456}],"killmail_id":71443648,"killmail_time":"2018-07-24T17:56:14Z","solar_system_id":30003681,"victim":{"alliance_id":99007362,"character_id":2114300996,"damage_taken":4110,"items":[{"flag":30,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":13,"item_type_id":8263,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":31,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":20,"item_type_id":380,"quantity_dropped":1,"singleton":0},{"flag":93,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":32,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":11,"item_type_id":35770,"quantity_dropped":1,"singleton":0},{"flag":28,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":31,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":27,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":21,"item_type_id":380,"quantity_destroyed":1,"singleton":0},{"flag":32,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":28,"item_type_id":8089,"quantity_destroyed":1,"singleton":0},{"flag":27,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":5,"item_type_id":27381,"quantity_dropped":720,"singleton":0},{"flag":30,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":12,"item_type_id":22291,"quantity_destroyed":1,"singleton":0},{"flag":19,"item_type_id":5971,"quantity_dropped":1,"singleton":0},{"flag":94,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":92,"item_type_id":31608,"quantity_destroyed":1,"singleton":0}],"position":{"x":-456877791246.22,"y":-83876045685.746,"z":458094309170.23},"ship_type_id":32878}},"zkb":{"locationID":50006982,"hash":"9ab505bacad3122d8648e2c4aa9a3c80ad67eedc","fittedValue":2543013.41,"totalValue":7521431.46,"points":1,"npc":False,"solo":True,"awox":False,"href":"https://esi.evetech.net/v1/killmails/71443648/9ab505bacad3122d8648e2c4aa9a3c80ad67eedc/"}}}
-        uk4 = {"package":{"killID":71443648,"killmail":{"attackers":[{"character_id":992181402,"corporation_id":1324429368,"damage_done":4110,"final_blow":True,"security_status":-7.8,"ship_type_id":605,"weapon_type_id":2456}],"killmail_id":71443648,"killmail_time":"2018-07-24T17:56:14Z","solar_system_id":30003681,"victim":{"character_id":2114300996,"corporation_id":98531953,"damage_taken":4110,"items":[{"flag":30,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":13,"item_type_id":8263,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":31,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":20,"item_type_id":380,"quantity_dropped":1,"singleton":0},{"flag":93,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":32,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":11,"item_type_id":35770,"quantity_dropped":1,"singleton":0},{"flag":28,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":31,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":27,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":21,"item_type_id":380,"quantity_destroyed":1,"singleton":0},{"flag":32,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":28,"item_type_id":8089,"quantity_destroyed":1,"singleton":0},{"flag":27,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":5,"item_type_id":27381,"quantity_dropped":720,"singleton":0},{"flag":30,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":12,"item_type_id":22291,"quantity_destroyed":1,"singleton":0},{"flag":19,"item_type_id":5971,"quantity_dropped":1,"singleton":0},{"flag":94,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":92,"item_type_id":31608,"quantity_destroyed":1,"singleton":0}],"position":{"x":-456877791246.22,"y":-83876045685.746,"z":458094309170.23},"ship_type_id":32878}},"zkb":{"locationID":50006982,"hash":"9ab505bacad3122d8648e2c4aa9a3c80ad67eedc","fittedValue":2543013.41,"totalValue":7521431.46,"points":1,"npc":False,"solo":True,"awox":False,"href":"https://esi.evetech.net/v1/killmails/71443648/9ab505bacad3122d8648e2c4aa9a3c80ad67eedc/"}}}
-        uk5 = {"package":{"killID":71443648,"killmail":{"attackers":[{"damage_done":4110,"final_blow":True,"security_status":-7.8,"ship_type_id":605,"weapon_type_id":2456}],"killmail_id":71443648,"killmail_time":"2018-07-24T17:56:14Z","solar_system_id":30003681,"victim":{"damage_taken":4110,"items":[{"flag":30,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":13,"item_type_id":8263,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":31,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":20,"item_type_id":380,"quantity_dropped":1,"singleton":0},{"flag":93,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":29,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":32,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":11,"item_type_id":35770,"quantity_dropped":1,"singleton":0},{"flag":28,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":31,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":33,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":27,"item_type_id":8089,"quantity_dropped":1,"singleton":0},{"flag":21,"item_type_id":380,"quantity_destroyed":1,"singleton":0},{"flag":32,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":28,"item_type_id":8089,"quantity_destroyed":1,"singleton":0},{"flag":27,"item_type_id":27381,"quantity_dropped":34,"singleton":0},{"flag":5,"item_type_id":27381,"quantity_dropped":720,"singleton":0},{"flag":30,"item_type_id":27381,"quantity_destroyed":34,"singleton":0},{"flag":12,"item_type_id":22291,"quantity_destroyed":1,"singleton":0},{"flag":19,"item_type_id":5971,"quantity_dropped":1,"singleton":0},{"flag":94,"item_type_id":31153,"quantity_destroyed":1,"singleton":0},{"flag":92,"item_type_id":31608,"quantity_destroyed":1,"singleton":0}],"position":{"x":-456877791246.22,"y":-83876045685.746,"z":458094309170.23},"ship_type_id":32878}},"zkb":{"locationID":50006982,"hash":"9ab505bacad3122d8648e2c4aa9a3c80ad67eedc","fittedValue":2543013.41,"totalValue":7521431.46,"points":1,"npc":False,"solo":True,"awox":False,"href":"https://esi.evetech.net/v1/killmails/71443648/9ab505bacad3122d8648e2c4aa9a3c80ad67eedc/"}}}
-        """
+        super().setUp()
+        self.k00 = VictimNameFetcher(self.uk10)
 
-        setup.Setup.setUp(setup.Setup())
-
-        self.f1 = VictimNameFetcher(self.uk1)
-        self.f2 = VictimNameFetcher(self.uk2)
-        self.f3 = VictimNameFetcher(self.uk3)
-        self.f4 = VictimNameFetcher(self.uk4)
-        self.f5 = VictimNameFetcher(self.uk5)
-        self.f6 = VictimNameFetcher(self.uk5)
+        self.k20 = VictimNameFetcher(self.uk20)
+        self.k21 = VictimNameFetcher(self.uk21)
+        self.k22 = VictimNameFetcher(self.uk22)
+        self.k23 = VictimNameFetcher(self.uk23)
+        self.k24 = VictimNameFetcher(self.uk24)
+        self.k25 = VictimNameFetcher(self.uk25)
+        self.k26 = VictimNameFetcher(self.uk26)
+        self.k27 = VictimNameFetcher(self.uk27)
+        self.k28 = VictimNameFetcher(self.uk28)
 
     def testEmpty(self):
-        self.assertEqual(self.f5.fetchNameWithId(), [], "The returned List is not empty")
+        self.assertEqual(self.k28.getNames(), {"character": "", "corporation": "", "alliance": ""}, "Wrong Dict")
+        self.assertEqual(self.k28.extractNamesFromDict(self.k28.fetchNameWithId()), {"character": "", "corporation": "", "alliance": ""}, "Wrong Dict")
+        self.assertEqual(self.k28.fetchNameWithId(), [], "List should be empty")
+        self.assertEqual(self.k28.generateIdList(), [], "List should be empty")
 
     def testMissingCharId(self):
-        self.assertEqual(self.f2.fetchNameWithId(), [{"category": "corporation", "id": 98531953,
-                                                      "name": "Rainbow Pegasus Squadron"},
-                                                     {"category": "alliance", "id": 99007362,
-                                                      "name": "Ranger Regiment"}],
-                         "The returned list is wrong")
+        self.assertEqual(self.k20.getNames(),
+                         {"character": "", "corporation": ";Rainbow Pegasus Squadron;",
+                          "alliance": ";Ranger Regiment;"}, "Wrong Dict")
+        self.assertEqual(self.k20.extractNamesFromDict(self.k20.fetchNameWithId()),
+                         {"character": "", "corporation": ";Rainbow Pegasus Squadron;",
+                          "alliance": ";Ranger Regiment;"}, "Wrong Dict")
+        self.assertEqual(self.k20.fetchNameWithId(),
+                         [{"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}], "List should be empty")
+        self.assertEqual(self.k20.generateIdList(), [98531953, 99007362], "List should be empty")
 
     def testMissingCorpId(self):
-        self.assertEqual(self.f3.fetchNameWithId(), [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
-                                                     {"category": "alliance", "id": 99007362,
-                                                      "name": "Ranger Regiment"}],
-                         "The returned list is wrong")
+        self.assertEqual(self.k22.getNames(),
+                         {"character": ";Assassin Jx;", "corporation": "",
+                          "alliance": ";Ranger Regiment;"}, "Wrong Dict")
+        self.assertEqual(self.k22.extractNamesFromDict(self.k22.fetchNameWithId()),
+                         {"character": ";Assassin Jx;", "corporation": "",
+                          "alliance": ";Ranger Regiment;"}, "Wrong Dict")
+        self.assertEqual(self.k22.fetchNameWithId(),
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}], "List should be empty")
+        self.assertEqual(self.k22.generateIdList(), [2114300996, 99007362], "List should be empty")
 
     def testMissingAllianceId(self):
-        self.assertEqual(self.f4.fetchNameWithId(), [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
-                                                     {"category": "corporation", "id": 98531953,
-                                                      "name": "Rainbow Pegasus Squadron"}],
-                         "The returned list is wrong")
+        self.assertEqual(self.k24.getNames(),
+                         {"character": ";Assassin Jx;", "corporation": ";Rainbow Pegasus Squadron;",
+                          "alliance": ""}, "Wrong Dict")
+        self.assertEqual(self.k24.extractNamesFromDict(self.k24.fetchNameWithId()),
+                         {"character": ";Assassin Jx;", "corporation": ";Rainbow Pegasus Squadron;",
+                          "alliance": ""}, "Wrong Dict")
+        self.assertEqual(self.k24.fetchNameWithId(),
+                         [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"}], "List should be empty")
+        self.assertEqual(self.k24.generateIdList(), [2114300996, 98531953], "List should be empty")
 
     def testNoMissingStuff(self):
-        self.assertEqual(self.f1.fetchNameWithId(), [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
-                                                     {"category": "corporation", "id": 98531953,
-                                                      "name": "Rainbow Pegasus Squadron"},
-                                                     {"category": "alliance", "id": 99007362,
-                                                      "name": "Ranger Regiment"}],
-                         "The returned list is wrong")
-
-    # Not Implemented
-    def testMultipleAttackersNoMissingStuff(self):
-        pass
+        self.assertEqual(self.k00.getNames(), {"character": ";Assassin Jx;", "corporation": ";Rainbow Pegasus Squadron;", "alliance": ";Ranger Regiment;"}, "Wrong Dict")
+        self.assertEqual(self.k00.extractNamesFromDict(self.k00.fetchNameWithId()),
+                         {"character": ";Assassin Jx;", "corporation": ";Rainbow Pegasus Squadron;", "alliance": ";Ranger Regiment;"}, "Wrong Dict")
+        self.assertEqual(self.k00.fetchNameWithId(), [{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
+                          {"category": "corporation", "id": 98531953,
+                           "name": "Rainbow Pegasus Squadron"},
+                          {"category": "alliance", "id": 99007362,
+                           "name": "Ranger Regiment"}], "List should be empty")
+        self.assertEqual(self.k00.generateIdList(), [2114300996, 98531953, 99007362], "List should be empty")

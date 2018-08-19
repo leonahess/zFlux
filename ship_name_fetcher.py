@@ -34,3 +34,7 @@ class ShipNameFetchter(NameFetcher):
     @abstractmethod
     def generateIdList(self):
         pass
+
+    @abstractmethod
+    def extractNamesFromDict(self, names_dict):
+        pass

@@ -3,10 +3,49 @@ Pulls every kill zKill gets and puts them into a InfluxDB
 
 Use script in legacy directory for a "working" version.
 
+## Rewrite Progress
+
+#### Main Modules
+```
+done ... main.py
+in progress ... killmail.py
+done ... name_fetcher.py
+done ... attacker_name_fetcher.py
+done ... solar_system_name_fetcher
+done ... esi_call.py
+done ... redisq.py
+
+done ... victim_name_fetcher.py
+in progress ... ship_name_fetcher.py
+in progress ... attacker_ship_name_fetcher.py
+in progress ... victim_ship_name_fetcher.py
+
+undone ... influx_pusher.py
+```
+
+#### Tests
+```
+done ... solar_system_name_fetcher
+
+
+done ... victim_name_fetcher.py
+in progress ... ship_name_fetcher.py
+good enough ... attacker_name_fetcher.py
+in progress ... killmail.py
+
+undone ... main_tests.py
+undone ... esi_call_tests.py
+undone ... redisq_tests.py
+undone ... attacker_ship_name_fetcher_tests.py
+undone ... victim_ship_name_fetcher_tests.py
+undone ... influx_pusher_tests.py
+undone ... name_fetcher.py
+
+```
 ## Requirements
 
 #### Python3
-Only tested on python3.
+Only tested on python 3.7.
 ##### required modules:
 ```
 influxdb

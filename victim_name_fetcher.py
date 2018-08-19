@@ -19,3 +19,5 @@ class VictimNameFetcher(NameFetcher):
             victim_ids.append(self.unprocessed_killmail['package']['killmail']['victim']['alliance_id'])
 
         return victim_ids
+
+
