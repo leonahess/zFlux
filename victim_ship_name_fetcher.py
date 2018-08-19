@@ -13,6 +13,3 @@ class VictimShipNameFetcher(ShipNameFetchter):
             victim_ship_list.append(self.unprocessed_killmail["package"]["killmail"]["victim"]["ship_type_id"])
 
         return victim_ship_list
-
-    def extractNamesFromDict(self, names_dict):
-        pass

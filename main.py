@@ -1,5 +1,6 @@
 import datetime
 import logging
+import sys
 
 from redisq import RedisQ
 from killmail import Killmail
@@ -32,9 +33,12 @@ def main():
 
         counter = counter + 1
 
+        sys.stdout.write("\rCounter: {} Processing Time: {} Avg Processing Time: {}s".format(counter, processing_time, round(avg_processing_time, 3)))
+        sys.stdout.flush()
+
         logger.info("Counter: {}".format(counter))
         logger.info("Processing Time: {}".format(processing_time))
-        logger.info("Avg Processing Time: {}".format(avg_processing_time))
+        logger.info("Avg Processing Time: {}".format(round(avg_processing_time,3)))
 
 
 if __name__ == "__main__":

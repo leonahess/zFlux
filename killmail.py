@@ -32,9 +32,9 @@ class Killmail:
 
         # N A M E S
         self.attacker_ship_names = AttackerShipNameFetcher(unprocessed_killmail).fetchNameWithId()
-        self.attacker_names = AttackerNameFetcher(unprocessed_killmail).fetchNameWithId()
+        self.attacker_names = AttackerNameFetcher(unprocessed_killmail).getNames()
         self.victim_ship_name = VictimShipNameFetcher(unprocessed_killmail).fetchNameWithId()
-        self.victim_names = VictimNameFetcher(unprocessed_killmail).fetchNameWithId()
+        self.victim_names = VictimNameFetcher(unprocessed_killmail).getNames()
 
         self.solar_system_name = SolarSystemNameFetcher(unprocessed_killmail).getNames()
 
@@ -50,6 +50,6 @@ class Killmail:
         self.logger.info("KillID: {}".format(self.id))
         self.logger.debug("Killmail time: {}".format(self.time))
         self.logger.debug("Total Value".format(self.total_value))
-        self.logger.debug("Attacker Char: {}, Corp: {}, Alli: {}".format(self.attacker_char_name, self.attacker_corp_name, self.attacker_alliace_name)
+        self.logger.debug("Attacker Char: {}, Corp: {}, Alli: {}".format(self.attacker_char_name, self.attacker_corp_name, self.attacker_alliace_name))
         self.logger.debug("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
         self.logger.debug("Solar Name: {}".format(self.solar_system_name))

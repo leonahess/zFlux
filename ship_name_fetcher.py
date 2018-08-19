@@ -11,9 +11,9 @@ class ShipNameFetchter(NameFetcher):
 
     def fetchNameWithId(self):
         ship_name_str = ""
-        ship_list = []
+        ship_list = self.generateIdList()
 
-        ship_name_list = self.generateIdList()
+        ship_name_list = []
 
         filepath = os.path.dirname(__file__) + "/invTypes.csv"
         with open(filepath, newline='') as f:
@@ -27,14 +27,10 @@ class ShipNameFetchter(NameFetcher):
         for k in range(0, len(ship_name_list)):
             ship_name_str = ship_name_str + ';' + str(ship_name_list[k])
         ship_name_str = ship_name_str + ';'
-        self.logger.debug("attacker_ships: {}".format(ship_name_str))
+        self.logger.debug("ship_name_str: {}".format(ship_name_str))
 
         return ship_name_str
 
     @abstractmethod
     def generateIdList(self):
-        pass
-
-    @abstractmethod
-    def extractNamesFromDict(self, names_dict):
         pass

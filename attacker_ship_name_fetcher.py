@@ -19,6 +19,3 @@ class AttackerShipNameFetcher(ShipNameFetchter, NameFetcherSortingKind):
         self.logger.debug("attacker_ship_list: {}".format(attacker_ship_list))
 
         return attacker_ship_list
-
-    def extractNamesFromDict(self, names_dict):
-        pass
