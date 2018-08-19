@@ -1,46 +1,11 @@
-# zKill_scraper (currently undergoing a rewrite)
+# zKill_scraper
 Pulls every kill zKill gets and puts them into a InfluxDB
 
-Use script in legacy directory for a "working" version.
-
-## Rewrite Progress
-
-#### Main Modules
+Usage:
 ```
-done ... main.py
-done ... killmail.py
-done ... name_fetcher.py
-done ... attacker_name_fetcher.py
-done ... solar_system_name_fetcher
-done ... esi_call.py
-done ... redisq.py
-
-done ... victim_name_fetcher.py
-done ... ship_name_fetcher.py
-done ... attacker_ship_name_fetcher.py
-done ... victim_ship_name_fetcher.py
-
-undone ... influx_pusher.py
+python3 main.py
 ```
 
-#### Tests
-```
-done ... solar_system_name_fetcher
-done ... victim_name_fetcher.py
-
-in progress ... ship_name_fetcher.py
-good enough ... attacker_name_fetcher.py
-in progress ... killmail.py
-
-undone ... main_tests.py
-undone ... esi_call_tests.py
-undone ... redisq_tests.py
-undone ... attacker_ship_name_fetcher_tests.py
-undone ... victim_ship_name_fetcher_tests.py
-undone ... influx_pusher_tests.py
-undone ... name_fetcher.py
-
-```
 ## Requirements
 
 #### Python3
@@ -59,7 +24,7 @@ You also will want to disable the series limit in the config.
 
 ## Set logging level
 
-To not get too big logfiles you may set the logging level higher. Current Level is DEBUG
+To not get too big logfiles you may set the logging level higher in main.py. Current Level is INFO.
 Other available logging levels:
   ```
   INFO

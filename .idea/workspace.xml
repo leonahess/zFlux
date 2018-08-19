@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d24117b-9709-4e27-a3c2-8d716c8b81ec" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/mapSolarSystems.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solar_system_name_fetcher_local.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attacker_ship_name_fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/attacker_ship_name_fetcher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/influx_pusher.py" beforeDir="false" afterPath="$PROJECT_DIR$/influx_pusher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invTypes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/invTypes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/killmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/killmail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/name_fetcher_sorting_kind.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redisq.py" beforeDir="false" afterPath="$PROJECT_DIR$/redisq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +81,7 @@
           <entry key="csv" value="2" />
           <entry key="gitignore" value="2" />
           <entry key="log" value="2" />
-          <entry key="md" value="6" />
+          <entry key="md" value="7" />
           <entry key="pstat" value="5" />
           <entry key="py" value="139" />
         </counts>
@@ -99,7 +90,7 @@
         <counts>
           <entry key="CSV" value="2" />
           <entry key="Ini" value="1" />
-          <entry key="Markdown" value="6" />
+          <entry key="Markdown" value="7" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Profiler Session" value="5" />
           <entry key="Python" value="139" />
@@ -109,13 +100,13 @@
         <counts>
           <entry key="Python Console" value="170" />
           <entry key="gitignore" value="28" />
-          <entry key="md" value="743" />
+          <entry key="md" value="816" />
           <entry key="py" value="18997" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="743" />
+          <entry key="Markdown" value="816" />
           <entry key="PLAIN_TEXT" value="28" />
           <entry key="Python" value="19167" />
         </counts>
@@ -126,13 +117,13 @@
     <favorites_list name="zKill_scraper" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
+    <splitter split-orientation="vertical" split-proportion="0.5102041">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/victim_ship_name_fetcher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
+                <state relative-caret-position="29">
                   <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
                   <folding>
                     <marker date="1534669158646" expanded="true" signature="95:101" ph="..." />
@@ -153,10 +144,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/influx_pusher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="183">
+                <state relative-caret-position="474">
                   <caret line="48" selection-start-line="48" selection-end-line="48" />
                 </state>
               </provider>
@@ -199,10 +190,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="155">
+                <state relative-caret-position="585">
                   <caret line="42" column="119" lean-forward="true" selection-start-line="42" selection-start-column="119" selection-end-line="42" selection-end-column="119" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
@@ -269,6 +260,18 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="390">
+                    <caret line="26" column="98" selection-start-line="26" selection-start-column="98" selection-end-line="26" selection-end-column="98" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-second>
     </splitter>
@@ -330,13 +333,13 @@
         <option value="$PROJECT_DIR$/tests/victim_name_fetcher_tests.py" />
         <option value="$PROJECT_DIR$/victim_ship_name_fetcher.py" />
         <option value="$PROJECT_DIR$/ship_name_fetcher.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/attacker_ship_name_fetcher.py" />
         <option value="$PROJECT_DIR$/influx_pusher.py" />
         <option value="$PROJECT_DIR$/redisq.py" />
         <option value="$PROJECT_DIR$/killmail.py" />
         <option value="$PROJECT_DIR$/solar_system_name_fetcher_local.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -594,12 +597,12 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49710146" visible="true" weight="0.15262516" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49710146" visible="true" weight="0.15262516" />
       <window_info id="Structure" order="1" sideWeight="0.5028986" side_tool="true" weight="0.26737967" />
       <window_info id="Favorites" order="2" sideWeight="0.50102043" side_tool="true" weight="0.14529915" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32959184" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -962,17 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="185">
-            <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/name_fetcher_sorting_kind.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1002,13 +994,6 @@
           <folding>
             <marker date="1534674953943" expanded="true" signature="97:103" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/influx_pusher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
@@ -1106,9 +1091,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/victim_ship_name_fetcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1534669158646" expanded="true" signature="95:101" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="585">
           <caret line="42" column="119" lean-forward="true" selection-start-line="42" selection-start-column="119" selection-end-line="42" selection-end-column="119" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -1116,13 +1111,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/victim_ship_name_fetcher.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="390">
+            <caret line="26" column="98" selection-start-line="26" selection-start-column="98" selection-end-line="26" selection-end-column="98" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/influx_pusher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <marker date="1534669158646" expanded="true" signature="95:101" ph="..." />
-          </folding>
+        <state relative-caret-position="474">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
