@@ -41,7 +41,7 @@ def main():
         counter = counter + 1
 
         sys.stdout.write("\r{} Killmails processed with an avg processesing time of {}s per Killmail of the last 100. "
-                         "Last Killmail took {}".format(counter, round(avg_processing_time, 3), processing_time))
+                         "Last Killmail took {} at {}".format(counter, round(avg_processing_time, 3), processing_time, killmail.time))
         sys.stdout.flush()
 
         logger.info("Counter: {}".format(counter))

@@ -18,27 +18,3 @@ class AttackerNameFetcher(NameFetcher):
                 attacker_ids.append(entry['alliance_id'])
 
         return attacker_ids
-"""
-    def extractNamesFromDict(self, names_dict):
-        char_str = ";"
-        corp_str = ";"
-        alliance_str = ";"
-
-        for entry in names_dict:
-            if "name" in entry and "character" in entry["category"]:
-                char_str = char_str + entry["name"] + ";"
-            if "name" in entry and "corporation" in entry["category"]:
-                corp_str = corp_str + entry["name"] + ";"
-            if "name" in entry and "alliance" in entry["category"]:
-                alliance_str = alliance_str + entry["name"] + ";"
-
-        if char_str == ";":
-            char_str = ""
-        if corp_str == ";":
-            corp_str = ""
-        if alliance_str == ";":
-            alliance_str = ""
-
-        names = {"character": char_str, "corporation": corp_str, "alliance": alliance_str}
-
-        return names"""
