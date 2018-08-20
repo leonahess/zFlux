@@ -6,9 +6,6 @@ Usage:
 python3 main.py
 ```
 
-## Class Diagram
-![Class Diagramm](UML.png)
-
 ## Requirements
 
 #### Python3
