@@ -67,7 +67,7 @@ class PerformanceAnalysis:
     def printStatus(self):
         """prints updating status line to the console"""
         sys.stdout.write("\r{} Killmails processed with an avg processesing time of {}s/{}s. "
-                         "Latest: {}s at {}. Shortest: {}s Longest: {}s".format
+                         "Latest: {}s at {}s. Shortest: {}s Longest: {}s".format
                          (self.counter, self.avg_last100_cycle, self.avg_last1000_cycle, self.cur_cycle, datetime.datetime.now(),
                           self.shortest_cycle, self.longest_cycle))
         sys.stdout.flush()
