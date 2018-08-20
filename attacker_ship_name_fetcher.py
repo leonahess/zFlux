@@ -20,6 +20,8 @@ class AttackerShipNameFetcher(ShipNameFetchter):
         return attacker_ship_list
 
     def getNames(self):
-        names = self.fetchNameWithId()
-        attacker_ship_names_dict = {"category": "attacker_ship", "name": names}
-        return attacker_ship_names_dict
+        names_dict = self.fetchNameWithId()
+        names = self.extractNamesFromDict(names_dict)
+
+        names_dict2 = {"category": "attacker_ship", "name": names}
+        return names_dict2

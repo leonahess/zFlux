@@ -35,6 +35,8 @@ class SolarSystemNameFetcherLocal(NameFetcher):
         return system_name
 
     def getNames(self):
-        names = self.fetchNameWithId()
-        solar_system_name_dict = {"category": "solar_name", "name": names}
-        return solar_system_name_dict
+        names_dict = self.fetchNameWithId()
+        names = self.extractNamesFromDict(names_dict)
+
+        names_dict2 = {"category": "solar_name", "name": names}
+        return names_dict2
