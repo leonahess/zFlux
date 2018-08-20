@@ -16,9 +16,6 @@ class SolarSystemNameFetcherLocal(NameFetcher):
 
         return solar_system_id
 
-    def extractNamesFromDict(self, names_dict):
-        return names_dict
-
     def fetchNameWithId(self):
         system_id = self.generateIdList()
 
@@ -30,6 +27,7 @@ class SolarSystemNameFetcherLocal(NameFetcher):
             for row in inv_types:
                 if row[2] == str(system_id):
                     system_name = row[3]
+                    region_id = row[0]
 
         self.logger.debug("Solar name list: {}".format(system_name))
         self.logger.debug("solar_name_str: {}".format(system_name))

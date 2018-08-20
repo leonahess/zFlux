@@ -1,15 +1,6 @@
 import unittest
 
 from killmail import Killmail
-from name_fetcher import NameFetcher
-from attacker_name_fetcher import AttackerNameFetcher
-from attacker_ship_name_fetcher import AttackerShipNameFetcher
-from victim_name_fetcher import VictimNameFetcher
-from victim_ship_name_fetcher import VictimShipNameFetcher
-from redisq import RedisQ
-from esi_call import EsiCall
-from solar_system_name_fetcher import SolarSystemNameFetcher
-from ship_name_fetcher import ShipNameFetchter
 
 
 class Setup(unittest.TestCase):
