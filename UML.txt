@@ -31,6 +31,9 @@ class Killmail {
   __init__(unprocessed_killmail)
 }
 
+class Logger
+class PerformanceAnalysis
+
 class InfluxPusher{
     logger: Logger
     __init__():void
@@ -106,9 +109,11 @@ ShipNameFetcher <|-down- VictimShipNameFetcher
 
 NameFetcher -left- "1" EsiCall
 
-Controller *-up- "*" RedisQ
+Controller *-up- "1" Logger
+Controller *-up- "1" PerformanceAnalysis
+Controller *-down- "*" RedisQ
 Controller *-right- "*" Killmail
-Controller *-left- "*" InfluxPusher
+Controller *-left- "1" InfluxPusher
 Killmail *-down- "*" NameFetcher
 
 @enduml
