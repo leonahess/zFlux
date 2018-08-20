@@ -45,15 +45,15 @@ Other available logging levels:
 
 ## Available Data Points
 
-#### Tags
+### eve
 
-###### General Information
+````
+measurement = kills
+````
+
+##### tags
 ```
 solar_system_name
-```
-
-###### Attacker Information
-```
 attacker_char_name
 attacker_corp_name
 attacker_alliance_name
@@ -61,22 +61,34 @@ attacker_is_npc
 attacker_is_solo
 attacker_is_awox
 attacker_ship_name
-```
-
-###### Victim Information
-```
 victim_char_name
 victim_corp_name
 victim_alliance_name
 victim_ship_name
 ```
-#### Fields
+##### fields
 
 ```
 #kills
 totalValue
 victim_damage_taken
 ```
+
+### performance
+
+```` 
+measurement = performance
+````
+
+##### tags
+````
+
+````
+##### fields
+````
+#cycle
+
+````
 
 ## Class Diagram
 ![Class Diagramm](ressources/UML.png)
