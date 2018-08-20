@@ -18,3 +18,10 @@ class AttackerNameFetcher(NameFetcher):
                 attacker_ids.append(entry['alliance_id'])
 
         return attacker_ids
+
+    def getNames(self):
+        names_dict = self.fetchNameWithId()
+        names = self.extractNamesFromDict(names_dict)
+
+        names_dict2 = {"category": "attacker_name", "name": names}
+        return names_dict2

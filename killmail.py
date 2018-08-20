@@ -1,10 +1,12 @@
 import logging
+from queue import Queue
+from threading import Thread
 from victim_name_fetcher import VictimNameFetcher
 from attacker_name_fetcher import AttackerNameFetcher
-from solar_system_name_fetcher import SolarSystemNameFetcher
 from victim_ship_name_fetcher import VictimShipNameFetcher
 from attacker_ship_name_fetcher import AttackerShipNameFetcher
 from solar_system_name_fetcher_local import SolarSystemNameFetcherLocal
+
 
 
 class Killmail:
@@ -31,13 +33,49 @@ class Killmail:
         # V I C T I M
         self.victim_damage_taken = unprocessed_killmail['package']['killmail']['victim']['damage_taken']
 
-        # N A M E S
-        self.attacker_ship_names = AttackerShipNameFetcher(unprocessed_killmail).fetchNameWithId()
-        self.attacker_names = AttackerNameFetcher(unprocessed_killmail).getNames()
-        self.victim_ship_name = VictimShipNameFetcher(unprocessed_killmail).fetchNameWithId()
-        self.victim_names = VictimNameFetcher(unprocessed_killmail).getNames()
+        # T H R E A D S
+        my_threads = []
+        que = Queue()
 
-        self.solar_system_name = SolarSystemNameFetcherLocal(unprocessed_killmail).getNames()
+        thread1 = Thread(name="attacker_ships", target=lambda q, arg1: q.put(AttackerShipNameFetcher(unprocessed_killmail).getNames()), args=(que, "this"))
+        thread2 = Thread(name="attacker_names", target=lambda q, arg1: q.put(AttackerNameFetcher(unprocessed_killmail).getNames()), args=(que, "is"))
+        thread3 = Thread(name="victim_ship", target=lambda q, arg1: q.put(VictimShipNameFetcher(unprocessed_killmail).getNames()), args=(que, "a"))
+        thread4 = Thread(name="victim_names", target=lambda q, arg1: q.put(VictimNameFetcher(unprocessed_killmail).getNames()), args=(que, "thread"))
+        thread5 = Thread(name="solar_name", target=lambda q, arg1: q.put(SolarSystemNameFetcherLocal(unprocessed_killmail).getNames()), args=(que, "!"))
+
+        my_threads.append(thread1)
+        my_threads.append(thread2)
+        my_threads.append(thread3)
+        my_threads.append(thread4)
+        my_threads.append(thread5)
+
+        for entry in my_threads:
+            entry.start()
+            self.logger.debug("{} started".format(entry))
+
+        for entry in my_threads:
+            entry.join()
+            self.logger.debug("{} joined".format(entry))
+
+        local_queue = []
+        for x in range(0, 5):
+            local_queue.append(que.get())
+
+        self.logger.debug("local_queue: {}".format(local_queue))
+
+        # N A M E S
+
+        for entry in local_queue:
+            if entry["category"] is "attacker_ship":
+                self.attacker_ship_names = entry["name"]
+            if entry["category"] is "attacker_name":
+                self.attacker_names = entry["name"]
+            if entry["category"] is "victim_ship":
+                self.victim_ship_name = entry["name"]
+            if entry["category"] is "victim_name":
+                self.victim_names = entry["name"]
+            if entry["category"] is "solar_name":
+                self.solar_system_name = entry["name"]
 
         self.victim_char_name = self.victim_names["character"]
         self.victim_corp_name = self.victim_names["corporation"]
