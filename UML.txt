@@ -5,7 +5,14 @@ title zKill_scraper - Class Diagram
 class Thread
 class ABC
 
-class Controller
+class Controller{
+    log: Logger
+    perf: PerformanceAnalysis
+    influx: InfluxPusher
+    redis: RedisQ
+
+    main()
+}
 
 class Killmail {
     logger: Logger
@@ -32,7 +39,28 @@ class Killmail {
 }
 
 class Logger
-class PerformanceAnalysis
+class PerformanceAnalysis{
+    logger: Logger
+    start_time: DateTime
+    cycle_start
+    cycle_end
+    cur_cycle
+    shortest_cycle
+    longest_cycle
+    avg_last100_cycle
+    avg_last1000_cycle
+    counter: Int
+    avg100_list: List
+    avg1000_list: List
+
+    setCycleStart(): void
+    setCycleEnd(): void
+    calcCycleStats(): void
+    avg100(): void
+    avg1000(): void
+    printStatus(): void
+    logging(): void
+}
 
 class InfluxPusher{
     logger: Logger
@@ -41,6 +69,9 @@ class InfluxPusher{
     writeToDatabase(killmail Killmail): void
 
 }
+
+class PerformanceInfluxPusher
+class KillmailInfluxPusher
 
 class RedisQ{
     logger: Logger
@@ -109,9 +140,12 @@ ShipNameFetcher <|-down- VictimShipNameFetcher
 
 NameFetcher -left- "1" EsiCall
 
+InfluxPusher <|-down- PerformanceInfluxPusher
+InfluxPusher <|-down- KillmailInfluxPusher
+
 Controller *-up- "1" Logger
 Controller *-up- "1" PerformanceAnalysis
-Controller *-down- "*" RedisQ
+Controller *-down- "1" RedisQ
 Controller *-right- "*" Killmail
 Controller *-left- "1" InfluxPusher
 Killmail *-down- "*" NameFetcher

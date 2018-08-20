@@ -3,11 +3,8 @@ Pulls every kill zKill gets and puts them into a InfluxDB
 
 Usage:
 ```
-python3 main.py
+python3 controller.py
 ```
-
-## Class Diagram
-![Class Diagramm](UML.png)
 
 ## Requirements
 
@@ -72,3 +69,7 @@ victim_ship_name
 totalValue
 victim_damage_taken
 ```
+
+## Class Diagram
+![Class Diagramm](UML.png)
+
