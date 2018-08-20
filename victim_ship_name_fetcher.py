@@ -15,8 +15,6 @@ class VictimShipNameFetcher(ShipNameFetchter):
         return victim_ship_list
 
     def getNames(self):
-        names_dict = self.fetchNameWithId()
-        names = self.extractNamesFromDict(names_dict)
-
-        names_dict2 = {"category": "victim_ship", "name": names}
-        return names_dict2
+        names = self.fetchNameWithId()
+        victim_ship_names_dict = {"category": "victim_ship", "name": names}
+        return victim_ship_names_dict
