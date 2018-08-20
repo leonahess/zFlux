@@ -1,5 +1,7 @@
 # zKill_scraper
-Pulls every kill [zKill](zkillboard.com) gets and puts them into a [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
+Pulls every kill [zKill](zkillboard.com) gets and puts them into a 
+[InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
+for making nice graphs.
  
 Example Graph made with [Grafana](grafana.com):
 ![example_graph1](ressources/example_graph1.png)
@@ -87,7 +89,12 @@ measurement = performance
 ##### fields
 ````
 #cycle
-
+cycle_time
+shortest_cycle
+longest_cycle
+avg100
+avg1000
+counter
 ````
 
 ## Class Diagram
