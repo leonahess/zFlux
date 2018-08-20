@@ -1,4 +1,5 @@
 import datetime
+import time
 import logging
 import sys
 
@@ -11,10 +12,13 @@ def main():
     # just some performance metrics
     start = datetime.datetime.now()
     last100_processing_time = []
+    time.sleep(1)
+    shortest_processing_time = datetime.datetime.now() - start
+    longest_processing_time = datetime.datetime.now() - start
     counter = 0
 
     # logger stuff
-    logging.basicConfig(filename='zKill_scraper_{}.log'.format(start), level=logging.INFO,
+    logging.basicConfig(filename='zKill_scraper_{}.log'.format(start), level=logging.DEBUG,
                         format='%(asctime)s %(name)s:%(levelname)s:%(message)s')
     logger = logging.getLogger(__name__)
 
@@ -35,13 +39,21 @@ def main():
 
         if len(last100_processing_time) > 100:
             last100_processing_time.pop(0)
+
         last100_processing_time.append(processing_time.total_seconds())
         avg_processing_time = sum(last100_processing_time) / len(last100_processing_time)
 
+        if processing_time < shortest_processing_time:
+            shortest_processing_time = processing_time
+        if processing_time > longest_processing_time:
+            longest_processing_time = processing_time
+
         counter = counter + 1
 
-        sys.stdout.write("\r{} Killmails processed with an avg processesing time of {}s per Killmail of the last 100. "
-                         "Last Killmail took {} at {}".format(counter, round(avg_processing_time, 3), processing_time, killmail.time))
+        sys.stdout.write("\r{} Killmails processed with an avg processesing time of {}s. "
+                         "Latest: {} at {}. Shortest: {} Longest: {}".format
+                         (counter, round(avg_processing_time, 3), processing_time, killmail.time,
+                          shortest_processing_time, longest_processing_time))
         sys.stdout.flush()
 
         logger.info("Counter: {}".format(counter))

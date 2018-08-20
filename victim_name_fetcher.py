@@ -20,4 +20,9 @@ class VictimNameFetcher(NameFetcher):
 
         return victim_ids
 
+    def getNames(self):
+        names_dict = self.fetchNameWithId()
+        names = self.extractNamesFromDict(names_dict)
 
+        names_dict2 = {"category": "victim_name", "name": names}
+        return names_dict2
