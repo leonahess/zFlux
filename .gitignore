@@ -5,5 +5,5 @@ zKill_scraper_tests.py
 .idea
 __pycache__
 */__pycache__
-zKill_scraper_*
 /venv
+logs/*

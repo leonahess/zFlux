@@ -38,7 +38,10 @@ class Killmail {
   __init__(unprocessed_killmail)
 }
 
-class Logger
+class Logger{
+    __init__()
+}
+
 class PerformanceAnalysis{
     logger: Logger
     start_time: DateTime
@@ -70,8 +73,14 @@ class InfluxPusher{
 
 }
 
-class PerformanceInfluxPusher
-class KillmailInfluxPusher
+class PerformanceInfluxPusher{
+    assembleJsonBody(killmail Killmail): json_body List
+    writeToDatabase(killmail Killmail): void
+}
+class KillmailInfluxPusher{
+    assembleJsonBody(killmail Killmail): json_body List
+    writeToDatabase(killmail Killmail): void
+}
 
 class RedisQ{
     logger: Logger

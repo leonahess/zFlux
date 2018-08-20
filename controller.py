@@ -4,7 +4,8 @@ from performance_analysis import PerformanceAnalysis
 from logger import Logger
 from redisq import RedisQ
 from killmail import Killmail
-from influx_pusher import InfluxPusher
+from killmail_influx_pusher import KillmailInfluxPusher
+from performance_influx_pusher import PerformanceInfluxPusher
 
 
 class Controller:
@@ -24,7 +25,8 @@ class Controller:
         logger.info("Initialized Performance Analysis")
 
         # Create InfluxPusher instance
-        influx = InfluxPusher()
+        influx_killmail = KillmailInfluxPusher()
+        influx_perf = PerformanceInfluxPusher()
 
         # Create RedisQ instance
         redis = RedisQ()
@@ -36,11 +38,13 @@ class Controller:
 
             killmail = Killmail(unprocessed_killmail)
 
-            influx.writeToDatabase(killmail)
+            influx_killmail.writeToDatabase(killmail)
 
             perf.setCycleEnd()
             perf.calcCycleStats()
 
-            
+            influx_perf.writeToDatabase(perf)
+
+
 if __name__ == "__main__":
         Controller.main()

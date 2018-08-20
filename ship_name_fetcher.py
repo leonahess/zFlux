@@ -15,7 +15,7 @@ class ShipNameFetchter(NameFetcher):
 
         ship_name_list = []
 
-        filepath = os.path.dirname(__file__) + "/invTypes.csv"
+        filepath = os.path.dirname(__file__) + "/ressources/invTypes.csv"
         with open(filepath, newline='') as f:
             inv_types = csv.reader(f)
             for row in inv_types:

@@ -24,7 +24,7 @@ class SolarSystemNameFetcherLocal(NameFetcher):
 
         system_name = ""
 
-        filepath = os.path.dirname(__file__) + "/mapSolarSystems.csv"
+        filepath = os.path.dirname(__file__) + "/ressources/mapSolarSystems.csv"
         with open(filepath, newline='') as f:
             inv_types = csv.reader(f)
             for row in inv_types:

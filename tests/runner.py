@@ -21,7 +21,7 @@ def testSuite():
     suite = unittest.TestSuite()
 
     # add test to the test suite
-    suite.addTest(loader.loadTestsFromModule(killmail_tests))
+    #suite.addTest(loader.loadTestsFromModule(killmail_tests))
     suite.addTest(loader.loadTestsFromModule(name_fetcher_tests))
     suite.addTest(loader.loadTestsFromModule(victim_name_fetcher_tests))
     suite.addTest(loader.loadTestsFromModule(attacker_name_fetcher_tests))

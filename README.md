@@ -1,5 +1,8 @@
 # zKill_scraper
-Pulls every kill zKill gets and puts them into a InfluxDB
+Pulls every kill [zKill](zkillboard.com) gets and puts them into a [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
+ 
+Example Graph made with [Grafana](grafana.com):
+![example_graph1](ressources/example_graph1.png)
 
 Usage:
 ```
@@ -15,7 +18,12 @@ Only tested on python 3.7.
 influxdb
 requests
 ```
-##### InfluxDB
+install with:
+```
+pip install influxdb
+pip install requests
+```
+##### [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
 You will want a machine with Influx running. The script checks if there is a database called
 'eve' and will otherwise create one. I recommend at least 4GB of RAM on your machine, though 
 it might not enough if you plan to run the script longterm.
@@ -71,5 +79,5 @@ victim_damage_taken
 ```
 
 ## Class Diagram
-![Class Diagramm](UML.png)
+![Class Diagramm](ressources/UML.png)
 
