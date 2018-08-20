@@ -18,3 +18,10 @@ class AttackerShipNameFetcher(ShipNameFetchter):
         self.logger.debug("attacker_ship_list: {}".format(attacker_ship_list))
 
         return attacker_ship_list
+
+    def getNames(self):
+        names_dict = self.fetchNameWithId()
+        names = self.extractNamesFromDict(names_dict)
+
+        names_dict2 = {"category": "attacker_ship", "name": names}
+        return names_dict2

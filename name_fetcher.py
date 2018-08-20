@@ -1,19 +1,20 @@
 import logging
+import threading
 from abc import ABC, abstractmethod
 from esi_call import EsiCall
 
 
-class NameFetcher(ABC):
+class NameFetcher(ABC, threading.Thread):
     """Abstrac Parent Class for the Different ID TO NAME stuff I have to do."""
 
     def __init__(self, unprocessed_killmail):
+        threading.Thread.__init__(self)
         self.unprocessed_killmail = unprocessed_killmail
         self.logger = logging.getLogger(__name__ + ".NameFetcher")
 
+    @abstractmethod
     def getNames(self):
-        names_dict = self.fetchNameWithId()
-        names = self.extractNamesFromDict(names_dict)
-        return names
+        pass
 
     @staticmethod
     def makeCall(ids):

@@ -35,3 +35,10 @@ class SolarSystemNameFetcherLocal(NameFetcher):
         self.logger.debug("solar_name_str: {}".format(system_name))
 
         return system_name
+
+    def getNames(self):
+        names_dict = self.fetchNameWithId()
+        names = self.extractNamesFromDict(names_dict)
+
+        names_dict2 = {"category": "solar_name", "name": names}
+        return names_dict2
