@@ -1,5 +1,5 @@
 @startuml
-
+/'
 class NameFetcher{
     getNames()
     getIds()
@@ -16,7 +16,7 @@ class ExtractFromKillmail
 NameFetcher <|-down- ExtractFromKillmail
 NameFetcher <|-down- EsiNameFetcher
 NameFetcher <|-down- LocalNameFetcher
-
+'/
 package Killmail <<Folder>>{
 class Killmail
 
@@ -102,7 +102,7 @@ ConstellationId <|-down- ConstellationName
 
 SolarSystemSecurity <|-down- SolarSystemClass
 
-
+/'
 Id -down- ExtractFromKillmail
 Time -down- ExtractFromKillmail
 TotalValue -down- ExtractFromKillmail
@@ -133,5 +133,5 @@ RegionId -down- LocalNameFetcher
 RegionName -down- EsiNameFetcher
 ConstellationName -down- EsiNameFetcher
 ConstellationId -down LocalNameFetcher
-
+'/
 @enduml
