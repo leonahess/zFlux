@@ -17,6 +17,7 @@ class SolarSystemNameFetcherLocal(NameFetcher):
         system_id = self.generateIdList()
 
         system_name = ""
+        security_status = ""
 
         filepath = os.path.dirname(__file__) + "/ressources/mapSolarSystems.csv"
         with open(filepath, newline='') as f:
@@ -24,11 +25,12 @@ class SolarSystemNameFetcherLocal(NameFetcher):
             for row in inv_types:
                 if row[2] == str(system_id):
                     system_name = row[3]
+                    security_status = row[21]
 
         self.logger.debug("Solar name list: {}".format(system_name))
         self.logger.debug("solar_name_str: {}".format(system_name))
 
-        return system_name
+        return [system_name, security_status]
 
     def getNames(self):
         names = self.fetchNameWithId()

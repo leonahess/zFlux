@@ -10,15 +10,15 @@ class PerformanceAnalysis:
         """Initializing all the Variabl á la Java"""
         self.logger = logging.getLogger(__name__ + ".PerformanceAnalysis")
 
-        self.start_time = datetime.datetime.now()
-        self.cycle_start = datetime.datetime.now()
-        self.cycle_end = datetime.datetime.now()
+        self.start_time = datetime.datetime.utcnow()
+        self.cycle_start = datetime.datetime.utcnow()
+        self.cycle_end = datetime.datetime.utcnow()
         self.cur_cycle = (self.cycle_end - self.cycle_start).total_seconds()
 
         time.sleep(1)
 
-        self.shortest_cycle = (datetime.datetime.now() - self.start_time).total_seconds()
-        self.longest_cycle = (datetime.datetime.now() - self.start_time).total_seconds()
+        self.shortest_cycle = (datetime.datetime.utcnow() - self.start_time).total_seconds()
+        self.longest_cycle = (datetime.datetime.utcnow() - self.start_time).total_seconds()
         self.avg_last100_cycle = 0
         self.avg_last1000_cycle = 0
         self.counter = 0
@@ -27,11 +27,11 @@ class PerformanceAnalysis:
 
     def setCycleStart(self):
         """records the start of a cycle"""
-        self.cycle_start = datetime.datetime.now()
+        self.cycle_start = datetime.datetime.utcnow()
 
     def setCycleEnd(self):
         """records the end of a cycle"""
-        self.cycle_end = datetime.datetime.now()
+        self.cycle_end = datetime.datetime.utcnow()
 
     def calcCycleStats(self):
         """does all the work for the latest cycle"""
@@ -68,12 +68,13 @@ class PerformanceAnalysis:
         """prints updating status line to the console"""
         sys.stdout.write("\r{} Killmails processed with an avg processesing time of {}s/{}s. "
                          "Latest: {}s at {}. Shortest: {}s Longest: {}s".format
-                         (self.counter, self.avg_last100_cycle, self.avg_last1000_cycle, self.cur_cycle, datetime.datetime.now(),
+                         (self.counter, self.avg_last100_cycle, self.avg_last1000_cycle, self.cur_cycle, datetime.datetime.utcnow(),
                           self.shortest_cycle, self.longest_cycle))
         sys.stdout.flush()
 
     def logging(self):
         """logs all the metrics to the logfile"""
+        self.logger.info("Counter: {}".format(self.counter))
         self.logger.info("Current Cycle : {}s".format(self.cur_cycle))
         self.logger.info("Avg Last 100  : {}s".format(self.avg_last100_cycle))
         self.logger.info("Avg Last 1000 : {}s".format(self.avg_last1000_cycle))

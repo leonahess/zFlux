@@ -78,9 +78,12 @@ class Killmail:
             if entry["category"] is "victim_name":
                 self.victim_names = entry["name"]
             if entry["category"] is "solar_name":
-                self.solar_system_name = entry["name"]
+                self.solar_system = entry["name"]
             if entry["category"] is "region_name":
                 self.region_names = entry["name"]
+
+        self.solar_system_name = self.solar_system[0]
+        self.solar_system_security = self.solar_system[1]
 
         self.region_name = self.region_names[0]["name"]
         self.constellation_name = self.region_names[1]["name"]
@@ -101,6 +104,7 @@ class Killmail:
         self.logger.info("Attacker ships: {}".format(self.attacker_ship_names))
         self.logger.info("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
         self.logger.info("Victim Ship: {}".format(self.victim_ship_name))
-        self.logger.info("Solar Name: {}".format(self.solar_system_name))
+        self.logger.info("Solar System Name: {}".format(self.solar_system_name))
+        self.logger.info("Solar System Security: {}".format(self.solar_system_security))
         self.logger.info("Region Name: {}".format(self.region_name))
         self.logger.info("Constellation Name: {}".format(self.constellation_name))
