@@ -56,6 +56,7 @@ measurement = kills
 ##### tags
 ```
 solar_system_name
+solar_system_security
 region_name
 constellation_name
 attacker_char_name

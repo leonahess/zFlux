@@ -20,6 +20,7 @@ class Killmail {
     time: DateTime
     total_value: Float
     solar_system_name: String
+    solar_system_security: float
     region_Name: String
     constellation_name: String
     attacker_is_npc: Bool
