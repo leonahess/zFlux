@@ -3,9 +3,6 @@ from name_fetcher import NameFetcher
 
 class VictimNameFetcher(NameFetcher):
 
-    def __init__(self, unprocessed_killmail):
-        NameFetcher.__init__(self, unprocessed_killmail)
-
     def generateIdList(self):
         victim_ids = []
 

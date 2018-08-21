@@ -6,6 +6,7 @@ from attacker_name_fetcher import AttackerNameFetcher
 from victim_ship_name_fetcher import VictimShipNameFetcher
 from attacker_ship_name_fetcher import AttackerShipNameFetcher
 from solar_system_name_fetcher_local import SolarSystemNameFetcherLocal
+from region_name_fetcher import RegionNameFetcher
 
 
 
@@ -42,12 +43,14 @@ class Killmail:
         thread3 = Thread(name="victim_ship", target=lambda q, arg1: q.put(VictimShipNameFetcher(unprocessed_killmail).getNames()), args=(que, "a"))
         thread4 = Thread(name="victim_names", target=lambda q, arg1: q.put(VictimNameFetcher(unprocessed_killmail).getNames()), args=(que, "thread"))
         thread5 = Thread(name="solar_name", target=lambda q, arg1: q.put(SolarSystemNameFetcherLocal(unprocessed_killmail).getNames()), args=(que, "!"))
+        thread6 = Thread(name="region_name", target=lambda q, arg1: q.put(RegionNameFetcher(unprocessed_killmail).getNames()), args=(que, "?"))
 
         my_threads.append(thread1)
         my_threads.append(thread2)
         my_threads.append(thread3)
         my_threads.append(thread4)
         my_threads.append(thread5)
+        my_threads.append(thread6)
 
         for entry in my_threads:
             entry.start()
@@ -58,7 +61,7 @@ class Killmail:
             self.logger.debug("{} joined".format(entry))
 
         local_queue = []
-        for x in range(0, 5):
+        for x in range(0, 6):
             local_queue.append(que.get())
 
         self.logger.debug("local_queue: {}".format(local_queue))
@@ -76,6 +79,11 @@ class Killmail:
                 self.victim_names = entry["name"]
             if entry["category"] is "solar_name":
                 self.solar_system_name = entry["name"]
+            if entry["category"] is "region_name":
+                self.region_names = entry["name"]
+
+        self.region_name = self.region_names[0]["name"]
+        self.constellation_name = self.region_names[1]["name"]
 
         self.victim_char_name = self.victim_names["character"]
         self.victim_corp_name = self.victim_names["corporation"]
@@ -94,3 +102,5 @@ class Killmail:
         self.logger.info("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
         self.logger.info("Victim Ship: {}".format(self.victim_ship_name))
         self.logger.info("Solar Name: {}".format(self.solar_system_name))
+        self.logger.info("Region Name: {}".format(self.region_name))
+        self.logger.info("Constellation Name: {}".format(self.constellation_name))

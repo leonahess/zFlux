@@ -3,9 +3,6 @@ from ship_name_fetcher import ShipNameFetchter
 
 class AttackerShipNameFetcher(ShipNameFetchter):
 
-    def __init__(self, unprocessed_killmail):
-        ShipNameFetchter.__init__(self, unprocessed_killmail)
-
     def generateIdList(self):
         attacker_ship_list = list()
 

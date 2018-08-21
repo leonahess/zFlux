@@ -5,9 +5,6 @@ import csv
 
 class SolarSystemNameFetcherLocal(NameFetcher):
 
-    def __init__(self, unprocessed_killmail):
-        NameFetcher.__init__(self, unprocessed_killmail)
-
     def generateIdList(self):
         solar_system_id = ""
 
@@ -27,7 +24,6 @@ class SolarSystemNameFetcherLocal(NameFetcher):
             for row in inv_types:
                 if row[2] == str(system_id):
                     system_name = row[3]
-                    region_id = row[0]
 
         self.logger.debug("Solar name list: {}".format(system_name))
         self.logger.debug("solar_name_str: {}".format(system_name))

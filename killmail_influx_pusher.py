@@ -8,6 +8,8 @@ class KillmailInfluxPusher(InfluxPusher):
         json_body = [{"measurement": "kills",
             "tags": {
                     "solar_system_name": killmail.solar_system_name,
+                    "region_name": killmail.region_name,
+                    "constellation_name": killmail.constellation_name,
                     "attacker_is_npc": killmail.attacker_is_npc,
                     "attacker_is_solo": killmail.attacker_is_solo,
                     "attacker_is_awox": killmail.attacker_is_awox,

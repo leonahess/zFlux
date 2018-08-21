@@ -20,6 +20,8 @@ class Killmail {
     time: DateTime
     total_value: Float
     solar_system_name: String
+    region_Name: String
+    constellation_name: String
     attacker_is_npc: Bool
     attacker_is_awox: Bool
     attacker_is_solo: Bool
@@ -106,6 +108,8 @@ class NameFetcher << abstract >>{
     extractNamesFromDict(names_dict): names
 }
 
+class RegionNameFetcher
+
 class SolarNameFetcherLocal{
     generateIdList(): solar_system_id Int
     extractNamesFromDict(names_dict Dict): names_dict Dict
@@ -141,13 +145,14 @@ ABC <|-left- NameFetcher
 Thread <|-left- NameFetcher
 
 NameFetcher <|-down- SolarNameFetcherLocal
+NameFetcher <|-down- RegionNameFetcher
 NameFetcher <|-down- AttackerNameFetcher
 NameFetcher <|-down- VictimNameFetcher
 NameFetcher <|-down- ShipNameFetcher
 ShipNameFetcher <|-down- AttackerShipNameFetcher
 ShipNameFetcher <|-down- VictimShipNameFetcher
 
-NameFetcher -left- "1" EsiCall
+NameFetcher *-left- "1" EsiCall
 
 InfluxPusher <|-down- PerformanceInfluxPusher
 InfluxPusher <|-down- KillmailInfluxPusher
