@@ -85,6 +85,15 @@ class Killmail:
         self.solar_system_name = self.solar_system[0]
         self.solar_system_security = self.solar_system[1]
 
+        if 0.5 <= self.solar_system_security:
+            self.system_class = "highsec"
+        elif self.solar_system_security is -1.0 or 0 > self.solar_system_security > -0.99:
+            self.system_class = "nullsec"
+        elif 0 < self.solar_system_security < 0.5:
+            self.system_class = "lowsec"
+        else:
+            self.system_class = "wormhole"
+
         self.region_name = self.region_names[0]["name"]
         self.constellation_name = self.region_names[1]["name"]
 
@@ -104,7 +113,9 @@ class Killmail:
         self.logger.info("Attacker ships: {}".format(self.attacker_ship_names))
         self.logger.info("Victim Char: {}, Corp: {}, Alli: {}".format(self.victim_char_name, self.victim_corp_name, self.victim_alliance_name))
         self.logger.info("Victim Ship: {}".format(self.victim_ship_name))
+        self.logger.info("Victim Damage Taken: {}".format(self.victim_damage_taken))
         self.logger.info("Solar System Name: {}".format(self.solar_system_name))
         self.logger.info("Solar System Security: {}".format(self.solar_system_security))
+        self.logger.info("Solar System Class: {}".format(self.system_class))
         self.logger.info("Region Name: {}".format(self.region_name))
         self.logger.info("Constellation Name: {}".format(self.constellation_name))
