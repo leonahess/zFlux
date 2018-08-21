@@ -1,4 +1,7 @@
 @startuml
+
+title Killmail attribute Overview
+
 /'
 class NameFetcher{
     getNames()
@@ -17,12 +20,25 @@ NameFetcher <|-down- ExtractFromKillmail
 NameFetcher <|-down- EsiNameFetcher
 NameFetcher <|-down- LocalNameFetcher
 '/
+
+object Comment{
+    K: to be extracted directly from the Killmail
+    L: to be locally fetched via a database
+    E: to be fetched via ESI
+    R: to be calculated with given values
+    V: structuring object
+    C: Class
+}
+
 package Killmail <<Folder>>{
+
 class Killmail
 
 Class Attackers << (V, orchid) >>
 Class Victim << (V, orchid) >>
 class Geographic << (V, orchid) >>
+class Value << (V, orchid) >>
+class FinalBlow << (V, orchid) >>
 
 class VictimId << (K, yellow) >>
 class VictimName << (E, lightblue) >>
@@ -46,25 +62,44 @@ class ConstellationName << (E, lightblue) >>
 class SolarSystemId << (K, yellow) >>
 class SolarSystemName << (L, pink) >>
 class SolarSystemSecurity << (L, pink) >>
-class SolarSystemClass << (V, orchid) >>
+class SolarSystemClass << (R, green) >>
 
 class Id << (K, yellow) >>
 class TotalValue << (K, yellow) >>
+class FittedValue << (K, yellow) >>
+class ShipValue << (R, green) >>
 class Time << (K, yellow) >>
 class IsSolo << (K, yellow) >>
 class IsAwox << (K, yellow) >>
 class IsNpc << (K, yellow) >>
 class AttackerAmount << (K, yellow) >>
 class VictimDamageTaken << (K, yellow) >>
+
+class FinalBlowShipId << (K, yellow) >>
+class FinalBlowShipName << (L, pink) >>
+class FinalBlowDamage << (K, yellow) >>
+class FinalBlowDamagePercent << (R, green) >>
 }
 
 Killmail <|-down- Attackers
 Killmail <|-down- Victim
 Killmail <|-down- Geographic
 Killmail <|-down- Id
-Killmail <|-down- TotalValue
 Killmail <|-down- Time
+Killmail <|-down- Value
+Killmail <|-down- FinalBlow
 
+Value <|-down- TotalValue
+Value <|-down- FittedValue
+Value <|-down- ShipValue
+
+FinalBlow <|-down- FinalBlowShipId
+FinalBlow <|-down- FinalBlowDamage
+
+FinalBlowDamage <|-down- FinalBlowDamagePercent
+VictimDamageTaken <|-down- FinalBlowDamagePercent
+
+FinalBlowShipId <|-down- FinalBlowShipName
 
 Geographic <|-down- SolarSystemId
 
