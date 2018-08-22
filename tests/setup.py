@@ -63,6 +63,7 @@ class Setup(unittest.TestCase):
 
         M I S C :
         uk60 = missing solar system id
+        uk70 = wh with 2 attacker with no alli
         """
 
         self.uk00 = \
@@ -2097,6 +2098,64 @@ class Setup(unittest.TestCase):
                             }
                     }
             }
+
+        self.uk70 ={
+            "package":
+                    {
+                        "killID": 72012818,
+                        "killmail":
+                        {
+                            "attackers":
+                                [{
+                                    "character_id": 94830824,
+                                    "corporation_id": 98539465,
+                                    "damage_done": 1085,
+                                    "final_blow": False,
+                                    "security_status": 4.6,
+                                    "ship_type_id": 22456,
+                                    "weapon_type_id": 22456
+                                },
+                                {
+                                    "character_id": 95074071,
+                                    "corporation_id": 98389109,
+                                    "damage_done": 1002,
+                                    "final_blow": True,
+                                    "security_status": 3.8,
+                                    "ship_type_id": 33470,
+                                    "weapon_type_id": 2205
+                                }],
+                            "killmail_id": 72012818,
+                            "killmail_time": "2018-08-22T10:41:01Z",
+                            "solar_system_id": 31000153,
+                            "victim":
+                                {
+                                    "character_id": 2112516399,
+                                    "corporation_id": 1000180,
+                                    "damage_taken": 2087,
+                                    "faction_id": 500001,
+                                    "position":
+                                        {
+                                            "x": -640253952528.6340332031,
+                                            "y": -106856446836.6681518555,
+                                            "z": 706723188313.1087646484
+                                        },
+                                    "ship_type_id": 33468
+                                }
+                        },
+                    "zkb":
+                        {
+                            "locationID": 40358750,
+                            "hash": "bliblablup",
+                            "fittedValue": 10593294.36,
+                            "totalValue": 71262264.86,
+                            "points": 2,
+                            "npc": False,
+                            "solo": False,
+                            "awox": False,
+                            "href": "https://esi.evetech.net/latest/killmails/72012818/a9c2729c80677483802d5be43a711441fd08670d/"
+                        }
+                    }
+        }
 
     def generateKillmailObjects(self):
 

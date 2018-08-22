@@ -42,8 +42,14 @@ class FinalBlow << (V, orchid) >>
 
 class VictimId << (K, yellow) >>
 class VictimName << (E, lightblue) >>
+class VictimCharName << (R, green) >>
+class VictimCorpName << (R, green) >>
+class VictimAllianceName << (R, green) >>
 class AttackerIds << (K, yellow) >>
 class AttackerNames << (E, lightblue) >>
+class AttackerCharNames << (R, green) >>
+class AttackerCorpNames << (R, green) >>
+class AttackerAllianceNames << (R, green) >>
 
 class VictimShipId << (K, yellow) >>
 class VictimShipName << (L, pink) >>
@@ -79,6 +85,8 @@ class FinalBlowShipId << (K, yellow) >>
 class FinalBlowShipName << (L, pink) >>
 class FinalBlowDamage << (K, yellow) >>
 class FinalBlowDamagePercent << (R, green) >>
+class FinalBlowShipGroupId << (L, pink) >>
+class FinalBlowShipGroupName << (L, pink) >>
 }
 
 Killmail <|-down- Attackers
@@ -100,12 +108,19 @@ FinalBlowDamage <|-down- FinalBlowDamagePercent
 VictimDamageTaken <|-down- FinalBlowDamagePercent
 
 FinalBlowShipId <|-down- FinalBlowShipName
+FinalBlowShipId <|-down- FinalBlowShipGroupId
+
+FinalBlowShipGroupId <|-down- FinalBlowShipGroupName
 
 Geographic <|-down- SolarSystemId
 
 Victim <|-down- VictimShipId
 Victim <|-down- VictimId
 Victim <|-down- VictimDamageTaken
+
+VictimName <|-down- VictimCharName
+VictimName <|-down- VictimCorpName
+VictimName <|-down- VictimAllianceName
 
 VictimShipId <|-down- VictimShipName
 VictimShipId <|-down- VictimShipGroupId
@@ -120,6 +135,9 @@ Attackers <|-down- IsAwox
 Attackers <|-down- IsNpc
 Attackers <|-down- AttackerAmount
 
+AttackerNames <|-down- AttackerCharNames
+AttackerNames <|-down- AttackerCorpNames
+AttackerNames <|-down- AttackerAllianceNames
 
 AttackerShipIds <|-down- AttackerShipNames
 AttackerShipIds <|-down- AttackerShipGroupIds

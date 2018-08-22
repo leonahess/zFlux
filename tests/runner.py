@@ -1,7 +1,8 @@
 import unittest
 
 # import test modules
-from tests import killmail_tests
+from tests import tests_killmail2
+
 from tests import name_fetcher_tests
 from tests import attacker_name_fetcher_tests
 from tests import victim_name_fetcher_tests
@@ -19,16 +20,7 @@ def testSuite():
     suite = unittest.TestSuite()
 
     # add test to the test suite
-    #suite.addTest(loader.loadTestsFromModule(killmail_tests))
-    suite.addTest(loader.loadTestsFromModule(name_fetcher_tests))
-    suite.addTest(loader.loadTestsFromModule(victim_name_fetcher_tests))
-    suite.addTest(loader.loadTestsFromModule(attacker_name_fetcher_tests))
-    suite.addTest(loader.loadTestsFromModule(esi_call_tests))
-    suite.addTest(loader.loadTestsFromModule(redisq_tests))
-    suite.addTest(loader.loadTestsFromModule(influx_pusher_tests))
-    suite.addTest(loader.loadTestsFromModule(ship_name_fetcher_tests))
-    suite.addTest(loader.loadTestsFromModule(attacker_ship_name_fetcher_tests))
-    suite.addTest(loader.loadTestsFromModule(victim_ship_name_fetcher_tests))
+    suite.addTest(loader.loadTestsFromModule(tests_killmail2))
 
     return suite
 
