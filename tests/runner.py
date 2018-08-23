@@ -2,6 +2,7 @@ import unittest
 
 # import test modules
 from tests import tests_killmail2
+from tests import tests_name_fetcher_final_blow
 
 from tests import name_fetcher_tests
 from tests import attacker_name_fetcher_tests
@@ -21,6 +22,7 @@ def testSuite():
 
     # add test to the test suite
     suite.addTest(loader.loadTestsFromModule(tests_killmail2))
+    suite.addTest(loader.loadTestsFromModule(tests_name_fetcher_final_blow))
 
     return suite
 

@@ -2,6 +2,8 @@ import threading
 import logging
 import os
 import csv
+from esi_call import EsiCall
+
 
 class NameFetcher2(threading.Thread):
 
@@ -9,6 +11,17 @@ class NameFetcher2(threading.Thread):
         threading.Thread.__init__(self)
         self.unprocessed_killmail = unprocessed_killmail
         self.logger = logging.getLogger(__name__ + ".NameFetcher2")
+
+    def extract_from_killmail(self):
+        pass
+
+    def return_results(self):
+        pass
+
+    @staticmethod
+    def make_esi_call(ids):
+
+        return EsiCall().makeCall(ids)
 
     def csv_inv_groups_scraper(self, group_id_list):
         group_name_list = []
@@ -20,7 +33,11 @@ class NameFetcher2(threading.Thread):
                 for l in range(0, len(group_id_list)):
                     if row[0] == str(group_id_list[l]):
                         group_name_list.append(row[2])
+
         self.logger.debug("Group Name List: {}".format(group_name_list))
+
+        if group_name_list is []:
+            group_name_list.append("")
 
         return {"group_name_list": group_name_list}
 
@@ -39,6 +56,11 @@ class NameFetcher2(threading.Thread):
 
         self.logger.debug("Name List: {}".format(name_list))
         self.logger.debug("Group ID List: {}".format(group_id_list))
+
+        if name_list is []:
+            name_list.append("")
+        if group_id_list is []:
+            group_id_list.append("")
 
         return {"name_list": name_list, "group_id_list": group_id_list}
 
@@ -63,6 +85,15 @@ class NameFetcher2(threading.Thread):
         self.logger.debug("Solar System Security List: {}".format(solar_system_security_list))
         self.logger.debug("Region ID List: {}".format(region_id_list))
         self.logger.debug("Cosntellation ID List: {}".format(constellation_id_list))
+
+        if solar_system_name_list is []:
+            solar_system_name_list.append("")
+        if solar_system_security_list is []:
+            solar_system_security_list.append("")
+        if region_id_list is []:
+            region_id_list.append("")
+        if constellation_id_list is []:
+            constellation_id_list.append("")
 
         return {"solar_system_name_list": solar_system_name_list,
                 "solar_system_security_list": solar_system_security_list,

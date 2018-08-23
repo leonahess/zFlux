@@ -58,13 +58,13 @@ class TestKillmailFinalBlow(TestKillmail):
 
     def test_final_blow_ship_name(self):
         self.assertEqual("Heron", self.k00.final_blow_ship_name, "Wrong Ship Name")
-        self.assertEqual("Loki", self.k30.final_blow_Ship_name, "wrong ship name")
-        self.assertEqual("Stratios", self.k70.final_blow_Ship_name, "wrong ship name")
+        self.assertEqual("Loki", self.k30.final_blow_ship_name, "wrong ship name")
+        self.assertEqual("Stratios", self.k70.final_blow_ship_name, "wrong ship name")
 
     def test_final_blow_ship_group_id(self):
-        self.assertEqual(25, self.k00.final_blow_ship_group_id, "Wrong Group id")
-        self.assertEqual(963, self.k30.final_blow_ship_group_id, "wrong group id")
-        self.assertEqual(26, self.k70.final_blow_ship_group_id, "Wrong Group id")
+        self.assertEqual("25", self.k00.final_blow_ship_group_id, "Wrong Group id")
+        self.assertEqual("963", self.k30.final_blow_ship_group_id, "wrong group id")
+        self.assertEqual("26", self.k70.final_blow_ship_group_id, "Wrong Group id")
 
     def test_final_blow_ship_group_name(self):
         self.assertEqual("Frigate", self.k00.final_blow_ship_group_name, "Wrong group name")
