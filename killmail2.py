@@ -64,11 +64,11 @@ class Killmail2:
         self.solar_system_id = self.all_the_names["solar_system_id"]
         self.solar_system_name = self.all_the_names["solar_system_name"]
         self.solar_system_security = self.all_the_names["solar_system_security"]
-        self.solar_system_class
-        self.region_id
-        self.region_name
-        self.constellation_id
-        self.constellation_name
+        self.solar_system_class = self.all_the_names["solar_system_class"]
+        self.region_id = self.all_the_names["region_id"]
+        self.region_name = self.all_the_names["region_name"]
+        self.constellation_id = self.all_the_names["constellation_id"]
+        self.constellation_name = self.all_the_names["constellation_name"]
 
         # V I C T I M
         self.victim_damage_taken
