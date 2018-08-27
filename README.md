@@ -6,6 +6,8 @@ for making nice graphs.
 Example Graph made with [Grafana](grafana.com):
 ![example_graph1](ressources/example_graph1.png)
 
+For more example graphs take a look at [zKill_scraper_grafana_dashboard](https://github.com/leonhess/zKill_scraper_grafana_dashboard).
+
 Usage:
 ```
 python3 controller.py
