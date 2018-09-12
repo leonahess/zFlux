@@ -1,5 +1,5 @@
 # zFlux
-Pulls every kill [zKill](zkillboard.com) gets and puts them into a 
+Pulls every kill [zKill](https://zkillboard.com) gets and puts them into a 
 [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
 for making nice graphs.
  
