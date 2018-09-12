@@ -5,8 +5,8 @@ for making nice graphs.
  
 Example Graphs made with [Grafana](grafana.com):
 ![example_graph1](ressources/zFlux1.png)
-![example_graph1](ressources/zFlux2.png)
-![example_graph1](ressources/zFlux3.png)
+![example_graph2](ressources/zFlux2.png)
+![example_graph3](ressources/zFlux3.png)
 ## Requirements
 
 #### Python3
