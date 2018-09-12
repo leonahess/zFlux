@@ -1,4 +1,4 @@
-from ship_name_fetcher import ShipNameFetchter
+from src.ship_name_fetcher import ShipNameFetchter
 
 
 class AttackerShipNameFetcher(ShipNameFetchter):

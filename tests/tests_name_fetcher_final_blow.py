@@ -1,5 +1,5 @@
 from tests.setup import Setup
-from name_fetcher_final_blow import NameFetcherFinalBlow
+from src.name_fetcher_final_blow import NameFetcherFinalBlow
 
 
 class TestNameFetcherFinalBlow (Setup):

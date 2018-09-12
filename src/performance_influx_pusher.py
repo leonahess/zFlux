@@ -1,4 +1,4 @@
-from influx_pusher import InfluxPusher
+from src.influx_pusher import InfluxPusher
 
 
 class PerformanceInfluxPusher(InfluxPusher):

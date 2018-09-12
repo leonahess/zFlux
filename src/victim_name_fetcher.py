@@ -1,4 +1,4 @@
-from name_fetcher import NameFetcher
+from src.name_fetcher import NameFetcher
 
 
 class VictimNameFetcher(NameFetcher):

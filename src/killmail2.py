@@ -1,7 +1,7 @@
 from logging import getLogger
 from queue import Queue
 from threading import Thread
-from name_fetcher_final_blow import NameFetcherFinalBlow
+from src.name_fetcher_final_blow import NameFetcherFinalBlow
 
 
 class Killmail2:

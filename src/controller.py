@@ -1,18 +1,18 @@
 import logging
 
-from performance_analysis import PerformanceAnalysis
-from logger import Logger
-from redisq import RedisQ
-from killmail import Killmail
-from killmail_influx_pusher import KillmailInfluxPusher
-from performance_influx_pusher import PerformanceInfluxPusher
+from src.performance_analysis import PerformanceAnalysis
+from src.logger import Logger
+from src.redisq import RedisQ
+from src.killmail import Killmail
+from src.killmail_influx_pusher import KillmailInfluxPusher
+from src.performance_influx_pusher import PerformanceInfluxPusher
 
 
 class Controller:
     """Controller Class which is responsible for handeling all the data streams"""
 
     @staticmethod
-    def main():
+    def main(config):
         """Core Loop"""
 
         # Create Logger Instance
@@ -44,7 +44,3 @@ class Controller:
             perf.calcCycleStats()
 
             influx_perf.writeToDatabase(perf)
-
-
-if __name__ == "__main__":
-        Controller.main()

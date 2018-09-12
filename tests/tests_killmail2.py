@@ -1,4 +1,4 @@
-from killmail2 import Killmail2
+from src.killmail2 import Killmail2
 from tests.setup import Setup
 
 

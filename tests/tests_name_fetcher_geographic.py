@@ -1,5 +1,5 @@
 from tests.setup import Setup
-from name_fetcher_geographic import NameFetcherGeographic
+from src.name_fetcher_geographic import NameFetcherGeographic
 
 
 class TestNameFetcherGeographic(Setup):

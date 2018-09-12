@@ -1,7 +1,7 @@
 import logging
 import threading
 from abc import ABC, abstractmethod
-from esi_call import EsiCall
+from src.esi_call import EsiCall
 
 
 class NameFetcher(ABC, threading.Thread):

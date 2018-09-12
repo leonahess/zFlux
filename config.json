@@ -1,0 +1,6 @@
+{
+  "influx_server_ip": "192.168.66.56",
+  "loggin_level": "DEBUG",
+  "enable_logging": true,
+  "enable_performance_analisys": true
+}

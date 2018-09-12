@@ -1,6 +1,6 @@
 import csv
 import os
-from name_fetcher import NameFetcher
+from src.name_fetcher import NameFetcher
 from abc import abstractmethod
 
 

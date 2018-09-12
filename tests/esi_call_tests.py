@@ -1,6 +1,6 @@
 import unittest
 
-from esi_call import EsiCall
+from src.esi_call import EsiCall
 
 
 class TestEsiCall(unittest.TestCase):

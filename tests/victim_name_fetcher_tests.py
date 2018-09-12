@@ -1,4 +1,4 @@
-from victim_name_fetcher import VictimNameFetcher
+from src.victim_name_fetcher import VictimNameFetcher
 from tests.setup import Setup
 
 
