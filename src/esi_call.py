@@ -18,12 +18,18 @@ class EsiCall:
         retry_time = 0
         v = {}
 
+        for x in range(0, len(ids)):
+            try:
+                ids.remove("")
+            except ValueError:
+                pass
+
         while retry_time < 2:
             if ids is []:
                 break
 
             try:
-                v = requests.post('https://esi.tech.ccp.is/latest/universe/names/?&datasource=tranquility', json=ids)
+                v = requests.post('https://esi.evetech.net/latest/universe/names/?datasource=tranquility', json=ids)
             except (KeyboardInterrupt, SystemExit):
                 raise
             except:

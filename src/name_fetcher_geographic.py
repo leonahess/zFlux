@@ -13,9 +13,9 @@ class NameFetcherGeographic(NameFetcher2):
         second_layer = self.csv_map_solar_systems_scraper([self.solar_system_id])
 
         self.solar_system_name = second_layer["solar_system_name_list"][0]
-        self.solar_system_security = second_layer["solar_system_security_list"][0]
-        self.region_id = second_layer["region_id_list"][0]
-        self.constellation_id = second_layer["constellation_id_list"][0]
+        self.solar_system_security = round(float(second_layer["solar_system_security_list"][0]), 1)
+        self.region_id = int(second_layer["region_id_list"][0])
+        self.constellation_id = int(second_layer["constellation_id_list"][0])
 
         third_layer = self.make_esi_call([self.region_id, self.constellation_id])
 
@@ -23,9 +23,9 @@ class NameFetcherGeographic(NameFetcher2):
         self.constellation_name = ""
 
         for entry in third_layer:
-            if entry["category"] is "Region":
+            if entry["category"] == "region":
                 self.region_name = entry["name"]
-            if entry["category"] is "Constellation":
+            if entry["category"] == "constellation":
                 self.constellation_name = entry["name"]
 
         if 0.5 <= self.solar_system_security:

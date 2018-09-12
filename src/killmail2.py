@@ -2,6 +2,8 @@ from logging import getLogger
 from queue import Queue
 from threading import Thread
 from src.name_fetcher_final_blow import NameFetcherFinalBlow
+from src.name_fetcher_geographic import NameFetcherGeographic
+from src.name_fetcher_victim import NameFetcherVictim
 
 
 class Killmail2:
@@ -17,16 +19,18 @@ class Killmail2:
         self.unprocessed_killmail = unprocessed_killmail
 
         # O B J E C T S
-        final_blow_object = NameFetcherFinalBlow(unprocessed_killmail)
+        name_fetcher_final_blow_object = NameFetcherFinalBlow(unprocessed_killmail)
+        name_fetcher_geographic_object = NameFetcherGeographic(unprocessed_killmail)
+        name_fetcher_victim_object = NameFetcherVictim(unprocessed_killmail)
 
         # T H R E A D S
         my_main_threads = []
         que = Queue()
 
         #my_main_threads.append(Thread(name="Attacker", target=lambda q, arg1: q.put(), args=(que, "this")))
-        #my_main_threads.append(Thread(name="Victim", target=lambda q, arg1: q.put(), args=(que, "this")))
-        my_main_threads.append(Thread(name="FinalBlow", target=lambda q, arg1: q.put(final_blow_object.return_results()), args=(que, "this")))
-        #my_main_threads.append(Thread(name="Geographic", target=lambda q, arg1: q.put(), args=(que, "this")))
+        my_main_threads.append(Thread(name="Victim", target=lambda q, arg1: q.put(name_fetcher_victim_object.return_results()), args=(que, "this")))
+        my_main_threads.append(Thread(name="FinalBlow", target=lambda q, arg1: q.put(name_fetcher_final_blow_object.return_results()), args=(que, "this")))
+        my_main_threads.append(Thread(name="Geographic", target=lambda q, arg1: q.put(name_fetcher_geographic_object.return_results()), args=(que, "this")))
 
         for thread in my_main_threads:
             thread.start()
@@ -38,7 +42,7 @@ class Killmail2:
 
         self.all_the_names = {}
 
-        for x in range(0, 1):
+        for x in range(0, 3):
             self.all_the_names = {**self.all_the_names, **que.get()}
 
         self.logger.debug("All the Names: {}".format(self.all_the_names))
@@ -56,7 +60,6 @@ class Killmail2:
         self.final_blow_damage = self.all_the_names["final_blow_damage"]
         self.final_blow_ship_id = self.all_the_names["final_blow_ship_id"]
         self.final_blow_ship_name = self.all_the_names["final_blow_ship_name"]
-        #self.final_blow_damage_percent
         self.final_blow_ship_group_id = self.all_the_names["final_blow_ship_group_id"]
         self.final_blow_ship_group_name = self.all_the_names["final_blow_ship_group_name"]
 
@@ -71,17 +74,21 @@ class Killmail2:
         self.constellation_name = self.all_the_names["constellation_name"]
 
         # V I C T I M
-        self.victim_damage_taken
-        self.victim_name_ids
-        self.victim_names
-        self.victim_char_name
-        self.victim_corp_name
-        self.victim_alliance_name
-        self.victim_ship_id
-        self.victim_ship_name
-        self.victim_ship_group_id
-        self.victim_ship_group_name
+        self.victim_damage_taken = self.all_the_names["victim_damage_taken"]
+        self.victim_char_id = self.all_the_names["victim_char_id"]
+        self.victim_corp_id = self.all_the_names["victim_corp_id"]
+        self.victim_alliance_id = self.all_the_names["victim_alliance_id"]
+        self.victim_char_name = self.all_the_names["victim_char_name"]
+        self.victim_corp_name = self.all_the_names["victim_corp_name"]
+        self.victim_alliance_name = self.all_the_names["victim_alliance_name"]
+        self.victim_ship_id = self.all_the_names["victim_ship_id"]
+        self.victim_ship_name = self.all_the_names["victim_ship_name"]
+        self.victim_ship_group_id = self.all_the_names["victim_ship_group_id"]
+        self.victim_ship_group_name = self.all_the_names["victim_ship_group_name"]
 
+        self.final_blow_damage_percent = (self.final_blow_damage / self.victim_damage_taken) * 100
+
+"""
         # A T T A C K E R
         self.attacker_is_solo = unprocessed_killmail['package']['zkb']['solo']
         self.attacker_is_npc = unprocessed_killmail['package']['zkb']['npc']
@@ -147,3 +154,4 @@ class Killmail2:
         self.logger.info("Attacker Ship Names: {}".format(self.attacker_ship_names))
         self.logger.info("Attacker Ship Group IDs: {}".format(self.attacker_ship_group_ids))
         self.logger.info("Attacker Ship Group Names: {}".format(self.attacker_ship_group_names))
+"""""

@@ -3,10 +3,10 @@ Pulls every kill [zKill](https://zkillboard.com) gets and puts them into a
 [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
 for making nice graphs.
  
-Example Graphs made with [Grafana](grafana.com):
-![example_graph1](ressources/zFlux1.PNG)
-![example_graph2](ressources/zFlux2.PNG)
-![example_graph3](ressources/zFlux3.PNG)
+Example Graphs made with [Grafana](https://grafana.com):
+![example_graph1](src/ressources/zFlux1.PNG)
+![example_graph2](src/ressources/zFlux2.PNG)
+![example_graph3](src/ressources/zFlux3.PNG)
 ## Requirements
 
 #### Python3
@@ -125,5 +125,5 @@ counter
 ````
 
 ## Class Diagram
-![Class Diagramm](ressources/UML.png)
+![Class Diagramm](src/ressources/UML.png)
 

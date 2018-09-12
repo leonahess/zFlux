@@ -122,22 +122,20 @@ class TestKillmailVictim(TestKillmail):
         self.assertEqual(1737, self.k30.victim_damage_taken, "wrong int")
         self.assertEqual(2087, self.k70.victim_damage_taken, "wrong int")
 
-    def test_victim_name_ids(self):
-        self.assertEqual([99007362, 2114300996, 98531953], self.k00.victim_name_ids, "wrong ids")
-        self.assertEqual([2113228085, 98446928, 99003581], self.k30.victim_name_ids, "wrong ids")
+    def test_victim_char_id(self):
+        self.assertEqual(2114300996, self.k00.victim_char_id, "wrong id")
+        self.assertEqual(2113228085, self.k30.victim_char_id, "wrong id")
+        self.assertEqual(2112516399, self.k70.victim_char_id, "wrong id")
 
-    def test_victim_names(self):
-        self.assertEqual([{"category": "character", "id": 2114300996, "name": "Assassin Jx"},
-                          {"category": "corporation", "id": 98531953, "name": "Rainbow Pegasus Squadron"},
-                          {"category": "alliance", "id": 99007362, "name": "Ranger Regiment"}],
-                         self.k00.victim_names, "wrong names")
-        self.assertEqual([{"category": "character", "id": 2113228085, "name": "Omae Kumiko"},
-                          {"category": "corporation", "id": 98446928, "name": "Setcreasea Pallida Corporation"},
-                          {"category": "alliance", "id": 99003581, "name": "Fraternity."}],
-                         self.k30.victim_names, "wrong names")
-        self.assertEqual([{"category": "character", "id": 2112516399, "name": "Dmitry Ismagilov"},
-                          {"category": "corporation", "id": 1000180, "name": "State Protectorate"}],
-                         self.k70.victim_names, "wrong names")
+    def test_victim_corp_id(self):
+        self.assertEqual(98531953, self.k00.victim_corp_id, "wrong id")
+        self.assertEqual(98446928, self.k30.victim_corp_id, "wrong id")
+        self.assertEqual(1000180, self.k70.victim_corp_id, "wrong id")
+
+    def test_victim_alliance_id(self):
+        self.assertEqual(99007362, self.k00.victim_alliance_id, "wrong id")
+        self.assertEqual(99003581, self.k30.victim_alliance_id, "wrong id")
+        self.assertEqual("", self.k70.victim_alliance_id, "wrong id")
 
     def test_victim_char_name(self):
         self.assertEqual("Assassin Jx", self.k00.victim_char_name, "wrong name")
