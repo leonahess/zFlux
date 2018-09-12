@@ -1,6 +1,6 @@
 from tests.setup import Setup
-from src.killmail import Killmail
-from src.attacker_name_fetcher import AttackerNameFetcher
+from old.killmail import Killmail
+from old.attacker_name_fetcher import AttackerNameFetcher
 
 
 class TestKillmailStatics(Setup):

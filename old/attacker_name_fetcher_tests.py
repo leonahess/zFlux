@@ -1,5 +1,5 @@
 from tests.setup import Setup
-from src.attacker_name_fetcher import AttackerNameFetcher
+from old.attacker_name_fetcher import AttackerNameFetcher
 
 
 class TestAttackerNameFetcher(Setup):

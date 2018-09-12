@@ -1,12 +1,12 @@
 import logging
 from queue import Queue
 from threading import Thread
-from src.victim_name_fetcher import VictimNameFetcher
-from src.attacker_name_fetcher import AttackerNameFetcher
-from src.victim_ship_name_fetcher import VictimShipNameFetcher
-from src.attacker_ship_name_fetcher import AttackerShipNameFetcher
-from src.solar_system_name_fetcher_local import SolarSystemNameFetcherLocal
-from src.region_name_fetcher import RegionNameFetcher
+from old.victim_name_fetcher import VictimNameFetcher
+from old.attacker_name_fetcher import AttackerNameFetcher
+from old.victim_ship_name_fetcher import VictimShipNameFetcher
+from old.attacker_ship_name_fetcher import AttackerShipNameFetcher
+from old.solar_system_name_fetcher_local import SolarSystemNameFetcherLocal
+from old.region_name_fetcher import RegionNameFetcher
 
 
 

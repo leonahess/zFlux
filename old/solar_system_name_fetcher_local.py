@@ -1,4 +1,4 @@
-from src.name_fetcher import NameFetcher
+from old.name_fetcher import NameFetcher
 import os
 import csv
 

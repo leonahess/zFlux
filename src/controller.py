@@ -1,11 +1,11 @@
 import logging
 
-from src.performance_analysis import PerformanceAnalysis
+from src.performance import Performance
 from src.logger import Logger
 from src.redisq import RedisQ
-from src.killmail import Killmail
-from src.killmail_influx_pusher import KillmailInfluxPusher
-from src.performance_influx_pusher import PerformanceInfluxPusher
+from old.killmail import Killmail
+from src.influx_pusher_killmail import InfluxPusherKillmail
+from src.influx_pusher_performance import InfluxPusherPerformance
 
 
 class Controller:
@@ -21,12 +21,12 @@ class Controller:
         logger.info("Initialized Logger")
 
         # Create PerformanceAnalysis instance
-        perf = PerformanceAnalysis()
+        perf = Performance()
         logger.info("Initialized Performance Analysis")
 
         # Create InfluxPusher instance
-        influx_killmail = KillmailInfluxPusher()
-        influx_perf = PerformanceInfluxPusher()
+        influx_killmail = InfluxPusherKillmail()
+        influx_perf = InfluxPusherPerformance
 
         # Create RedisQ instance
         redis = RedisQ()

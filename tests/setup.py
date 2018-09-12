@@ -1,6 +1,6 @@
 import unittest
 
-from src.killmail import Killmail
+from old.killmail import Killmail
 
 
 class Setup(unittest.TestCase):

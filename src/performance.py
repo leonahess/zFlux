@@ -3,7 +3,7 @@ import time
 import sys
 import logging
 
-class PerformanceAnalysis:
+class Performance:
     """A class for measuring and storing vital performance metrics"""
 
     def __init__(self):

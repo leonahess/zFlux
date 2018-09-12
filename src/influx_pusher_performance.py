@@ -1,7 +1,7 @@
 from src.influx_pusher import InfluxPusher
 
 
-class PerformanceInfluxPusher(InfluxPusher):
+class InfluxPusherPerformance(InfluxPusher):
 
     def assembleJsonBody(self, cycle_stats):
         """assembles a valid json construct for pushing the killmail to the database"""
