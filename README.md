@@ -4,9 +4,9 @@ Pulls every kill [zKill](zkillboard.com) gets and puts them into a
 for making nice graphs.
  
 Example Graphs made with [Grafana](grafana.com):
-![example_graph1](ressources/zFlux1.png)
-![example_graph2](ressources/zFlux2.png)
-![example_graph3](ressources/zFlux3.png)
+![example_graph1](ressources/zFlux1.PNG)
+![example_graph2](ressources/zFlux2.PNG)
+![example_graph3](ressources/zFlux3.PNG)
 ## Requirements
 
 #### Python3
