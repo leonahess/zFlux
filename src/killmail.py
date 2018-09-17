@@ -6,7 +6,8 @@ from src.name_fetcher_geographic import NameFetcherGeographic
 from src.name_fetcher_victim import NameFetcherVictim
 from src.name_fetcher_attacker import NameFetcherAttacker
 
-class Killmail2:
+
+class Killmail:
     """just a temporary data object to collect all relevant datapoints before pushing the whole thing to the
      InfluxPusher Class"""
 
@@ -106,7 +107,6 @@ class Killmail2:
         self.attacker_ship_group_ids = self.all_the_names["attacker_ship_group_ids"]
         self.attacker_ship_group_names = self.all_the_names["attacker_ship_group_names"]
 
-"""
         # L O G G E R
         self.logger.info("ID: {}".format(self.id))
         self.logger.info("Time: {}".format(self.time))
@@ -132,8 +132,6 @@ class Killmail2:
         self.logger.info("Constellation Name: {}".format(self.constellation_name))
 
         self.logger.info("Victim Damage Taken: {}".format(self.victim_damage_taken))
-        self.logger.info("Victim Name IDs: {}".format(self.victim_name_ids))
-        self.logger.info("Victim Names: {}".format(self.victim_names))
         self.logger.info("Victim Char Name: {}".format(self.victim_char_name))
         self.logger.info("Victim Corp Name: {}".format(self.victim_corp_name))
         self.logger.info("Victim Alliance Name: {}".format(self.victim_alliance_name))
@@ -146,8 +144,6 @@ class Killmail2:
         self.logger.info("Attacker Is Npc: {}".format(self.attacker_is_npc))
         self.logger.info("Attacker Is Awox: {}".format(self.attacker_is_awox))
         self.logger.info("Attacker Amount: {}".format(self.attacker_amount))
-        self.logger.info("Attacker Name IDs: {}".format(self.attacker_name_ids))
-        self.logger.info("Attacker Names: {}".format(self.attacker_names))
         self.logger.info("Attacker Char Names: {}".format(self.attacker_char_names))
         self.logger.info("Attacker Corp Names: {}".format(self.attacker_corp_names))
         self.logger.info("Attacker Alliance Names: {}".format(self.attacker_alliance_names))
@@ -155,4 +151,3 @@ class Killmail2:
         self.logger.info("Attacker Ship Names: {}".format(self.attacker_ship_names))
         self.logger.info("Attacker Ship Group IDs: {}".format(self.attacker_ship_group_ids))
         self.logger.info("Attacker Ship Group Names: {}".format(self.attacker_ship_group_names))
-"""""

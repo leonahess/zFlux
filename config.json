@@ -1,6 +1,6 @@
 {
   "influx_ip": "localhost",
-  "loggin_level": "DEBUG",
+  "logging_level": "DEBUG",
   "enable_logging": true,
   "enable_performance_analisys": true
 }

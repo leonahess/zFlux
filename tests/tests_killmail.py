@@ -1,4 +1,4 @@
-from src.killmail2 import Killmail2
+from src.killmail import Killmail
 from tests.setup import Setup
 
 
@@ -6,9 +6,9 @@ class TestKillmail(Setup):
 
     def setUp(self):
         super().setUp()
-        self.k00 = Killmail2(self.uk00)
-        self.k30 = Killmail2(self.uk30)
-        self.k70 = Killmail2(self.uk70)
+        self.k00 = Killmail(self.uk00)
+        self.k30 = Killmail(self.uk30)
+        self.k70 = Killmail(self.uk70)
 
     def test_id(self):
         self.assertEqual(71443648, self.k00.id, "Wrong id")

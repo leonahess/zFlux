@@ -3,7 +3,7 @@ import logging
 from src.performance import Performance
 from src.logger import Logger
 from src.redisq import RedisQ
-from old.killmail import Killmail
+from src.killmail import Killmail
 from src.influx_pusher_killmail import InfluxPusherKillmail
 from src.influx_pusher_performance import InfluxPusherPerformance
 
@@ -16,7 +16,7 @@ class Controller:
         """Core Loop"""
 
         # Create Logger Instance
-        logger = Logger()
+        Logger(config['logging_level'])
         logger = logging.getLogger(__name__ + ".Controller")
         logger.info("Initialized Logger")
 
