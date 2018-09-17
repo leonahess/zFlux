@@ -6,10 +6,10 @@ from influxdb import InfluxDBClient
 class InfluxPusher(ABC):
     """Handles all things related to getting data ready for the database and moving said data to the database"""
 
-    def __init__(self):
+    def __init__(self, ip):
         """Connect to Database and check if database 'eve' exists, otherwise create one"""
         self.logger = logging.getLogger(__name__ + ".InfluxPusher")
-        self.client = InfluxDBClient(host='localhost', port=8086, database='eve')
+        self.client = InfluxDBClient(host=ip, port=8086, database='eve')
         database_list = self.client.get_list_database()
         eve_exists = False
 

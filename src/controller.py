@@ -16,7 +16,7 @@ class Controller:
         """Core Loop"""
 
         # Create Logger Instance
-        log = Logger()
+        logger = Logger()
         logger = logging.getLogger(__name__ + ".Controller")
         logger.info("Initialized Logger")
 
@@ -25,8 +25,8 @@ class Controller:
         logger.info("Initialized Performance Analysis")
 
         # Create InfluxPusher instance
-        influx_killmail = InfluxPusherKillmail()
-        influx_perf = InfluxPusherPerformance
+        influx_killmail = InfluxPusherKillmail(config['influx_ip'])
+        influx_perf = InfluxPusherPerformance(config['influx_ip'])
 
         # Create RedisQ instance
         redis = RedisQ()

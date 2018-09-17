@@ -195,26 +195,6 @@ class TestKillmailAttacker(TestKillmail):
         self.assertEqual(2, self.k30.attacker_amount, "wrong int")
         self.assertEqual(2, self.k70.attacker_amount, "wrong int")
 
-    def test_attacker_name_ids(self):
-        pass
-
-    def test_attacker_names(self):
-        self.assertEqual([{"category": "character", "id": 992181402, "name": "Strife Senior"},
-                          {"category": "corporation", "id": 1324429368, "name": "NED-Clan"},
-                          {"category": "alliance", "id": 1354830081, "name": "Goonswarm Federation"}],
-                         self.k00.attacker_names, "wrong names")
-        self.assertEqual([{"category": "character", "id": 224182597, "name": "Shotgun Pimp"},
-                          {"category": "corporation", "id": 818601383, "name": "The Reappropriation"},
-                          {"category": "alliance", "id": 99005382, "name": "Jita Holding Inc."},
-                          {"category": "character", "id": 91715917, "name": "Ailiece Ardua"},
-                          {"category": "corporation", "id": 98567437, "name": "HC - georgieboys"}],
-                         self.k30.attacker_names, "wrong names")
-        self.assertEqual([{"category": "character", "id": 94830824, "name": "VorSunder Vampyra"},
-                          {"category": "corporation", "id": 98539465, "name": "Voracious Vikings of Valor"},
-                          {"category": "character", "id": 95074071, "name": "Jagreen Doshu"},
-                          {"category": "corporation", "id": 98389109, "name": "Old Rotten Tomatoes"}],
-                         self.k70.attacker_names, "wrong names")
-
     def test_attacker_char_names(self):
         self.assertEqual(";Strife Senior;", self.k00.attacker_char_names, "wrong name")
         self.assertEqual(";Shotgun Pimp;Ailiece Ardua;", self.k30.attacker_char_names, "wron name")
@@ -222,7 +202,7 @@ class TestKillmailAttacker(TestKillmail):
 
     def test_attacker_corp_names(self):
         self.assertEqual(";NED-Clan;", self.k00.attacker_corp_names, "wrong name")
-        self.assertEqual(";The Reappropriation;HC - georgieboys;", self.k30.attacker_corp_names, "wrong name")
+        self.assertEqual(";The Reappropriation Committee;HC - georgieboys;", self.k30.attacker_corp_names, "wrong name")
         self.assertEqual(";Voracious Vikings of Valor;Old Rotten Tomatoes;", self.k70.attacker_corp_names, "wrong name")
 
     def test_attacker_alliance_names(self):
@@ -231,9 +211,9 @@ class TestKillmailAttacker(TestKillmail):
         self.assertEqual("", self.k70.attacker_alliance_names, "wrong name")
 
     def test_attacker_ship_ids(self):
-        self.assertEqual([605], self.k00.attacker_ship_id, "wrong ids")
-        self.assertEqual([29990], self.k30.attacker_ship_id, "wrong ids")
-        self.assertEqual([22456, 33470], self.k70.attacker_ship_id, "wrong ids")
+        self.assertEqual([605], self.k00.attacker_ship_ids, "wrong ids")
+        self.assertEqual([29990], self.k30.attacker_ship_ids, "wrong ids")
+        self.assertEqual([22456, 33470], self.k70.attacker_ship_ids, "wrong ids")
 
     def test_attacker_ship_names(self):
         self.assertEqual(";Heron;", self.k00.attacker_ship_names, "wrong names")
@@ -241,11 +221,11 @@ class TestKillmailAttacker(TestKillmail):
         self.assertEqual(";Sabre;Stratios;", self.k70.attacker_ship_names, "wrong names")
 
     def test_attacker_ship_group_ids(self):
-        self.assertEqual([25], self.k00.attacker_ship_group_ids, "wrong ids")
-        self.assertEqual([963], self.k30.attacker_ship_group_ids, "wrong ids")
-        self.assertEqual([541, 26], self.k70.attacker_ship_group_ids, "wrong ids")
+        self.assertEqual(["25"], self.k00.attacker_ship_group_ids, "wrong ids")
+        self.assertEqual(["963"], self.k30.attacker_ship_group_ids, "wrong ids")
+        self.assertEqual(["541", "26"], self.k70.attacker_ship_group_ids, "wrong ids")
 
     def test_attacker_ship_group_names(self):
         self.assertEqual(";Frigate;", self.k00.attacker_ship_group_names, "wrong names")
         self.assertEqual(";Strategic Cruiser;", self.k30.attacker_ship_group_names, "wrong names")
-        self.assertEqual(";Interdictor;Cruiser;", self.k70.attacker_ship_group_names, "wrong names")
+        self.assertEqual(";Cruiser;Interdictor;", self.k70.attacker_ship_group_names, "wrong names")
