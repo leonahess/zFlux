@@ -5,7 +5,7 @@ import csv
 from src.esi_call import EsiCall
 
 
-class NameFetcher2(threading.Thread):
+class NameFetcher(threading.Thread):
 
     def __init__(self, unprocessed_killmail):
         threading.Thread.__init__(self)

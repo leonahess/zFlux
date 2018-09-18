@@ -1,7 +1,7 @@
-from src.name_fetcher import NameFetcher2
+from src.name_fetcher import NameFetcher
 
 
-class NameFetcherGeographic(NameFetcher2):
+class NameFetcherGeographic(NameFetcher):
 
     def __init__(self, unprocessed_killmail):
         super().__init__(unprocessed_killmail)
