@@ -15,9 +15,10 @@ class Killmail:
         """I just do all the processing in the constructor since setters/getters a la JAVA doesnt really make sense for
         me in python.
         Also since this Object just hold data and doesnt have any functionality I chose to do it this way"""
-        self.logger = getLogger(__name__ + ".Killmail")
+        self.logger = getLogger(__name__)
 
         self.unprocessed_killmail = unprocessed_killmail
+        self.logger.debug(unprocessed_killmail)
 
         # O B J E C T S
         name_fetcher_final_blow_object = NameFetcherFinalBlow(unprocessed_killmail)

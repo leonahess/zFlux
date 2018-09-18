@@ -93,6 +93,23 @@ class NameFetcherAttacker(NameFetcher):
                }
 
     def return_results(self):
+        self.logger.debug({
+            "attacker_is_awox": self.attacker_is_awox,
+            "attacker_is_solo": self.attacker_is_solo,
+            "attacker_is_npc": self.attacker_is_npc,
+            "attacker_amount": self.attacker_amount,
+            "attacker_char_ids": self.attacker_char_ids,
+            "attacker_corp_ids": self.attacker_corp_ids,
+            "attacker_alliance_ids": self.attacker_alliance_ids,
+            "attacker_ship_ids": self.attacker_ship_ids,
+            "attacker_char_names": self.attacker_char_names,
+            "attacker_corp_names": self.attacker_corp_names,
+            "attacker_alliance_names": self.attacker_alliance_names,
+            "attacker_ship_names": self.attacker_ship_names,
+            "attacker_ship_group_ids": self.attacker_ship_group_ids,
+            "attacker_ship_group_names": self.attacker_ship_group_names
+        })
+
         return {
             "attacker_is_awox": self.attacker_is_awox,
             "attacker_is_solo": self.attacker_is_solo,

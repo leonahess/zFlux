@@ -10,7 +10,7 @@ class NameFetcher(threading.Thread):
     def __init__(self, unprocessed_killmail):
         threading.Thread.__init__(self)
         self.unprocessed_killmail = unprocessed_killmail
-        self.logger = logging.getLogger(__name__ + ".NameFetcher2")
+        self.logger = logging.getLogger(__name__)
 
     def extract_from_killmail(self):
         pass
@@ -25,6 +25,8 @@ class NameFetcher(threading.Thread):
 
     def csv_inv_groups_scraper(self, group_id_list):
         group_name_list = []
+
+        self.logger.debug("trying to read invGroups.csv")
 
         filepath = os.path.dirname(__file__) + "/ressources/invGroups.csv"
         with open(filepath, newline='') as f:
@@ -44,6 +46,8 @@ class NameFetcher(threading.Thread):
     def csv_inv_types_scraper(self, ship_id_list):
         name_list = []
         group_id_list = []
+
+        self.logger.debug("trying to read invTypes.csv")
 
         filepath = os.path.dirname(__file__) + "/ressources/invTypes.csv"
         with open(filepath, newline='') as f:
@@ -69,6 +73,8 @@ class NameFetcher(threading.Thread):
         solar_system_security_list = []
         region_id_list = []
         constellation_id_list = []
+
+        self.logger.debug("trying to read mapSolarSystems.csv")
 
         filepath = os.path.dirname(__file__) + "/ressources/mapSolarSystems.csv"
         with open(filepath, newline='') as f:

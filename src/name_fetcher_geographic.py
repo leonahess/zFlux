@@ -43,6 +43,18 @@ class NameFetcherGeographic(NameFetcher):
         return {"solar_system_id": ""}
 
     def return_results(self):
+        self.logger.debug({
+            "solar_system_id": self.solar_system_id,
+            "solar_system_name": self.solar_system_name,
+            "solar_system_security": self.solar_system_security,
+            "solar_system_class": self.solar_system_class,
+            "region_id": self.region_id,
+            "region_name": self.region_name,
+            "constellation_id": self.constellation_id,
+            "constellation_name": self.constellation_name,
+
+        })
+
         return {
             "solar_system_id": self.solar_system_id,
             "solar_system_name": self.solar_system_name,

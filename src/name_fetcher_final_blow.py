@@ -35,6 +35,13 @@ class NameFetcherFinalBlow(NameFetcher):
         return {"damage_done": "", "ship_type_id": ""}
 
     def return_results(self):
+        self.logger.debug({
+                "final_blow_damage": self.final_blow_damage,
+                "final_blow_ship_id": self.final_blow_ship_id,
+                "final_blow_ship_name": self.final_blow_ship_name,
+                "final_blow_ship_group_id": self.final_blow_ship_group_id,
+                "final_blow_ship_group_name": self.final_blow_ship_group_name
+               })
 
         return {
                 "final_blow_damage": self.final_blow_damage,

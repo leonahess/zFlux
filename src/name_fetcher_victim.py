@@ -64,6 +64,20 @@ class NameFetcherVictim(NameFetcher):
                }
 
     def return_results(self):
+        self.logger.debug({
+                "victim_char_id": self.victim_char_id,
+                "victim_char_name": self.victim_char_name,
+                "victim_corp_id": self.victim_corp_id,
+                "victim_corp_name": self.victim_corp_name,
+                "victim_alliance_id": self.victim_alliance_id,
+                "victim_alliance_name": self.victim_alliance_name,
+                "victim_damage_taken": self.victim_damage_taken,
+                "victim_ship_id": self.victim_ship_id,
+                "victim_ship_name": self.victim_ship_name,
+                "victim_ship_group_id": self.victim_ship_group_id,
+                "victim_ship_group_name": self.victim_ship_group_name
+               })
+
         return {
                 "victim_char_id": self.victim_char_id,
                 "victim_char_name": self.victim_char_name,
