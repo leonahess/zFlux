@@ -610,7 +610,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 779,7,Rig Launcher,0,0,0,0,0,1
 781,7,Rig Core,0,0,0,0,0,1
 782,7,Rig Navigation,0,0,0,0,0,1
-783,20,Cyber X Specials,0,1,0,0,0,0
+783,20,Cyber X Specials,0,1,0,0,0,1
 784,11,Large Collidable Ship,0,0,1,0,0,0
 786,7,Rig Electronic Systems,0,0,0,0,0,1
 787,9,Rig Blueprint,76,1,0,0,0,1
@@ -1009,7 +1009,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1405,65,Laboratory,None,0,0,0,0,0
 1406,65,Refinery,None,0,1,0,0,1
 1407,65,Observatory Array,None,0,0,0,0,0
-1408,65,Stargate,None,0,0,0,0,0
+1408,65,Navigation Structures,None,0,0,0,0,0
 1409,65,Administration Hub,None,0,0,0,0,0
 1410,65,Advertisement Center,None,0,0,0,0,0
 1411,11,Amarr Navy Roaming Cruiser,None,0,0,0,0,0
@@ -1180,7 +1180,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1765,11,♦ Mining Barge,None,0,0,0,0,0
 1766,11,♦ Mining Exhumer,None,0,0,0,0,0
 1767,11,♦ Mining Hauler,None,0,0,0,0,0
-1768,11,Tutorial Seekers,None,0,0,0,0,0
+1768,11,Seeker Scouts,None,0,0,0,0,0
 1769,8,Shield Command Burst Charges,None,0,0,0,1,1
 1770,7,Command Burst,None,0,0,0,0,1
 1771,8,Mining Foreman Burst Charges,None,0,0,0,1,1
@@ -1351,6 +1351,10 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1996,4,Abyssal Materials,None,0,0,0,0,1
 1997,11,Abyssal Drone Entities,None,0,0,0,0,0
 1998,2,Station Conversion Monuments,None,0,1,0,0,0
+2001,6,,None,0,0,0,0,0
+2002,17,Triglavian Datastreams,None,0,0,0,0,1
+2003,7,,None,0,0,0,0,0
+2004,7,,None,0,0,0,0,0
 350858,350001,Infantry Weapons,None,1,0,0,0,0
 351064,350001,Infantry Dropsuits,None,1,0,0,0,0
 351121,350001,Infantry Modules,None,1,0,0,0,0

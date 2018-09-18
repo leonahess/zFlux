@@ -41,6 +41,8 @@ class NameFetcher(threading.Thread):
         if group_name_list is []:
             group_name_list.append("")
 
+        self.logger.debug("Group Name List: {}".format(group_name_list))
+
         return {"group_name_list": group_name_list}
 
     def csv_inv_types_scraper(self, ship_id_list):
@@ -65,6 +67,9 @@ class NameFetcher(threading.Thread):
             name_list.append("")
         if group_id_list is []:
             group_id_list.append("")
+
+        self.logger.debug("Name List: {}".format(name_list))
+        self.logger.debug("Group ID List: {}".format(group_id_list))
 
         return {"name_list": name_list, "group_id_list": group_id_list}
 
@@ -100,6 +105,11 @@ class NameFetcher(threading.Thread):
             region_id_list.append("")
         if constellation_id_list is []:
             constellation_id_list.append("")
+
+        self.logger.debug("Solar System Name List: {}".format(solar_system_name_list))
+        self.logger.debug("Solar System Security List: {}".format(solar_system_security_list))
+        self.logger.debug("Region ID List: {}".format(region_id_list))
+        self.logger.debug("Cosntellation ID List: {}".format(constellation_id_list))
 
         return {"solar_system_name_list": solar_system_name_list,
                 "solar_system_security_list": solar_system_security_list,

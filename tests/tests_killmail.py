@@ -9,16 +9,22 @@ class TestKillmail(Setup):
         self.k00 = Killmail(self.uk00)
         self.k30 = Killmail(self.uk30)
         self.k70 = Killmail(self.uk70)
+        self.k71 = Killmail(self.uk71)
+        self.k72 = Killmail(self.uk72)
 
     def test_id(self):
         self.assertEqual(71443648, self.k00.id, "Wrong id")
         self.assertEqual(71933840, self.k30.id, "wrong id")
         self.assertEqual(72012818, self.k70.id, "wrong id")
+        self.assertEqual(72477866, self.k71.id, "wrong id")
+        self.assertEqual(72478369, self.k72.id, "wrong id")
 
     def test_time(self):
         self.assertEqual("2018-07-24T17:56:14Z", self.k00.time, "wrong time")
         self.assertEqual("2018-08-18T11:39:49Z", self.k30.time, "wronge time")
         self.assertEqual("2018-08-22T10:41:01Z", self.k70.time, "wronge time")
+        self.assertEqual("2018-09-18T12:00:28Z", self.k71.time, "wronge time")
+        self.assertEqual("2018-09-18T13:01:24Z", self.k72.time, "wronge time")
 
 
 class TestKillmailValue(TestKillmail):
@@ -27,16 +33,22 @@ class TestKillmailValue(TestKillmail):
         self.assertEqual(7521431.46, self.k00.value_total, "Wrong ISK Amount")
         self.assertEqual(227289291.33, self.k30.value_total, "wrong isk amount")
         self.assertEqual(71262264.86, self.k70.value_total, "wrong isk amount")
+        self.assertEqual(614449.97, self.k71.value_total, "wrong isk amount")
+        self.assertEqual(50309060.11, self.k72.value_total, "wrong isk amount")
 
     def test_fitted_value(self):
         self.assertEqual(2543013.41, self.k00.value_fitted, "Wrong ISK Amount")
         self.assertEqual(65084309.91, self.k30.value_fitted, "wrong isk amount")
         self.assertEqual(10593294.36, self.k70.value_fitted, "wrong isk amount")
+        self.assertEqual(328402.77, self.k71.value_fitted, "wrong isk amount")
+        self.assertEqual(37301202.41, self.k72.value_fitted, "wrong isk amount")
 
     def test_ship_value(self):
         self.assertEqual(7521431.46 - 2543013.41, self.k00.value_ship, "Wrong ISK Amount")
         self.assertEqual(227289291.33 - 65084309.91, self.k30.value_ship, "wrong isk amount")
         self.assertEqual(71262264.86 - 10593294.36, self.k70.value_ship, "wrong isk amount")
+        self.assertEqual(614449.97 - 328402.77, self.k71.value_ship, "wrong isk amount")
+        self.assertEqual(50309060.11 - 37301202.41, self.k72.value_ship, "wrong isk amount")
 
 
 class TestKillmailFinalBlow(TestKillmail):
@@ -45,31 +57,43 @@ class TestKillmailFinalBlow(TestKillmail):
         self.assertEqual(4110, self.k00.final_blow_damage, "Wrong damage")
         self.assertEqual(778, self.k30.final_blow_damage, "wrong damage")
         self.assertEqual(1002, self.k70.final_blow_damage, "wrong damage")
+        self.assertEqual(5548, self.k71.final_blow_damage, "wrong damage")
+        self.assertEqual(3160, self.k72.final_blow_damage, "wrong damage")
 
     def test_final_blow_damage_percent(self):
         self.assertEqual(100, self.k00.final_blow_damage_percent, "Wrong percentage")
         self.assertEqual(45, self.k30.final_blow_damage_percent, "wrong percentage")
         self.assertEqual(48, self.k70.final_blow_damage_percent, "wrong percentage")
+        self.assertEqual(100, self.k71.final_blow_damage_percent, "wrong percentage")
+        self.assertEqual(100, self.k72.final_blow_damage_percent, "wrong percentage")
 
     def test_final_blow_ship_id(self):
         self.assertEqual(605, self.k00.final_blow_ship_id, "Wrong ship id")
         self.assertEqual(29990, self.k30.final_blow_ship_id, "wrong ship id")
         self.assertEqual(33470, self.k70.final_blow_ship_id, "wrong ship id")
+        self.assertEqual(48930, self.k71.final_blow_ship_id, "wrong ship id")
+        self.assertEqual(48799, self.k72.final_blow_ship_id, "wrong ship id")
 
     def test_final_blow_ship_name(self):
         self.assertEqual("Heron", self.k00.final_blow_ship_name, "Wrong Ship Name")
         self.assertEqual("Loki", self.k30.final_blow_ship_name, "wrong ship name")
         self.assertEqual("Stratios", self.k70.final_blow_ship_name, "wrong ship name")
+        self.assertEqual("", self.k71.final_blow_ship_name, "wrong ship name")
+        self.assertEqual("", self.k72.final_blow_ship_name, "wrong ship name")
 
     def test_final_blow_ship_group_id(self):
         self.assertEqual("25", self.k00.final_blow_ship_group_id, "Wrong Group id")
         self.assertEqual("963", self.k30.final_blow_ship_group_id, "wrong group id")
         self.assertEqual("26", self.k70.final_blow_ship_group_id, "Wrong Group id")
+        self.assertEqual("1452", self.k71.final_blow_ship_group_id, "Wrong Group id")
+        self.assertEqual("1667", self.k72.final_blow_ship_group_id, "Wrong Group id")
 
     def test_final_blow_ship_group_name(self):
         self.assertEqual("Frigate", self.k00.final_blow_ship_group_name, "Wrong group name")
         self.assertEqual("Strategic Cruiser", self.k30.final_blow_ship_group_name, "wrong group name")
         self.assertEqual("Cruiser", self.k70.final_blow_ship_group_name, "Wrong group name")
+        self.assertEqual("Irregular Drone", self.k71.final_blow_ship_group_name, "Wrong group name")
+        self.assertEqual("Irregular Battleship", self.k72.final_blow_ship_group_name, "Wrong group name")
 
 
 class TestKillmailGeographic(TestKillmail):
