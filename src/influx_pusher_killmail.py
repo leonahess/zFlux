@@ -31,20 +31,23 @@ class InfluxPusherKillmail(InfluxPusher):
                 "attacker_char_name": killmail.attacker_char_names,
                 "attacker_corp_name": killmail.attacker_corp_names,
                 "attacker_alliance_name": killmail.attacker_alliance_names,
-                "attacker_ship_names": killmail.attacker_ship_names,
+                "attacker_ship_name": killmail.attacker_ship_names,
                 "attacker_ship_group_name": killmail.attacker_ship_group_names,
+                "attacker_amount": killmail.attacker_amount,
 
                 "victim_char_name": killmail.victim_char_name,
                 "victim_corp_name": killmail.victim_corp_name,
                 "victim_alliance_name": killmail.victim_alliance_name,
                 "victim_ship_name": killmail.victim_ship_name,
-                "victim_ship_group_name": killmail.victim_ship_group_name
+                "victim_ship_group_name": killmail.victim_ship_group_name,
+                "victim_damage_taken": killmail.victim_damage_taken
             },
             "fields": {
                 "#kills": 1,
                 "solar_system_security": killmail.solar_system_security,
 
                 "attacker_amount": killmail.attacker_amount,
+
                 "victim_damage_taken": killmail.victim_damage_taken,
 
                 "value_total": killmail.value_total,
@@ -52,8 +55,6 @@ class InfluxPusherKillmail(InfluxPusher):
                 "value_ship": killmail.value_ship,
 
                 "final_blow_damage": killmail.final_blow_damage,
-                "final_blow_ship_name": killmail.final_blow_ship_name,
-                "final_blow_ship_group_name": killmail.final_blow_ship_group_name,
                 "final_blow_damage_percent": killmail.final_blow_damage_percent
             },
             "time": killmail.time,

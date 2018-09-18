@@ -88,7 +88,10 @@ class Killmail:
         self.victim_ship_group_id = self.all_the_names["victim_ship_group_id"]
         self.victim_ship_group_name = self.all_the_names["victim_ship_group_name"]
 
-        self.final_blow_damage_percent = round((self.final_blow_damage / self.victim_damage_taken) * 100, 0)
+        if self.victim_damage_taken != 0:
+            self.final_blow_damage_percent = float(round((self.final_blow_damage / self.victim_damage_taken) * 100, 0))
+        else:
+            self.final_blow_damage_percent = float(0)
 
         # A T T A C K E R
         self.attacker_is_solo = unprocessed_killmail['package']['zkb']['solo']

@@ -16,7 +16,7 @@ class Controller:
         """Core Loop"""
 
         # Create Logger Instance
-        Logger(config['logging_level'])
+        logger = Logger(config['logging_level'])
         logger = logging.getLogger(__name__ + ".Controller")
         logger.info("Initialized Logger")
 

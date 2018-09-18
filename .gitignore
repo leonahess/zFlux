@@ -1,9 +1,7 @@
-*.log
+*logs
 .DS_Store
-zKill_scraper_tests.py
 /python/__pycache__
 .idea
 __pycache__
 */__pycache__
 /venv
-logs/*
