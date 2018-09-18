@@ -1,0 +1,5 @@
+- added more fields
+- added config file
+- reworked most of the code
+- added a lot of tests
+- more time per killmail

@@ -1,0 +1,190 @@
+@startuml
+
+title Killmail attribute Overview
+
+/'
+class NameFetcher{
+    getNames()
+    getIds()
+}
+class EsiNameFetcher{
+    makeCall()
+}
+class LocalNameFetcher{
+    searchCsv()
+}
+
+class ExtractFromKillmail
+
+NameFetcher <|-down- ExtractFromKillmail
+NameFetcher <|-down- EsiNameFetcher
+NameFetcher <|-down- LocalNameFetcher
+'/
+
+object Comment{
+    K: to be extracted directly from the Killmail
+    L: to be locally fetched via a database
+    E: to be fetched via ESI
+    R: to be calculated with given values
+    V: structuring object
+    C: Class
+}
+
+package Killmail <<Folder>>{
+
+class Killmail
+
+Class Attackers << (V, orchid) >>
+Class Victim << (V, orchid) >>
+class Geographic << (V, orchid) >>
+class Value << (V, orchid) >>
+class FinalBlow << (V, orchid) >>
+
+class VictimId << (K, yellow) >>
+class VictimName << (E, lightblue) >>
+class VictimCharName << (R, green) >>
+class VictimCorpName << (R, green) >>
+class VictimAllianceName << (R, green) >>
+class AttackerIds << (K, yellow) >>
+class AttackerNames << (E, lightblue) >>
+class AttackerCharNames << (R, green) >>
+class AttackerCorpNames << (R, green) >>
+class AttackerAllianceNames << (R, green) >>
+
+class VictimShipId << (K, yellow) >>
+class VictimShipName << (L, pink) >>
+class VictimShipGroupId << (L, pink) >>
+class VictimShipGroupName << (L, pink) >>
+
+class AttackerShipIds << (K, yellow) >>
+class AttackerShipNames << (L, pink) >>
+class AttackerShipGroupIds << (L, pink) >>
+class AttackerShipGroupNames << (L, pink) >>
+
+class RegionId << (L, pink) >>
+class RegionName << (E, lightblue) >>
+class ConstellationId << (L, pink) >>
+class ConstellationName << (E, lightblue) >>
+class SolarSystemId << (K, yellow) >>
+class SolarSystemName << (L, pink) >>
+class SolarSystemSecurity << (L, pink) >>
+class SolarSystemClass << (R, green) >>
+
+class Id << (K, yellow) >>
+class TotalValue << (K, yellow) >>
+class FittedValue << (K, yellow) >>
+class ShipValue << (R, green) >>
+class Time << (K, yellow) >>
+class IsSolo << (K, yellow) >>
+class IsAwox << (K, yellow) >>
+class IsNpc << (K, yellow) >>
+class AttackerAmount << (K, yellow) >>
+class VictimDamageTaken << (K, yellow) >>
+
+class FinalBlowShipId << (K, yellow) >>
+class FinalBlowShipName << (L, pink) >>
+class FinalBlowDamage << (K, yellow) >>
+class FinalBlowDamagePercent << (R, green) >>
+class FinalBlowShipGroupId << (L, pink) >>
+class FinalBlowShipGroupName << (L, pink) >>
+}
+
+Killmail <|-down- Attackers
+Killmail <|-down- Victim
+Killmail <|-down- Geographic
+Killmail <|-down- Id
+Killmail <|-down- Time
+Killmail <|-down- Value
+Killmail <|-down- FinalBlow
+
+Value <|-down- TotalValue
+Value <|-down- FittedValue
+Value <|-down- ShipValue
+
+FinalBlow <|-down- FinalBlowShipId
+FinalBlow <|-down- FinalBlowDamage
+
+FinalBlowDamage <|-down- FinalBlowDamagePercent
+VictimDamageTaken <|-down- FinalBlowDamagePercent
+
+FinalBlowShipId <|-down- FinalBlowShipName
+FinalBlowShipId <|-down- FinalBlowShipGroupId
+
+FinalBlowShipGroupId <|-down- FinalBlowShipGroupName
+
+Geographic <|-down- SolarSystemId
+
+Victim <|-down- VictimShipId
+Victim <|-down- VictimId
+Victim <|-down- VictimDamageTaken
+
+VictimName <|-down- VictimCharName
+VictimName <|-down- VictimCorpName
+VictimName <|-down- VictimAllianceName
+
+VictimShipId <|-down- VictimShipName
+VictimShipId <|-down- VictimShipGroupId
+VictimShipGroupId <|-down- VictimShipGroupName
+
+VictimId <|-down- VictimName
+
+Attackers <|-down- AttackerShipIds
+Attackers <|-down- AttackerIds
+Attackers <|-down- IsSolo
+Attackers <|-down- IsAwox
+Attackers <|-down- IsNpc
+Attackers <|-down- AttackerAmount
+
+AttackerNames <|-down- AttackerCharNames
+AttackerNames <|-down- AttackerCorpNames
+AttackerNames <|-down- AttackerAllianceNames
+
+AttackerShipIds <|-down- AttackerShipNames
+AttackerShipIds <|-down- AttackerShipGroupIds
+AttackerShipGroupIds <|-down- AttackerShipGroupNames
+
+AttackerIds <|-down- AttackerNames
+
+SolarSystemId <|-down- SolarSystemName
+SolarSystemId <|-down- SolarSystemSecurity
+SolarSystemId <|-down- RegionId
+SolarSystemId <|-down- ConstellationId
+
+RegionId <|-down- RegionName
+ConstellationId <|-down- ConstellationName
+
+SolarSystemSecurity <|-down- SolarSystemClass
+
+/'
+Id -down- ExtractFromKillmail
+Time -down- ExtractFromKillmail
+TotalValue -down- ExtractFromKillmail
+IsNpc -down- ExtractFromKillmail
+IsSolo -down- ExtractFromKillmail
+IsAwox -down- ExtractFromKillmail
+AttackerAmount -down- ExtractFromKillmail
+VictimDamageTaken -down- ExtractFromKillmail
+
+VictimShipId -down- ExtractFromKillmail
+VictimId -down- ExtractFromKillmail
+VictimName -down- EsiNameFetcher
+VictimShipGroupId -down- LocalNameFetcher
+VictimShipGroupName -down- LocalNameFetcher
+VictimShipName -down- LocalNameFetcher
+
+AttackerShipIds -down- ExtractFromKillmail
+AttackerIds -down- ExtractFromKillmail
+AttackerNames -down- EsiNameFetcher
+AttackerShipGroupIds -down- LocalNameFetcher
+AttackerShipGroupNames -down- LocalNameFetcher
+AttackerShipNames -down- LocalNameFetcher
+
+SolarSystemId -down- ExtractFromKillmail
+SolarSystemName -down- LocalNameFetcher
+SolarSystemSecurity -down- LocalNameFetcher
+RegionId -down- LocalNameFetcher
+RegionName -down- EsiNameFetcher
+ConstellationName -down- EsiNameFetcher
+ConstellationId -down LocalNameFetcher
+'/
+@enduml
