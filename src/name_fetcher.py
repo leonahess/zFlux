@@ -34,7 +34,8 @@ class NameFetcher(threading.Thread):
             for row in inv_types:
                 for l in range(0, len(group_id_list)):
                     if row[0] == str(group_id_list[l]):
-                        group_name_list.append(row[2])
+                        if row[2] not in group_name_list:
+                            group_name_list.append(row[2])
 
         self.logger.debug("Group Name List: {}".format(group_name_list))
 
@@ -57,8 +58,10 @@ class NameFetcher(threading.Thread):
             for row in inv_types:
                 for l in range(0, len(ship_id_list)):
                     if row[0] == str(ship_id_list[l]):
-                        name_list.append(row[2])
-                        group_id_list.append(row[1])
+                        if row[2] not in name_list:
+                            name_list.append(row[2])
+                        if row[1] not in group_id_list:
+                            group_id_list.append(row[1])
 
         self.logger.debug("Name List: {}".format(name_list))
         self.logger.debug("Group ID List: {}".format(group_id_list))

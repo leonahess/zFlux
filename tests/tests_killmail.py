@@ -102,41 +102,57 @@ class TestKillmailGeographic(TestKillmail):
         self.assertEqual(30003681, self.k00.solar_system_id, "wrong id")
         self.assertEqual(30000142, self.k30.solar_system_id, "wrong id")
         self.assertEqual(31000153, self.k70.solar_system_id, "wrong id")
+        self.assertEqual(30002457, self.k71.solar_system_id, "wrong id")
+        self.assertEqual(30001718, self.k72.solar_system_id, "wrong id")
 
     def test_solar_system_name(self):
         self.assertEqual("DO6H-Q", self.k00.solar_system_name, "wrong name")
         self.assertEqual("Jita", self.k30.solar_system_name, "wrong name")
         self.assertEqual("J113820", self.k70.solar_system_name, "wrong name")
+        self.assertEqual("Paye", self.k72.solar_system_name, "wrong name")
+        self.assertEqual("O-VWPB", self.k71.solar_system_name, "wrong name")
 
     def test_solar_system_security(self):
         self.assertEqual(-0.3, self.k00.solar_system_security, "wrong float")
         self.assertEqual(0.9, self.k30.solar_system_security, "wrong float")
         self.assertEqual(-1.0, self.k70.solar_system_security, "wrong float")
+        self.assertEqual(-0.4, self.k71.solar_system_security, "wrong float")
+        self.assertEqual(0.6, self.k72.solar_system_security, "wrong float")
 
     def test_solar_system_class(self):
         self.assertEqual("nullsec", self.k00.solar_system_class, "wrong name")
         self.assertEqual("highsec", self.k30.solar_system_class, "wrong name")
         self.assertEqual("wormhole", self.k70.solar_system_class, "wrong name")
+        self.assertEqual("highsec", self.k72.solar_system_class, "wrong name")
+        self.assertEqual("nullsec", self.k71.solar_system_class, "wrong name")
 
     def test_region_id(self):
         self.assertEqual(10000046, self.k00.region_id, "wrong id")
         self.assertEqual(10000002, self.k30.region_id, "wrong id")
         self.assertEqual(11000002, self.k70.region_id, "wrong id")
+        self.assertEqual(10000020, self.k72.region_id, "wrong id")
+        self.assertEqual(10000029, self.k71.region_id, "wrong id")
 
     def test_region_name(self):
         self.assertEqual("Fade", self.k00.region_name, "wrong name")
         self.assertEqual("The Forge", self.k30.region_name, "wrong name")
         self.assertEqual("A-R00002", self.k70.region_name, "wrong name")
+        self.assertEqual("Tash-Murkon", self.k72.region_name, "wrong name")
+        self.assertEqual("Geminate", self.k71.region_name, "wrong name")
 
     def test_constellation_id(self):
         self.assertEqual(20000536, self.k00.constellation_id, "wrong id")
         self.assertEqual(20000020, self.k30.constellation_id, "wrong id")
         self.assertEqual(21000002, self.k70.constellation_id, "wrong id")
+        self.assertEqual(20000254, self.k72.constellation_id, "wrong id")
+        self.assertEqual(20000361, self.k71.constellation_id, "wrong id")
 
     def test_constellation_name(self):
         self.assertEqual("XFLN-F", self.k00.constellation_name, "wrong name")
         self.assertEqual("Kimotoro", self.k30.constellation_name, "wrong name")
         self.assertEqual("A-C00002", self.k70.constellation_name, "wrong name")
+        self.assertEqual("Anidaza", self.k72.constellation_name, "wrong name")
+        self.assertEqual("NK-AOZ", self.k71.constellation_name, "wrong name")
 
 
 class TestKillmailVictim(TestKillmail):
@@ -145,55 +161,77 @@ class TestKillmailVictim(TestKillmail):
         self.assertEqual(4110, self.k00.victim_damage_taken, "wrong int")
         self.assertEqual(1737, self.k30.victim_damage_taken, "wrong int")
         self.assertEqual(2087, self.k70.victim_damage_taken, "wrong int")
+        self.assertEqual(2087, self.k70.victim_damage_taken, "wrong int")
+        self.assertEqual(2087, self.k70.victim_damage_taken, "wrong int")
 
     def test_victim_char_id(self):
         self.assertEqual(2114300996, self.k00.victim_char_id, "wrong id")
         self.assertEqual(2113228085, self.k30.victim_char_id, "wrong id")
+        self.assertEqual(2112516399, self.k70.victim_char_id, "wrong id")
+        self.assertEqual(2112516399, self.k70.victim_char_id, "wrong id")
         self.assertEqual(2112516399, self.k70.victim_char_id, "wrong id")
 
     def test_victim_corp_id(self):
         self.assertEqual(98531953, self.k00.victim_corp_id, "wrong id")
         self.assertEqual(98446928, self.k30.victim_corp_id, "wrong id")
         self.assertEqual(1000180, self.k70.victim_corp_id, "wrong id")
+        self.assertEqual(1000180, self.k70.victim_corp_id, "wrong id")
+        self.assertEqual(1000180, self.k70.victim_corp_id, "wrong id")
 
     def test_victim_alliance_id(self):
         self.assertEqual(99007362, self.k00.victim_alliance_id, "wrong id")
         self.assertEqual(99003581, self.k30.victim_alliance_id, "wrong id")
+        self.assertEqual("", self.k70.victim_alliance_id, "wrong id")
+        self.assertEqual("", self.k70.victim_alliance_id, "wrong id")
         self.assertEqual("", self.k70.victim_alliance_id, "wrong id")
 
     def test_victim_char_name(self):
         self.assertEqual("Assassin Jx", self.k00.victim_char_name, "wrong name")
         self.assertEqual("Omae Kumiko", self.k30.victim_char_name, "wrong name")
         self.assertEqual("Dmitry Ismagilov", self.k70.victim_char_name, "wrong name")
+        self.assertEqual("Dmitry Ismagilov", self.k70.victim_char_name, "wrong name")
+        self.assertEqual("Dmitry Ismagilov", self.k70.victim_char_name, "wrong name")
 
     def test_victim_corp_name(self):
         self.assertEqual("Rainbow Pegasus Squadron", self.k00.victim_corp_name, "wrong name")
         self.assertEqual("Setcreasea Pallida Corporation", self.k30.victim_corp_name, "wrong name")
+        self.assertEqual("State Protectorate", self.k70.victim_corp_name, "wrong name")
+        self.assertEqual("State Protectorate", self.k70.victim_corp_name, "wrong name")
         self.assertEqual("State Protectorate", self.k70.victim_corp_name, "wrong name")
 
     def test_victim_alliance_name(self):
         self.assertEqual("Ranger Regiment", self.k00.victim_alliance_name, "wrong name")
         self.assertEqual("Fraternity.", self.k30.victim_alliance_name, "wrong name")
         self.assertEqual("", self.k70.victim_alliance_name, "wrong name")
+        self.assertEqual("", self.k70.victim_alliance_name, "wrong name")
+        self.assertEqual("", self.k70.victim_alliance_name, "wrong name")
 
     def test_victim_ship_id(self):
         self.assertEqual(32878, self.k00.victim_ship_id, "wrong id")
         self.assertEqual(33468, self.k30.victim_ship_id, "wrong id")
+        self.assertEqual(33468, self.k70.victim_ship_id, "wrong id")
+        self.assertEqual(33468, self.k70.victim_ship_id, "wrong id")
         self.assertEqual(33468, self.k70.victim_ship_id, "wrong id")
 
     def test_victim_ship_name(self):
         self.assertEqual("Talwar", self.k00.victim_ship_name, "wrong name")
         self.assertEqual("Astero", self.k30.victim_ship_name, "wrong name")
         self.assertEqual("Astero", self.k70.victim_ship_name, "wrong name")
+        self.assertEqual("Astero", self.k70.victim_ship_name, "wrong name")
+        self.assertEqual("Astero", self.k70.victim_ship_name, "wrong name")
 
     def test_victim_ship_group_id(self):
         self.assertEqual(420, self.k00.victim_ship_group_id, "wrong id")
         self.assertEqual(25, self.k30.victim_ship_group_id, "wrong id")
         self.assertEqual(25, self.k70.victim_ship_group_id, "wrong id")
+        self.assertEqual(25, self.k70.victim_ship_group_id, "wrong id")
+        self.assertEqual(25, self.k70.victim_ship_group_id, "wrong id")
 
     def test_victim_ship_group_name(self):
         self.assertEqual("Destroyer", self.k00.victim_ship_group_name, "wrong name")
         self.assertEqual("Frigate", self.k30.victim_ship_group_name, "wrong name")
+        self.assertEqual("Frigate", self.k70.victim_ship_group_name, "wrong name")
+        self.assertEqual("Frigate", self.k70.victim_ship_group_name, "wrong name")
         self.assertEqual("Frigate", self.k70.victim_ship_group_name, "wrong name")
 
 
