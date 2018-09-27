@@ -18,7 +18,7 @@ class InfluxPusherPerformance(InfluxPusher):
                     "counter": cycle_stats.counter
                 },
                 "time": cycle_stats.cycle_start,
-                "time_precision": "s"
+                "time_precision": "m"
         }]
 
         return json_body

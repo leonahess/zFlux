@@ -58,7 +58,7 @@ class InfluxPusherKillmail(InfluxPusher):
                 "final_blow_damage_percent": killmail.final_blow_damage_percent
             },
             "time": killmail.time,
-            "time_precision": "s"
+            "time_precision": "m"
         }]
 
         return json_body
