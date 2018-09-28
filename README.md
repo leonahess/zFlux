@@ -1,7 +1,7 @@
 # zFlux
 Pulls every kill [zKill](https://zkillboard.com) gets and puts them into a 
 [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/)
-for making nice graphs.
+for making nice graphs. It can also Cache every incoming Killmail in a [MongoDB](https://www.mongodb.com/).
  
 
 Example Graphs made with [Grafana](https://grafana.com):
@@ -17,6 +17,7 @@ Example Graphs made with [Grafana](https://grafana.com):
 ```
 influxdb
 requests
+pymongo
 ```
 Install with with ``pip3 install <package>``
 
@@ -26,14 +27,41 @@ If you don't have pip3 installed install it with ``sudo apt-get install python3-
 You will want a machine with Influx running. The script checks if there is a database called
 'eve' and will otherwise create one. I recommend at least 4GB of RAM on your machine, though 
 it might not enough if you plan to run the script longterm.
-You also will want to disable the series limit in the config.
+You will also want to disable the series limit in the config.
+
+##### [MongoDB](https://www.mongodb.com/)
+If enabled in the config you need a MongoDB Server running on your machine.
+
 
 
 ## Getting started
 
 ##### Edit the config.json
 
-edit the config
+Edit the config to your needs.
+
+Note* ``disable_logging`` doesnt do anything yet
+````
+{
+  "logging_level": "INFO",
+  "disable_logging": false,
+  "enable_performance_logging": true,
+  "enable_mongodb": true,
+  "enable_influxdb": true,
+
+  "influx": {
+    "ip": "localhost",
+    "port": 8086,
+    "database_name": "eve"
+  },
+  
+  "mongo": {
+    "ip": "localhost",
+    "port": 27017,
+    "database_name": "eve"
+  }
+}
+````
 
 run ``python3 zFlux.py``
 
@@ -48,52 +76,11 @@ kills
 
 ##### tags
 ```
-kill_id
-
-solar_system_id
 solar_system_name
 solar_system_security
 solar_system_class
-region_id
 region_name
-constellation_id
 constellation_name
-
-
-final_blow_ship_id
-final_blow_ship_name
-final_blow_ship_group_id
-final_blow_ship_group_name
-
-attacker_char_ids
-attacker_char_names
-attacker_corp_ids
-attacker_corp_names
-attacker_alliance_ids
-attacker_alliance_names
-attacker_is_npc
-attacker_is_solo
-attacker_is_awox
-attacker_ship_ids
-attacker_ship_names
-attacker_ship_group_ids
-attacker_ship_grouo_names
-
-victim_char_id
-victim_char_name
-victim_corp_id
-victim_corp_name
-victim_alliance_id
-victim_alliance_name
-victim_ship_id
-victim_ship_name
-victim_ship_group_id
-victim_ship_group_name
-```
-##### fields
-
-```
-#kills
 
 value_total
 value_fitted
@@ -101,6 +88,44 @@ value_ship
 
 final_blow_damage
 final_blow_damage_percent
+final_blow_ship_name
+final_blow_ship_group_name
+
+final_blow_ship_name
+final_blow_ship_group_id
+final_blow_ship_group_name
+
+attacker_amount
+attacker_corp_names
+attacker_alliance_names
+attacker_is_npc
+attacker_is_solo
+attacker_is_awox
+attacker_ship_names
+attacker_ship_grouo_names
+
+victim_char_name
+victim_corp_name
+victim_alliance_name
+victim_ship_name
+victim_ship_group_name
+victim_damage_taken
+```
+##### fields
+
+```
+#kills
+
+solar_system_security
+
+value_total
+value_fitted
+value_ship
+
+final_blow_damage
+final_blow_damage_percent
+
+attacker_amount
 
 victim_damage_taken
 ```

@@ -1,9 +1,8 @@
 @startuml
 
-title zKill_scraper - Class Diagram
+title zFlux - Class Diagram
 
-class Thread
-class ABC
+class zFlux
 
 class Controller{
     log: Logger
@@ -43,6 +42,7 @@ class Killmail {
 
 class Logger{
     __init__()
+    return_level(level)
 }
 
 class PerformanceAnalysis{
@@ -68,19 +68,24 @@ class PerformanceAnalysis{
     logging(): void
 }
 
+class MongoPusher{
+    __init_(): void
+    write_to_database(): void
+}
+
 class InfluxPusher{
     logger: Logger
-    __init__():void
+    __init__(): void
     assembleJsonBody(killmail Killmail): json_body List
     writeToDatabase(killmail Killmail): void
 
 }
 
-class PerformanceInfluxPusher{
+class InfluxPusherPerformance{
     assembleJsonBody(killmail Killmail): json_body List
     writeToDatabase(killmail Killmail): void
 }
-class KillmailInfluxPusher{
+class InfluxPusherKillmail{
     assembleJsonBody(killmail Killmail): json_body List
     writeToDatabase(killmail Killmail): void
 }
@@ -101,68 +106,59 @@ class EsiCall{
 class NameFetcher << abstract >>{
     logger: Logger
     unprocessed_killmail: Dict
+
     __init__(unprocessed_killmail)
-    makeCall(): EsiCall.makeCall()
-    getNames():
-    generateIdList():
-    fetchNameWithId(): names String
-    extractNamesFromDict(names_dict): names
+    make_esi_call(): EsiCall.makeCall()
+    extract_from_killmail()
+    return_results()
+
+    csv_inv_groups_scraper(group_id_list)
+    csv_inv_types_scraper(ship_id_list)
+    csv_map_solar_system_scraper(solar_system_id_list)
 }
 
-class RegionNameFetcher
-
-class SolarNameFetcherLocal{
-    generateIdList(): solar_system_id Int
-    extractNamesFromDict(names_dict Dict): names_dict Dict
-    fetchNameWithId(): solar_system_name String
-    getNames(): solar_system_name Dict
+class NameFetcherAttacker{
+    __init__(unprocessed_killmail)
+    extract_from_killmail()
+    return_results()
 }
 
-class VictimNameFetcher{
-    getNames(): victim_names Dict
-    generateIdList(): victim_ids List
+class NameFetcherVictim{
+    __init__(unprocessed_killmail)
+    extract_from_killmail()
+    return_results()
 }
 
-class AttackerNameFetcher{
-    getNames(): attacker_names Dict
-    generateIdList(): attacker_ids List
+Class NameFetcherFinalBlow{
+    __init__(unprocessed_killmail)
+    extract_from_killmail()
+    return_results()
 }
 
-class ShipNameFetcher{
-    fetchNameWithId(): ship_name_str String
+class NameFetcherGeographic{
+    __init__(unprocessed_killmail)
+    extract_from_killmail()
+    return_results()
 }
 
-class AttackerShipNameFetcher{
-    getNames(): attacker_ship Dict
-    generateIdList(): attacker_ship_list List
-}
+NameFetcher <|-down- NameFetcherAttacker
+NameFetcher <|-down- NameFetcherVictim
+NameFetcher <|-down- NameFetcherFinalBlow
+NameFetcher <|-down- NameFetcherGeographic
 
-class VictimShipNameFetcher{
-    getNames(): victim_ship_dict Dict
-    generateIdList(): victim_ship_list List
-}
+NameFetcher *-right- "1" EsiCall
 
-ABC <|-left- NameFetcher
-Thread <|-left- NameFetcher
+InfluxPusher <|-down- InfluxPusherPerformance
+InfluxPusher <|-down- InfluxPusherKillmail
 
-NameFetcher <|-down- SolarNameFetcherLocal
-NameFetcher <|-down- RegionNameFetcher
-NameFetcher <|-down- AttackerNameFetcher
-NameFetcher <|-down- VictimNameFetcher
-NameFetcher <|-down- ShipNameFetcher
-ShipNameFetcher <|-down- AttackerShipNameFetcher
-ShipNameFetcher <|-down- VictimShipNameFetcher
-
-NameFetcher *-left- "1" EsiCall
-
-InfluxPusher <|-down- PerformanceInfluxPusher
-InfluxPusher <|-down- KillmailInfluxPusher
-
-Controller *-up- "1" Logger
-Controller *-up- "1" PerformanceAnalysis
+Controller *-down- "1" Logger
+Controller *-down- "1" PerformanceAnalysis
 Controller *-down- "1" RedisQ
 Controller *-right- "*" Killmail
 Controller *-left- "1" InfluxPusher
-Killmail *-down- "*" NameFetcher
+Controller *-left- "1" MongoPusher
 
+Killmail *-right- "*" NameFetcher
+
+zFlux *-down- "1" Controller
 @enduml
