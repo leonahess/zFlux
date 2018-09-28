@@ -7,8 +7,6 @@ class InfluxPusherKillmail(InfluxPusher):
         """assembles a valid json construct for pushing the killmail to the database"""
         json_body = [{"measurement": "kills",
             "tags": {
-                "id": killmail.id,
-
                 "solar_system_name": killmail.solar_system_name,
                 "solar_system_security": killmail.solar_system_security,
                 "solar_system_class": killmail.solar_system_class,

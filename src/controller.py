@@ -6,6 +6,7 @@ from src.redisq import RedisQ
 from src.killmail import Killmail
 from src.influx_pusher_killmail import InfluxPusherKillmail
 from src.influx_pusher_performance import InfluxPusherPerformance
+from src.mongo_pusher import MongoPusher
 
 
 class Controller:
@@ -16,8 +17,9 @@ class Controller:
         """Core Loop"""
 
         # Create Logger Instance
-        log = Logger()
+        Logger(config['logging_level'])
         logger = logging.getLogger(__name__ + ".Controller")
+        logger.disabled = config['disable_logging']
         logger.info("Initialized Logger")
 
         # Create PerformanceAnalysis instance
@@ -25,8 +27,20 @@ class Controller:
         logger.info("Initialized Performance Analysis")
 
         # Create InfluxPusher instance
-        influx_killmail = InfluxPusherKillmail(config['influx_ip'])
-        influx_perf = InfluxPusherPerformance(config['influx_ip'])
+        if config['enable_influxdb'] is True:
+            influx_killmail = InfluxPusherKillmail(config['influx']['ip'],
+                                                   config['influx']['port'],
+                                                   config['influx']['database_name'])
+
+        influx_perf = InfluxPusherPerformance(config['influx']['ip'],
+                                              config['influx']['port'],
+                                              config['influx']['database_name'])
+
+        # Create MongoPusher intance
+        if config['enable_mongodb'] is True:
+            mongo = MongoPusher(config['mongo']['ip'],
+                                config['mongo']['port'],
+                                config['mongo']['database_name'])
 
         # Create RedisQ instance
         redis = RedisQ()
@@ -36,11 +50,20 @@ class Controller:
 
             perf.setCycleStart()
 
-            killmail = Killmail(unprocessed_killmail)
+            if config['enable_mongodb'] is True:
+                mongo.writeToDatabase(unprocessed_killmail)
+                logger.info("Wrote to Mongo")
 
-            influx_killmail.writeToDatabase(killmail)
+            if config['enable_influxdb'] is True:
+                killmail = Killmail(unprocessed_killmail)
+                logger.info("Processed Killmail")
+
+                influx_killmail.writeToDatabase(killmail)
+                logger.info("wrote killmail to influx")
 
             perf.setCycleEnd()
             perf.calcCycleStats()
 
-            influx_perf.writeToDatabase(perf)
+            if config['enable_performance_logging'] is True:
+                influx_perf.writeToDatabase(perf)
+                logger.info("wrote performance to influx")
