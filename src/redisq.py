@@ -34,12 +34,12 @@ class RedisQ:
                 continue
 
             if killmail["package"] is None:
-                self.logger.info("No killmail was given")
+                self.logger.debug("No killmail was given")
                 continue
 
             if r.status_code is not 200:
                 self.logger.warning("RedisQ gave back a bad status: {}".format(r.status_code))
                 continue
 
-            self.logger.info("RedisQ request was succesfull")
+            self.logger.debug("RedisQ request was succesfull")
             return killmail

@@ -3,7 +3,7 @@ Description=Reads zKills RedisQ and does stuff with the killmails
 After=network.target
 
 [Service]
-Type=simple
+Type=idle
 WorkingDirectory=/home/leonhess/zFlux/
 ExecStart=/usr/bin/python3 /home/leonhess/zFlux/zFlux.py
 

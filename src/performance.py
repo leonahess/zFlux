@@ -75,8 +75,8 @@ class Performance:
     def logging(self):
         """logs all the metrics to the logfile"""
         self.logger.info("Counter: {}".format(self.counter))
-        self.logger.info("Current Cycle : {}s".format(self.cur_cycle))
-        self.logger.info("Avg Last 100  : {}s".format(self.avg_last100_cycle))
+        self.logger.debug("Current Cycle : {}s".format(self.cur_cycle))
+        self.logger.debug("Avg Last 100  : {}s".format(self.avg_last100_cycle))
         self.logger.info("Avg Last 1000 : {}s".format(self.avg_last1000_cycle))
-        self.logger.info("Shortest Cycle: {}s".format(self.shortest_cycle))
-        self.logger.info("Longest Cycle : {}s".format(self.longest_cycle))
+        self.logger.debug("Shortest Cycle: {}s".format(self.shortest_cycle))
+        self.logger.debug("Longest Cycle : {}s".format(self.longest_cycle))

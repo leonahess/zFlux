@@ -52,18 +52,18 @@ class Controller:
 
             if config['enable_mongodb'] is True:
                 mongo.writeToDatabase(unprocessed_killmail)
-                logger.info("Wrote to Mongo")
+                logger.debug("Wrote to Mongo")
 
             if config['enable_influxdb'] is True:
                 killmail = Killmail(unprocessed_killmail)
-                logger.info("Processed Killmail")
+                logger.debug("Processed Killmail")
 
                 influx_killmail.writeToDatabase(killmail)
-                logger.info("wrote killmail to influx")
+                logger.debug("wrote killmail to influx")
 
             perf.setCycleEnd()
             perf.calcCycleStats()
 
             if config['enable_performance_logging'] is True:
                 influx_perf.writeToDatabase(perf)
-                logger.info("wrote performance to influx")
+                logger.debug("wrote performance to influx")
