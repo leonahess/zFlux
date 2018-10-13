@@ -77,6 +77,6 @@ class Performance:
         self.logger.info("Counter: {}".format(self.counter))
         self.logger.debug("Current Cycle : {}s".format(self.cur_cycle))
         self.logger.debug("Avg Last 100  : {}s".format(self.avg_last100_cycle))
-        self.logger.info("Avg Last 1000 : {}s".format(self.avg_last1000_cycle))
+        self.logger.debug("Avg Last 1000 : {}s".format(self.avg_last1000_cycle))
         self.logger.debug("Shortest Cycle: {}s".format(self.shortest_cycle))
         self.logger.debug("Longest Cycle : {}s".format(self.longest_cycle))

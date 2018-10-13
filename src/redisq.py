@@ -14,7 +14,7 @@ class RedisQ:
         but a better reliability."""
         while True:
             try:
-                self.logger.info("Trying to get killmail from RedisQ")
+                self.logger.debug("Trying to get killmail from RedisQ")
                 r = requests.get('https://redisq.zkillboard.com/listen.php', timeout=30)
             except (KeyboardInterrupt, SystemExit):
                 raise
