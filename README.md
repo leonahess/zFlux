@@ -68,12 +68,12 @@ Edit the config to your needs.
 
 ##### Autorun the Script on system startup
 
-I supply a default unit file. For it to work you have to clone this repo into ``/etc/``.
-If you want to store the script in another location you just have to change the path to the ``zFlux.service``.
+I supply a default unit file. For it to work you have to edit the ``WorkingDirectory=`` path and the ``ExecStart=`` path
+to your installation location in ``zFlux.service``.
 
 Copy the unit file ``zFlux.service`` to the correct directory:
 
-````sudo cp /etc/zFlux/zFlux.service /lib/systemd/system/````
+````sudo cp /your/path/zFlux/zFlux.service /lib/systemd/system/````
 
 Then set the right permissions on that file:
 
