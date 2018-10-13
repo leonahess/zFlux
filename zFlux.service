@@ -3,9 +3,11 @@ Description=Reads zKills RedisQ and does stuff with the killmails
 After=network.target influxdb.service mongodb.service
 
 [Service]
-Type=simple
+Type=idle
 WorkingDirectory=/home/leonhess/zFlux/
 ExecStart=/usr/bin/python3 /home/leonhess/zFlux/zFlux.py
+Restart=on-failure
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

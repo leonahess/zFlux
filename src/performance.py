@@ -3,6 +3,7 @@ import time
 import sys
 import logging
 
+
 class Performance:
     """A class for measuring and storing vital performance metrics"""
 
