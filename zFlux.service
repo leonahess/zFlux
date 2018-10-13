@@ -1,0 +1,11 @@
+[Unit]
+Description=Reads zKills RedisQ and does stuff with the killmails
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/zFlux/
+ExecStart=/usr/bin/python3 /etc/zFlux/zFlux.py
+
+[Install]
+WantedBy=multi-user.target
