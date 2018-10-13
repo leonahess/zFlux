@@ -19,7 +19,7 @@ influxdb
 requests
 pymongo
 ```
-Install with with ``pip3 install <package>``
+Install with with ``pip3 install -r requirements.txt``
 
 If you don't have pip3 installed install it with ``sudo apt-get install python3-pip``
 
@@ -40,7 +40,7 @@ If enabled in the config you need a MongoDB Server running on your machine.
 
 Edit the config to your needs.
 
-Note* ``disable_logging`` doesnt do anything yet
+*Note:* ``disable_logging`` doesnt do anything yet
 ````
 {
   "logging_level": "INFO",
@@ -62,8 +62,39 @@ Note* ``disable_logging`` doesnt do anything yet
   }
 }
 ````
+##### run the script
 
-run ``python3 zFlux.py``
+``python3 zFlux.py``
+
+##### Autorun the Script on system startup
+
+I supply a default unit file. For it to work you have to clone this repo into ``/etc/``.
+If you want to store the script in another location you just have to change the path to the ``zFlux.service``.
+
+Copy the unit file ``zFlux.service`` to the correct directory:
+
+````sudo cp /etc/zFlux/zFlux.service /lib/systemd/system/````
+
+Then set the right permissions on that file:
+
+````sudo chmod 644 /lib/systemd/system/zFlux.service````
+
+Then enable the service:
+````
+sudo systemctl daemon-reload
+sudo systemctl enable zFlux.service
+````
+
+Then reboot:
+
+````sudo reboot````
+
+The script should now autostart on system startup.
+
+If you want to check the status of the script:
+
+``sudo systemctl status zFlux.service``
+
 
 ## Available Data Points
 
