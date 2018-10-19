@@ -1,3 +1,4 @@
 requests
 influxdb
 pymongo
+eve-verbose-killmail

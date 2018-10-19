@@ -13,11 +13,12 @@ Example Graphs made with [Grafana](https://grafana.com):
 
 #### Python3
 
-##### required modules:
+##### required packages:
 ```
 influxdb
 requests
 pymongo
+eve-verbose-killmail
 ```
 Install with with ``pip3 install -r requirements.txt``
 
