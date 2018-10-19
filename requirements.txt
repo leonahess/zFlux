@@ -1,4 +1,4 @@
 requests
 influxdb
 pymongo
-eve-verbose-killmail
+eve-verbose-killmail==0.1.1
