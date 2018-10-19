@@ -3,10 +3,10 @@ import logging
 from src.performance import Performance
 from src.logger import Logger
 from src.redisq import RedisQ
-from src.killmail import Killmail
 from src.influx_pusher_killmail import InfluxPusherKillmail
 from src.influx_pusher_performance import InfluxPusherPerformance
 from src.mongo_pusher import MongoPusher
+from eve_verbose_killmail.killmail import Killmail
 
 
 class Controller:
