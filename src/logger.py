@@ -1,5 +1,5 @@
 import logging
-import datetime
+import sys
 
 
 class Logger:
@@ -7,7 +7,7 @@ class Logger:
 
     def __init__(self, level):
 
-        logging.basicConfig(filename='zFlux.log',
+        logging.basicConfig(stream=sys.stdout,
                             level=self.return_level(level),
                             format='%(asctime)s %(name)s:%(levelname)s:%(message)s')
 
