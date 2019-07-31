@@ -1,17 +1,17 @@
 {
-  "logging_level": "INFO",
+  "logging_level": "WARNING",
   "disable_logging": false,
   "enable_performance_logging": true,
   "enable_mongodb": true,
   "enable_influxdb": true,
 
   "influx": {
-    "ip": "localhost",
+    "ip": "192.168.66.56",
     "port": 8086,
     "database_name": "eve"
   },
   "mongo": {
-    "ip": "localhost",
+    "ip": "192.168.66.56",
     "port": 27017,
     "database_name": "eve"
   }
