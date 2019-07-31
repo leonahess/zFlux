@@ -398,7 +398,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 533,11,Storyline Mission Cruiser,0,0,0,0,0,0
 534,11,Storyline Mission Battleship,0,0,0,0,0,0
 535,9,Construction Platform Blueprint,0,1,0,0,0,1
-536,17,Station Components,0,1,0,0,0,1
+536,17,Structure Components,0,1,0,0,0,1
 537,9,Dreadnought Blueprint,0,1,0,0,0,1
 538,7,Data Miners,0,0,0,0,0,1
 540,6,Command Ship,0,0,0,0,0,1
@@ -495,7 +495,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 655,8,Advanced Heavy Missile,188,0,0,0,1,1
 656,8,Advanced Cruise Missile,184,0,0,0,1,1
 657,8,Advanced Torpedo,1347,0,0,0,1,1
-658,7,Cynosural Field,0,0,0,0,0,1
+658,7,Cynosural Field Generator,0,0,0,0,0,1
 659,6,Supercarrier,0,0,0,0,0,1
 660,7,Energy Vampire Slayer,0,0,0,0,0,0
 661,24,Simple Biochemical Reactions,2665,0,0,0,0,1
@@ -719,7 +719,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 893,6,Electronic Attack Ship,None,0,0,0,0,1
 894,6,Heavy Interdiction Cruiser,None,0,0,0,0,1
 896,7,Rig Security Transponder,0,0,0,0,0,0
-897,2,Covert Beacon,0,0,0,0,0,0
+897,2,Covert Cynosural Field,0,0,0,0,0,0
 898,6,Black Ops,None,0,0,0,0,1
 899,7,Warp Disrupt Field Generator,0,0,0,0,0,1
 900,6,Marauder,None,0,0,0,0,1
@@ -979,6 +979,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1308,7,Rig Anchor,None,0,0,0,0,1
 1309,9,Tactical Destroyer Blueprint,None,1,0,0,0,1
 1310,11,Drifter Battleship,None,0,0,0,0,1
+1311,5,Super Kerr-Induced Nanocoatings,None,0,0,0,0,1
 1312,22,Observatory Structures,None,0,0,0,0,1
 1313,7,Entosis Link,None,0,0,0,0,1
 1314,17,Unknown Components,0,1,0,0,0,1
@@ -989,7 +990,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1321,66,Structure Citadel Service Module,None,0,0,0,0,1
 1322,66,Structure Resource Processing Service Module,None,0,0,0,0,1
 1323,66,Structure Observatory Service Module,None,0,0,0,0,0
-1324,66,Structure Stargate Service Module,None,0,0,0,0,0
+1324,66,Structure Navigation Service Module,None,0,0,0,0,0
 1325,66,Structure Administration Service Module,None,0,0,0,0,0
 1326,66,Structure Advertisement Service Module,None,0,0,0,0,0
 1327,66,Structure XL Missile Launcher,None,0,0,0,0,1
@@ -1009,7 +1010,7 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1405,65,Laboratory,None,0,0,0,0,0
 1406,65,Refinery,None,0,1,0,0,1
 1407,65,Observatory Array,None,0,0,0,0,0
-1408,65,Navigation Structures,None,0,0,0,0,0
+1408,65,Upwell Jump Gate,None,0,1,0,0,1
 1409,65,Administration Hub,None,0,0,0,0,0
 1410,65,Advertisement Center,None,0,0,0,0,0
 1411,11,Amarr Navy Roaming Cruiser,None,0,0,0,0,0
@@ -1351,10 +1352,30 @@ groupID,categoryID,groupName,iconID,useBasePrice,anchored,anchorable,fittableNon
 1996,4,Abyssal Materials,None,0,0,0,0,1
 1997,11,Abyssal Drone Entities,None,0,0,0,0,0
 1998,2,Station Conversion Monuments,None,0,1,0,0,0
-2001,6,,None,0,0,0,0,0
+2001,6,Citizen Ships,None,0,0,0,0,0
 2002,17,Triglavian Datastreams,None,0,0,0,0,1
-2003,7,,None,0,0,0,0,0
-2004,7,,None,0,0,0,0,0
+2003,7,Citizen Modules,None,0,0,0,0,0
+2004,7,Citizen Mining Laser,None,0,0,0,0,0
+2005,22,Deployable Advertisement,None,0,0,0,0,1
+2006,25,Deadspace Asteroids,None,0,0,0,0,0
+2008,7,Mass Entanglers,97,0,0,0,0,1
+2009,11,Precursor Cache,0,0,1,0,0,0
+2010,9,Mass Entangler Blueprints,0,1,0,0,0,1
+2013,7,Stasis Nullifiers,None,0,0,0,0,1
+2015,65,Upwell Monument,None,0,1,0,0,0
+2016,65,Upwell Cyno Jammer,None,0,1,0,0,1
+2017,65,Upwell Cyno Beacon,None,0,1,0,0,1
+2018,7,Mutadaptive Remote Armor Repairer,0,0,0,0,0,1
+2019,9,Mutadaptive Remote Armor Repairer Blueprint,0,1,0,0,0,1
+2020,2,Cynosural Fields,None,0,0,0,0,0
+2022,25,Temporal Resources,None,0,0,0,0,0
+2023,9,Cyber Electronics Implant Blueprints,0,0,0,0,0,1
+2024,25,Fluorite,None,0,0,0,0,0
+2026,17,Triglavian Artifacts,None,0,0,0,0,0
+4028,11,Invading Precursor Entities,None,0,0,0,0,0
+4029,25,Talassonite,None,0,0,0,0,0
+4030,25,Rakovene,None,0,0,0,0,0
+4031,25,Bezdnacine,None,0,0,0,0,0
 350858,350001,Infantry Weapons,None,1,0,0,0,0
 351064,350001,Infantry Dropsuits,None,1,0,0,0,0
 351121,350001,Infantry Modules,None,1,0,0,0,0
