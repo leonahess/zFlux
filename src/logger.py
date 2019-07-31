@@ -7,7 +7,7 @@ class Logger:
 
     def __init__(self, level):
 
-        logging.basicConfig(filename='logs/zFlux_{}.log'.format(datetime.datetime.now()),
+        logging.basicConfig(filename='zFlux.log',
                             level=self.return_level(level),
                             format='%(asctime)s %(name)s:%(levelname)s:%(message)s')
 

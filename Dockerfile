@@ -11,4 +11,6 @@ WORKDIR .
 
 RUN pip3 install -r requirements.txt
 
+RUN ln -sf /dev/stdout zFlux.log
+
 CMD ["python3" , "zFlux.py"]
