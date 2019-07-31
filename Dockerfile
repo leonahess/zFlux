@@ -1,6 +1,5 @@
 FROM python:alpine
 
-ADD logs ./logs
 ADD src ./src
 ADD config.json .
 ADD zFlux.py .
