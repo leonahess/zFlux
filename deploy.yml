@@ -2,7 +2,7 @@
   tasks:
     - name: Run the Service
       docker_swarm_service:
-        image: fx8350:5000/zFlux:latest
+        image: fx8350:5000/zflux:latest
         name: zFlux
         state: present
         resolve_image: yes

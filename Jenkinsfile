@@ -9,7 +9,7 @@ pipeline {
         label "Pi_3"
       }
       steps {
-        sh "docker build -t zFlux ."
+        sh "docker build -t zflux ."
       }
     }
     stage('Tag Container') {
@@ -17,8 +17,8 @@ pipeline {
         label "Pi_3"
       }
       steps {
-        sh "docker tag zFlux fx8350:5000/zFlux:latest"
-        sh "docker tag zFlux leonhess/zFlux:latest"
+        sh "docker tag zflux fx8350:5000/zflux:latest"
+        sh "docker tag zflux leonhess/zflux:latest"
       }
     }
     stage('Push to Registries') {
@@ -28,7 +28,7 @@ pipeline {
             label "Pi_3"
           }
           steps {
-            sh "docker push fx8350:5000/zFlux:latest"
+            sh "docker push fx8350:5000/zflux:latest"
           }
         }
         stage('Push to DockerHub') {
@@ -37,7 +37,7 @@ pipeline {
           }
           steps {
             withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
-              sh "docker push leonhess/zFlux:latest"
+              sh "docker push leonhess/zflux:latest"
             }
           }
         }
@@ -48,8 +48,8 @@ pipeline {
         label "Pi_3"
       }
       steps {
-        sh "docker rmi fx8350:5000/zFlux:latest"
-        sh "docker rmi leonhess/zFlux:latest"
+        sh "docker rmi fx8350:5000/zflux:latest"
+        sh "docker rmi leonhess/zflux:latest"
       }
     }
     stage('Deploy to swarm') {
