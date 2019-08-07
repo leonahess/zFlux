@@ -1,6 +1,6 @@
 import requests
 import logging
-
+import time
 
 class RedisQ:
     """Actually gets the Killmail from zKillboard.com"""
@@ -24,6 +24,10 @@ class RedisQ:
             except Exception as e:
                 self.logger.error("RedisQ request failed: {}".format(e))
                 continue
+            if r.status_code is not 200:
+                self.logger.warning("RedisQ gave back a bad status: {}".format(r.status_code))
+                time.sleep(5)
+                continue
 
             try:
                 killmail = r.json()
@@ -35,10 +39,6 @@ class RedisQ:
 
             if killmail["package"] is None:
                 self.logger.debug("No killmail was given")
-                continue
-
-            if r.status_code is not 200:
-                self.logger.warning("RedisQ gave back a bad status: {}".format(r.status_code))
                 continue
 
             self.logger.debug("RedisQ request was successful")
