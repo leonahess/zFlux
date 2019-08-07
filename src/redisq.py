@@ -15,7 +15,7 @@ class RedisQ:
         while True:
             try:
                 self.logger.debug("Trying to get killmail from RedisQ")
-                r = requests.get('https://redisq.zkillboard.com/listen.php', timeout=30)
+                r = requests.get('https://redisq.zkillboard.com/listen.php?queueID=zFlux', timeout=30)
             except (KeyboardInterrupt, SystemExit):
                 raise
             except requests.exceptions.Timeout as e:
@@ -41,5 +41,5 @@ class RedisQ:
                 self.logger.warning("RedisQ gave back a bad status: {}".format(r.status_code))
                 continue
 
-            self.logger.debug("RedisQ request was succesfull")
+            self.logger.debug("RedisQ request was successful")
             return killmail
