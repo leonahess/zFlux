@@ -2,6 +2,7 @@ import requests
 import logging
 import time
 
+
 class RedisQ:
     """Actually gets the Killmail from zKillboard.com"""
 
